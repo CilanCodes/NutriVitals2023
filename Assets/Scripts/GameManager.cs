@@ -17,4 +17,17 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("index", 2);
         SceneManager.LoadScene(2);
     }
+
+    private void Update()
+    {
+        //Update your ProjectSettings>Player>OtherSettings>ActiveInputHandling>Both
+        //SimpleInput.GetButton <-- Holding a Button
+        //SimpleInput.GetButtonDown <-- Upon Pressing, execute
+        //SimpleInput.GetButtonUp <-- Upon Release, execute
+        if (SimpleInput.GetButtonDown("OnRunNow"))
+        {
+            PlayerPrefs.SetInt("index", 4);
+            SceneManager.LoadScene(0);
+        }
+    }
 }
