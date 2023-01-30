@@ -29,9 +29,9 @@ public class PlayerManager : MonoBehaviour
     {
         gameScore += 1 * Time.deltaTime;
         scoreText.text = "" + Mathf.Round (gameScore);
-        goCountText.text = Mathf.Round (goCount) + "/5";
-        growCountText.text = Mathf.Round (growCount) + "/5";
-        glowCountText.text = Mathf.Round (glowCount) + "/5";
+        goCountText.text = Mathf.Round (goCount) + "";
+        growCountText.text = Mathf.Round (growCount) + "";
+        glowCountText.text = Mathf.Round (glowCount) + "";
         if(goCount == 5 || growCount == 5 || glowCount == 5){
             goCount = 0;
             growCount = 0;
