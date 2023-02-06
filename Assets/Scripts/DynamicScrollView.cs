@@ -12,14 +12,14 @@ public class DynamicScrollView : MonoBehaviour
     private void Start()
     {
 
-        foreach (Sprite food in healthyFoods)
+        /**foreach (Sprite food in healthyFoods)
         {
             GameObject newFood = Instantiate(preFabButton, scrollViewContent);
             if (newFood.TryGetComponent<ScrollViewItem>(out ScrollViewItem item))
             {
                 item.ChangeImage(food);
             }
-        }
+        }**/
 
     }
 }
