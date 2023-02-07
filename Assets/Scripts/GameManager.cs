@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject healthyScrollView;
+    [SerializeField] private GameObject junkScrollView;
 
     public Animator GetAnimator
     {
@@ -81,6 +83,11 @@ public class GameManager : MonoBehaviour
         if (SimpleInput.GetButtonDown("OnPromptPaused"))
         {
 
+        }
+
+        if (SimpleInput.GetButtonDown("OnActiveHealthyScrollView"))
+        {
+            
         }
 
     }
