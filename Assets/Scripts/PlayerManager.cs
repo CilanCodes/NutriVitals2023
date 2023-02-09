@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,13 @@ public class PlayerManager : MonoBehaviour
     public Text glowCountText;
     public Text speedPercentage;
     public Text scoreText;
+
+    public Button homeButton;
+    public Button retryButton;
+    public Button retryButton2;
+
+    public static bool gameOver;
+    public GameObject gameOverPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +30,14 @@ public class PlayerManager : MonoBehaviour
         goCount = 0;
         growCount = 0;
         glowCount = 0;
+
+        gameOver = false;
+
+        Time.timeScale = 1;
+
+        homeButton.onClick.AddListener(HomeButtonClicked);
+        retryButton.onClick.AddListener(RetryButtonClicked);
+        retryButton2.onClick.AddListener(RetryButtonClicked);
     }
 
     // Update is called once per frame
@@ -38,6 +54,23 @@ public class PlayerManager : MonoBehaviour
             glowCount = 0;
         }
         speedPercentage.text = Mathf.Round (speed) + "%";
+
+        if (gameOver){
+            Time.timeScale = 0;
+            gameOverPanel.SetActive(true);
+        }
+
+        if (gameScore <= 0){
+            gameScore = 0;
+        }
+    }
+
+    void HomeButtonClicked(){
+        SceneManager.LoadScene("HomeScreen");
+    }
+
+    void RetryButtonClicked(){
+        SceneManager.LoadScene("GameScreen");
     }
 
 }

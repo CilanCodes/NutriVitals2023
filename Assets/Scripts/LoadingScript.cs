@@ -14,6 +14,7 @@ public class LoadingScript : MonoBehaviour
 
         int countdown = 2;
         StartCoroutine(LoadingToStart(countdown));
+        Time.timeScale = 1;
 
     }
 

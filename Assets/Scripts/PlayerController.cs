@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
             forwardSpeed = 100;
         }
 
+        if (forwardSpeed <= 20 || forwardSpeed >= 80){
+            PlayerManager.gameOver = true;
+        }
+
         transform.position = targetPosition;
         controller.center = controller.center;
         speedBarValue = forwardSpeed;

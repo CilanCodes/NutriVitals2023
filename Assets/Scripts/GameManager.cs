@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("index", 2);
-
+        Time.timeScale = 1;
     }
 
     private void OpenHomeScreen()
