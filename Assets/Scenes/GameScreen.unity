@@ -2386,6 +2386,8 @@ MonoBehaviour:
   pauseButton: {fileID: 1186700277}
   resumeButton: {fileID: 629797891}
   homeButton: {fileID: 410432860}
+  retryButton: {fileID: 1800802500}
+  retryButton2: {fileID: 1693137087}
   pausePanel: {fileID: 386897703}
 --- !u!1 &1206120781
 GameObject:
@@ -2840,6 +2842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1365038596}
   - component: {fileID: 1365038595}
+  - component: {fileID: 1365038597}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -2864,7 +2867,10 @@ MonoBehaviour:
   glowCountText: {fileID: 1784031550}
   speedPercentage: {fileID: 968734252}
   scoreText: {fileID: 823902338}
-  gameOverPanel: {fileID: 0}
+  homeButton: {fileID: 69728332}
+  retryButton: {fileID: 1277326550}
+  retryButton2: {fileID: 1141244043}
+  gameOverPanel: {fileID: 1336310082}
 --- !u!4 &1365038596
 Transform:
   m_ObjectHideFlags: 0
@@ -2880,6 +2886,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1365038597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365038594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd46a6c9fb24f148bd4d683f2d16edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageMusic: {fileID: 982036763}
+  buttonDefault: []
+  buttonPressed: []
 --- !u!1 &1477603456
 GameObject:
   m_ObjectHideFlags: 0
