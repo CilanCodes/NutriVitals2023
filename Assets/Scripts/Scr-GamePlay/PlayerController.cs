@@ -7,11 +7,11 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 direction;
-    public static float forwardSpeed = 20;
+    public static float forwardSpeed = 35;
 
     private int desiredLane = 1; // 0-left, 1-middle, 2-right
     public float laneDistance = 2.5f;
-    public int smoothMovementSpeed = 15;
+    public int smoothMovementSpeed = 30;
 
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
