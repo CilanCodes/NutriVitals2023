@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
                 if (desiredLane == -1)
                 {
                     desiredLane = 0;
+
                 }
 
             }
