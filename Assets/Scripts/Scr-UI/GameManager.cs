@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI points;
 
 
-    private float timeLeft = 25.0f; // 5 minutes in seconds
+    //private float timeLeft = 25.0f; // 5 minutes in seconds
 
 
     public Animator GetAnimator
@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
         //SimpleInput.GetButtonDown <-- Upon Pressing, execute
         //SimpleInput.GetButtonUp <-- Upon Release, execute
 
-        timeLeft -= Time.deltaTime;
-        points.text = ((int)timeLeft).ToString();
+/*        timeLeft -= Time.deltaTime;
+        points.text = ((int)timeLeft).ToString();*/
 
 
         if (SimpleInput.GetButtonDown("OnRunNowGameScreen"))
