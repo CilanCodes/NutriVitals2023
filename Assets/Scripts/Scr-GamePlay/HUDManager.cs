@@ -27,6 +27,12 @@ public class HUDManager : MonoBehaviour
     private void Update()
     {
 
+        //Prevent Update() from continuing even if the game is paused
+        if (Time.timeScale == 0)
+            return;
+
+        UpdateScoreEnergyPoints(5,.0005f);
+
         #region UPDATE HUD ELEMENTS
 
         energyBarFill.fillAmount = energyPoints;
