@@ -526,6 +526,7 @@ GameObject:
   - component: {fileID: 76256887}
   - component: {fileID: 76256886}
   - component: {fileID: 76256885}
+  - component: {fileID: 76256888}
   m_Layer: 5
   m_Name: ButtonResume
   m_TagString: Untagged
@@ -635,6 +636,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76256883}
   m_CullTransparentMesh: 1
+--- !u!114 &76256888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76256883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnPromptDisable
+    value: 0
 --- !u!1 &132718315
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +663,7 @@ GameObject:
   - component: {fileID: 132718318}
   - component: {fileID: 132718317}
   - component: {fileID: 132718316}
+  - component: {fileID: 132718320}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -729,8 +746,8 @@ RectTransform:
   m_Children:
   - {fileID: 592306159}
   - {fileID: 487017896}
-  - {fileID: 1962621724}
   - {fileID: 1254925509}
+  - {fileID: 1962621724}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -739,6 +756,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &132718320
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132718315}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 553dea450d74632428040c5a132cfe53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &154771075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1101,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577333932}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1074,7 +1111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.2673, y: 1.5322}
+  m_AnchoredPosition: {x: 60.267303, y: 1.532196}
   m_SizeDelta: {x: 320.5345, y: 81.6657}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &577333934
@@ -1186,7 +1223,7 @@ GameObject:
   - component: {fileID: 579149700}
   - component: {fileID: 579149699}
   m_Layer: 5
-  m_Name: PromptBackgroundSettings
+  m_Name: PromptBackgroundPause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1266,6 +1303,7 @@ GameObject:
   - component: {fileID: 584627761}
   - component: {fileID: 584627760}
   - component: {fileID: 584627759}
+  - component: {fileID: 584627762}
   m_Layer: 5
   m_Name: ButtonPause
   m_TagString: Untagged
@@ -1375,6 +1413,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584627757}
   m_CullTransparentMesh: 1
+--- !u!114 &584627762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584627757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnPromptPaused
+    value: 0
 --- !u!1 &592306158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1651,7 @@ GameObject:
   - component: {fileID: 726595750}
   - component: {fileID: 726595749}
   - component: {fileID: 726595748}
+  - component: {fileID: 726595751}
   m_Layer: 5
   m_Name: ButtonClose
   m_TagString: Untagged
@@ -1707,6 +1761,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726595746}
   m_CullTransparentMesh: 1
+--- !u!114 &726595751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726595746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnPromptDisable
+    value: 0
 --- !u!1 &748357877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,7 +2634,7 @@ RectTransform:
   - {fileID: 56764095}
   - {fileID: 1815258027}
   m_Father: {fileID: 132718319}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3572,9 +3641,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb77750c59f328647af706d29c84178f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 132718320}
   healthyScrollView: {fileID: 0}
   junkScrollView: {fileID: 0}
+  points: {fileID: 577333934}
 --- !u!4 &1943460285
 Transform:
   m_ObjectHideFlags: 0
@@ -3699,7 +3769,7 @@ RectTransform:
   - {fileID: 748357878}
   - {fileID: 579149698}
   m_Father: {fileID: 132718319}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

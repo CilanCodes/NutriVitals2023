@@ -1,5 +1,8 @@
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,6 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject healthyScrollView;
     [SerializeField] private GameObject junkScrollView;
+    [SerializeField] private TextMeshProUGUI points;
+
+
+    private float timeLeft = 25.0f; // 5 minutes in seconds
+
 
     public Animator GetAnimator
     {
@@ -25,6 +33,8 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("index", 2);
 
+
+
     }
 
     private void OpenHomeScreen()
@@ -38,6 +48,11 @@ public class GameManager : MonoBehaviour
         //SimpleInput.GetButton <-- Holding a Button
         //SimpleInput.GetButtonDown <-- Upon Pressing, execute
         //SimpleInput.GetButtonUp <-- Upon Release, execute
+
+        timeLeft -= Time.deltaTime;
+        points.text = ((int)timeLeft).ToString();
+
+
         if (SimpleInput.GetButtonDown("OnRunNowGameScreen"))
         {
             PlayerPrefs.SetInt("index", 4);
@@ -72,23 +87,32 @@ public class GameManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnPromptDisable"))
         {
+            //PauseUnpauseTime(1);
             animator.SetTrigger("InActivate");
+            Debug.Log("Hide Paused");
+            Time.timeScale = 1;
+
         }
 
         if (SimpleInput.GetButtonDown("OnPromptGameOver"))
         {
-    
+
         }
 
         if (SimpleInput.GetButtonDown("OnPromptPaused"))
         {
-
+            Debug.Log("Paused");
+            animator.SetTrigger("ActivePause");
+            Time.timeScale = 0;
         }
 
         if (SimpleInput.GetButtonDown("OnActiveHealthyScrollView"))
         {
             
         }
-
     }
+
+
+
+
 }
