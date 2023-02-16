@@ -1101,8 +1101,8 @@ Camera:
   m_GameObject: {fileID: 504826147}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.4764151, g: 0.79979885, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1395,6 +1395,116 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630938690}
   m_CullTransparentMesh: 1
+--- !u!1 &631587635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 631587637}
+  - component: {fileID: 631587636}
+  m_Layer: 0
+  m_Name: TileDestroyer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &631587636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631587635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357cacdede24beb41a29de9cc58a8a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 816005823}
+--- !u!4 &631587637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631587635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 434.2575, y: 627.033, z: 57.700134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &652040924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652040926}
+  - component: {fileID: 652040925}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &652040925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652040924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d1074c36609294eb5d29a7a76e67ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MainTheme
+    clip: {fileID: 8300000, guid: 5059413ec429c4507bb7bca2286fad19, type: 3}
+    volume: 0.8
+    loop: 1
+    source: {fileID: 0}
+  - name: FoodEat
+    clip: {fileID: 8300000, guid: f54b36d5ac62d05448d86d83471d7115, type: 3}
+    volume: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 10242cab6f3d65040bb124dcadde06ab, type: 3}
+    volume: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: PowerUp
+    clip: {fileID: 8300000, guid: aca654a4b5c698c4c8f6f36125a6b630, type: 3}
+    volume: 0.8
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &652040926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652040924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721151006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,6 +1726,7 @@ MonoBehaviour:
   forwardSpeed: 50
   increaseSpeed: 0
   pathDistance: 2
+  effectDuration: 10
 --- !u!143 &816005825
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1712,7 +1823,7 @@ Transform:
   m_Children:
   - {fileID: 97075384}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &823902336
 GameObject:
@@ -1995,9 +2106,10 @@ MonoBehaviour:
   - {fileID: 5336796734771241386, guid: 7c13b9218038d6741bca609c93e4f10d, type: 3}
   - {fileID: 1549247145600156182, guid: 6860f0dfb8eab9c429f04271e23ea76f, type: 3}
   - {fileID: 1175590669785504134, guid: 56616a7672cd01d408d7289baf8eb009, type: 3}
+  - {fileID: 99474596060585679, guid: 2d2648f35f05e584eb395b0c97d6e112, type: 3}
   zSpawn: 0
   tileLength: 80
-  numberOfTiles: 15
+  numberOfTiles: 5
   playerTransform: {fileID: 816005829}
 --- !u!4 &999482657
 Transform:
@@ -2050,8 +2162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 100, y: 150}
+  m_AnchoredPosition: {x: 45, y: 25}
+  m_SizeDelta: {x: 800, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100810321
 MonoBehaviour:
@@ -2842,7 +2954,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1365038596}
   - component: {fileID: 1365038595}
-  - component: {fileID: 1365038597}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: Untagged
@@ -2884,23 +2995,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1365038597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365038594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cd46a6c9fb24f148bd4d683f2d16edd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageMusic: {fileID: 982036763}
-  buttonDefault: []
-  buttonPressed: []
 --- !u!1 &1477603456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,7 +4101,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1998793187
 GameObject:
@@ -4103,7 +4199,7 @@ RectTransform:
   - {fileID: 386897704}
   - {fileID: 1336310083}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -38,6 +38,7 @@ public class PlayerManager : MonoBehaviour
         homeButton.onClick.AddListener(HomeButtonClicked);
         retryButton.onClick.AddListener(RetryButtonClicked);
         retryButton2.onClick.AddListener(RetryButtonClicked);
+
     }
 
     // Update is called once per frame
@@ -48,11 +49,6 @@ public class PlayerManager : MonoBehaviour
         goCountText.text = Mathf.Round (goCount) + "";
         growCountText.text = Mathf.Round (growCount) + "";
         glowCountText.text = Mathf.Round (glowCount) + "";
-        if(goCount == 5 || growCount == 5 || glowCount == 5){
-            goCount = 0;
-            growCount = 0;
-            glowCount = 0;
-        }
         speedPercentage.text = Mathf.Round (speed) + "%";
 
         if (gameOver){
