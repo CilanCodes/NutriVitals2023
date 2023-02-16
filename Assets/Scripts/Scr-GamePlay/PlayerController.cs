@@ -106,9 +106,30 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.transform.tag == "Obstacle")
+        if (hit.transform.tag == "Go")
         {
-
+            HUDManager.UpdateFoodPoints(1, 0, 0);
+            HUDManager.UpdateScoreEnergyPoints(50, .025f);
         }
+
+        else if(hit.transform.tag == "Grow")
+        {
+            HUDManager.UpdateFoodPoints(0, 1, 0);
+            HUDManager.UpdateScoreEnergyPoints(50, .025f);
+        }
+
+        else if(hit.transform.tag == "Glow")
+        {
+            HUDManager.UpdateFoodPoints(0, 0, 1);
+            HUDManager.UpdateScoreEnergyPoints(50, .025f);
+        }
+
+        else if (hit.transform.tag == "Junk")
+        {
+            HUDManager.ResetFoodPoints();
+            HUDManager.UpdateScoreEnergyPoints(-100, -.1f);
+        }
+
+        Destroy(hit.gameObject);
     }
 }
