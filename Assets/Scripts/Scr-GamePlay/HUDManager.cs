@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class HUDManager : MonoBehaviour
 {
@@ -30,8 +31,6 @@ public class HUDManager : MonoBehaviour
         //Prevent Update() from continuing even if the game is paused
         if (Time.timeScale == 0)
             return;
-
-        UpdateScoreEnergyPoints(5,.0005f);
 
         #region UPDATE HUD ELEMENTS
 
