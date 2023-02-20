@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 direction;
-    public static float forwardSpeed = 35;
+    public static float forwardSpeed = 150;
 
     private int desiredLane = 1; // 0-left, 1-middle, 2-right
     public float laneDistance = 2.5f;
@@ -60,9 +61,11 @@ public class PlayerController : MonoBehaviour
             {
                 //LeftSwipe
                 desiredLane--;
+                 
                 if (desiredLane == -1)
                 {
                     desiredLane = 0;
+
                 }
 
             }
@@ -70,6 +73,7 @@ public class PlayerController : MonoBehaviour
             {
                 //RightSwipe
                 desiredLane++;
+
                 if (desiredLane == 3)
                 {
                     desiredLane = 2;
@@ -102,9 +106,30 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.transform.tag == "Obstacle")
+        if (hit.transform.tag == "Go")
         {
-
+            HUDManager.UpdateFoodPoints(1, 0, 0);
+            HUDManager.UpdateScoreEnergyPoints(50, .025f);
         }
+
+        else if(hit.transform.tag == "Grow")
+        {
+            HUDManager.UpdateFoodPoints(0, 1, 0);
+            HUDManager.UpdateScoreEnergyPoints(50, .025f);
+        }
+
+        else if(hit.transform.tag == "Glow")
+        {
+            HUDManager.UpdateFoodPoints(0, 0, 1);
+            HUDManager.UpdateScoreEnergyPoints(50, .025f);
+        }
+
+        else if (hit.transform.tag == "Junk")
+        {
+            HUDManager.ResetFoodPoints();
+            HUDManager.UpdateScoreEnergyPoints(-100, -.1f);
+        }
+
+        Destroy(hit.gameObject);
     }
 }

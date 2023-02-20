@@ -106,6 +106,12 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
+        if (SimpleInput.GetButtonDown("OnPlayAgain"))
+        {
+            SceneManager.LoadScene("GameScreen");
+            Time.timeScale = 1;
+        }
+
         if (SimpleInput.GetButtonDown("OnActiveHealthyScrollView"))
         {
             

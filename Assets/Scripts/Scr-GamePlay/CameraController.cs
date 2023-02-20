@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     public int smoothCameraSpeed;
     public static float tailPosition = 0f;
 
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,8 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         //Debug.Log(tailPosition);
-        Debug.Log("Offset: " + offset.x);
-        Debug.Log("Tail: " + tailPosition);
+        //Debug.Log("Offset: " + offset.x);
+        //Debug.Log("Tail: " + tailPosition);
         Vector3 newPosition =
             new Vector3(target.position.x + offset.x, transform.position.y, offset.z + target.position.z + tailPosition);
 
@@ -34,4 +35,7 @@ public class CameraController : MonoBehaviour
     {
         transform.position = new Vector3(player.position.x, player.position.y + cameraDistance, player.position.z - cameraDistance);
     }*/
+
+
+
 }
