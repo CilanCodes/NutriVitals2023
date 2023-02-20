@@ -33,7 +33,7 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log((playerTransform.position.z - 50) + ">" + (zSpawn - (numberOfTiles * tileLength)));
+        //Debug.Log((playerTransform.position.z - 50) + ">" + (zSpawn - (numberOfTiles * tileLength)));
         if (playerTransform.position.z - 50 > zSpawn - (numberOfTiles * tileLength))
         {
 
