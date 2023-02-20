@@ -54,10 +54,10 @@ public class DontDestroyAudioSource : MonoBehaviour
         }
 
         //Once the mentioned index Is Visited The Music object will be destroyed
-        else if (SceneManager.GetActiveScene().buildIndex == 4)
+        /*else if (SceneManager.GetActiveScene().buildIndex == 4)
         {
             Destroy(gameObject);
-        }
+        }*/
         else
         {
             AudioListener.volume = isMuted

@@ -13,6 +13,7 @@ public class HUDManager : MonoBehaviour
     public static int goPoints;
     public static int growPoints;
     public static int glowPoints;
+    public static bool swipeEnabled;
 
     [SerializeField] private Image energyBarFill;
     [SerializeField] private Image healthBarFill;
@@ -29,6 +30,7 @@ public class HUDManager : MonoBehaviour
     private void Start()
     {
         ResetAllPoints();
+        StartCoroutine(EnableSwipeAfterDelay());
     }
 
     private void Update()
@@ -148,5 +150,11 @@ public class HUDManager : MonoBehaviour
         }
 
         healthBarFill.fillAmount = targetFillAmount;
+    }
+
+    private IEnumerator EnableSwipeAfterDelay()
+    {
+        yield return new WaitForSeconds(.25f);
+        swipeEnabled = true;
     }
 }

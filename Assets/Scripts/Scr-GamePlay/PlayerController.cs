@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             endTouchPosition = Input.GetTouch(0).position;
 
-            if (endTouchPosition.x < startTouchPosition.x)
+            if ((endTouchPosition.x < startTouchPosition.x ) && HUDManager.swipeEnabled)
             {
                 //LeftSwipe
                 desiredLane--;
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
                 }
 
             }
-            else if (endTouchPosition.x > startTouchPosition.x)
+            else if ((endTouchPosition.x > startTouchPosition.x) && HUDManager.swipeEnabled)
             {
                 //RightSwipe
                 desiredLane++;

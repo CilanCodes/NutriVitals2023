@@ -67,7 +67,8 @@ public class GameManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnReturnHomeScreen"))
         {
-            SceneManager.LoadScene(2);
+            Time.timeScale = 1;
+            SceneManager.LoadScene(0);
         }
 
         if (SimpleInput.GetButtonDown("OnPromptSettings"))
@@ -91,6 +92,7 @@ public class GameManager : MonoBehaviour
             animator.SetTrigger("InActivate");
             Debug.Log("Hide Paused");
             Time.timeScale = 1;
+            HUDManager.swipeEnabled = true;
 
         }
 
@@ -104,12 +106,14 @@ public class GameManager : MonoBehaviour
             Debug.Log("Paused");
             animator.SetTrigger("ActivePause");
             Time.timeScale = 0;
+            HUDManager.swipeEnabled = false;
         }
 
         if (SimpleInput.GetButtonDown("OnPlayAgain"))
         {
             SceneManager.LoadScene("GameScreen");
             Time.timeScale = 1;
+            
         }
 
         if (SimpleInput.GetButtonDown("OnActiveHealthyScrollView"))
