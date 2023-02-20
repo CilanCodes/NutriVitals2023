@@ -3686,6 +3686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyBarFill: {fileID: 844975295}
+  healthBarFill: {fileID: 295280859}
   scoreTextPoints: {fileID: 577333934}
   goTextPoints: {fileID: 1464400818}
   growTextPoints: {fileID: 601380162}
