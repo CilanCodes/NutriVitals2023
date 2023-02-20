@@ -667,7 +667,7 @@ RectTransform:
   m_Pivot: {x: 0, y: 0}
 --- !u!95 &91049402
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -677,14 +677,14 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 02f4fa3b52b155f4bb6a94c00be3ef0c, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &173543122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1032,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 087f12bf4793e604a8aeaba7e1fc3992, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: f8bdc581f18abdb48add82a1e6c39d8a, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1066,7 +1066,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2ca12badbd03a784cbc96da3d07f0183, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12b50cacb101c5b4dabd021e5e337940, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6074,6 +6074,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 91049402}
+  healthyScrollView: {fileID: 0}
+  junkScrollView: {fileID: 0}
+  points: {fileID: 0}
 --- !u!4 &1914903379
 Transform:
   m_ObjectHideFlags: 0
