@@ -254,7 +254,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 2
   androidSplashScreen: {fileID: 2800000, guid: 0ef978568bc36e04f99845e9a0e35228, type: 3}
-  AndroidKeystoreName: '{dedicated}: user.keystore'
+  AndroidKeystoreName: '{inproject}: user.keystore'
   AndroidKeyaliasName: nutrivitalsco
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
