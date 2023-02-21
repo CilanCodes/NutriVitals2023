@@ -18,19 +18,27 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private Image energyBarFill;
     [SerializeField] private Image healthBarFill;
     [SerializeField] private TextMeshProUGUI scoreTextPoints;
+    [SerializeField] private TextMeshProUGUI gameOverTextPoints;
     [SerializeField] private TextMeshProUGUI goTextPoints;
     [SerializeField] private TextMeshProUGUI growTextPoints;
     [SerializeField] private TextMeshProUGUI glowTextPoints;
+
+    [SerializeField] private GameObject gameOverPanel;
 
     private float timeSinceLastDecrease = 0f;
     [SerializeField] private float decreaseSpeed = .5f;
     [SerializeField] private const float decreaseInterval = 2f;
 
+    private GameManager gameManager;
+
 
     private void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         ResetAllPoints();
         StartCoroutine(EnableSwipeAfterDelay());
+        Debug.Log(healthPoints);
     }
 
     private void Update()
@@ -45,6 +53,7 @@ public class HUDManager : MonoBehaviour
         energyBarFill.fillAmount = Mathf.Lerp(energyBarFill.fillAmount, energyPoints, Time.deltaTime * 3f);
 
         scoreTextPoints.text = scorePoints.ToString();
+        gameOverTextPoints.text = scorePoints.ToString();
 
         goTextPoints.text = goPoints.ToString();
         growTextPoints.text = growPoints.ToString();
@@ -54,7 +63,16 @@ public class HUDManager : MonoBehaviour
         {
             DecreaseHealthBar();
         }
-        
+
+        #endregion
+
+        #region CHECK IF HEALTH IS 0
+
+        if (healthBarFill.fillAmount <= 0)
+        {
+            GameOver();
+        }
+
         #endregion
     }
 
@@ -156,5 +174,15 @@ public class HUDManager : MonoBehaviour
     {
         yield return new WaitForSeconds(.25f);
         swipeEnabled = true;
+    }
+
+    private void GameOver()
+    {
+        //gameOverPanel.SetActive(true);
+        Time.timeScale = 0;
+        //GameManager.animator.SetTrigger("ActiveGameOver");
+        gameManager.GetAnimator.SetTrigger("ActiveGameOver");
+        swipeEnabled = false;
+        
     }
 }
