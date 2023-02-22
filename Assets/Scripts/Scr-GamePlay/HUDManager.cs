@@ -39,6 +39,8 @@ public class HUDManager : MonoBehaviour
         ResetAllPoints();
         StartCoroutine(EnableSwipeAfterDelay());
         Debug.Log(healthPoints);
+
+        scorePoints = 1450;// this for testing maps
     }
 
     private void Update()
