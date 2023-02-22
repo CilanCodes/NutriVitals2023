@@ -1600,8 +1600,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.267303, y: 1.532196}
-  m_SizeDelta: {x: 320.5345, y: 81.6657}
+  m_AnchoredPosition: {x: 17.4786, y: 1.532196}
+  m_SizeDelta: {x: 264.9533, y: 81.6657}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &577333934
 MonoBehaviour:
@@ -1650,7 +1650,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61.3
+  m_fontSize: 50.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4513,11 +4513,11 @@ MonoBehaviour:
   map1TilePreFabs:
   - {fileID: 2839827948817930794, guid: 875bb56e5b0a7b542b879934a4b1f675, type: 3}
   - {fileID: 2326039236326962751, guid: 05d6f492196a95c4380fc90e1af989f4, type: 3}
-  - {fileID: 877422357925606880, guid: 7999a2594fc26f748b0d8626fbdf1062, type: 3}
+  - {fileID: 2326039236326962751, guid: 05d6f492196a95c4380fc90e1af989f4, type: 3}
   map2TilePreFabs:
   - {fileID: 6640838248215973255, guid: e792dca7c7a151348979c9b436d57894, type: 3}
   - {fileID: 711289187854695356, guid: 84b7bd1b8702b034697748ccdbaaa4e3, type: 3}
-  - {fileID: 5627084492374700230, guid: bd93c948b57861d4890355e425ef2f21, type: 3}
+  - {fileID: 711289187854695356, guid: 84b7bd1b8702b034697748ccdbaaa4e3, type: 3}
   map3TilePreFabs: []
   zSpawn: 0
   tileLength: 40

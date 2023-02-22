@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("index", 2);
 
 
-
     }
 
     private void OpenHomeScreen()
@@ -113,7 +112,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameScreen");
             Time.timeScale = 1;
-            
+
         }
 
         if (SimpleInput.GetButtonDown("OnActiveHealthyScrollView"))

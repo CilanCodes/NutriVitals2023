@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
 
+    public static Vector3 targetPosition;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -84,9 +86,10 @@ public class PlayerController : MonoBehaviour
 
         //movement calculation
 
-        Vector3 targetPosition =
+        targetPosition =
             transform.position.z * transform.forward +
             transform.position.y * transform.up;
+
 
         if (desiredLane == 2)
         {
