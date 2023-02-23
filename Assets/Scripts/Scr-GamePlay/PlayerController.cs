@@ -105,6 +105,9 @@ public class PlayerController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothMovementSpeed * Time.deltaTime);
         controller.center = controller.center;
 
+        //Decrease the Energy
+        HUDManager.UpdateScoreEnergyPoints(0, -.00075f);
+
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -130,7 +133,7 @@ public class PlayerController : MonoBehaviour
         else if (hit.transform.tag == "Junk")
         {
             HUDManager.ResetFoodPoints();
-            HUDManager.UpdateScoreEnergyPoints(-100, -.1f);
+            HUDManager.UpdateScoreEnergyPoints(-100, 0.5f);
         }
 
         Destroy(hit.gameObject);

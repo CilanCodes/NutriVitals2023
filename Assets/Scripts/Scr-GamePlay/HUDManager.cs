@@ -26,8 +26,8 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
 
     private float timeSinceLastDecrease = 0f;
-    [SerializeField] private float decreaseSpeed = .5f;
-    [SerializeField] private const float decreaseInterval = 2f;
+    [SerializeField] private float decreaseSpeed = 2f;
+    [SerializeField] private const float decreaseInterval = 4f;
 
     private GameManager gameManager;
 
@@ -109,6 +109,11 @@ public class HUDManager : MonoBehaviour
             {
                 energy = 0;
                 energyPoints = 0;
+            }
+            else if ((energyPoints + energy) > 1)
+            {
+                energy = 1.0005f;
+                energyPoints = 1.0005f;
             }
             else
             {
