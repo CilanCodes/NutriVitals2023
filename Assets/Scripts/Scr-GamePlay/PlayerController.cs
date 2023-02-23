@@ -105,6 +105,8 @@ public class PlayerController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothMovementSpeed * Time.deltaTime);
         controller.center = controller.center;
 
+        if (Time.timeScale == 0)
+            return;
         //Decrease the Energy
         HUDManager.UpdateScoreEnergyPoints(0, -.00075f);
 

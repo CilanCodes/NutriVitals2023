@@ -41,6 +41,8 @@ public class HUDManager : MonoBehaviour
         Debug.Log(healthPoints);
 
         scorePoints = 1450;// this for testing maps
+
+        gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
     }
 
     private void Update()
@@ -64,6 +66,10 @@ public class HUDManager : MonoBehaviour
         if ((energyBarFill.fillAmount >= 0 && energyBarFill.fillAmount <= .17) || (energyBarFill.fillAmount >= .83 && energyBarFill.fillAmount <= 1))
         {
             DecreaseHealthBar();
+        }
+        else
+        {
+            gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
         }
 
         #endregion
@@ -151,6 +157,8 @@ public class HUDManager : MonoBehaviour
     //SMOOTH HEALTH BAR
     private void DecreaseHealthBar()
     {
+        gameManager.GetAnimator.SetTrigger("ActiveOverlayStatus");
+
         timeSinceLastDecrease += Time.deltaTime;
 
         if (timeSinceLastDecrease >= decreaseInterval && healthBarFill.fillAmount > 0)
