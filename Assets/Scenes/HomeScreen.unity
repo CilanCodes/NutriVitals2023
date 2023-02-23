@@ -808,7 +808,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 526802084}
   m_HandleRect: {fileID: 526802083}
   m_Direction: 2
-  m_Value: 1.0000008
+  m_Value: 0.9999944
   m_Size: 0.93678313
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1722,8 +1722,8 @@ RectTransform:
   m_Father: {fileID: 889880867}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.063216865}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.06321651}
+  m_AnchorMax: {x: 1, y: 0.99999964}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2203,7 +2203,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1853059006}
   m_HandleRect: {fileID: 1853059005}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2691,8 +2691,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 376.38385, y: -1085}
-  m_SizeDelta: {x: 680, y: 1920}
+  m_AnchoredPosition: {x: 376.38385, y: -1483.752}
+  m_SizeDelta: {x: 716.38, y: 2717.504}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &758745626
 MonoBehaviour:
@@ -2714,20 +2714,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: description descriptiondescriptiondescriptiondescriptiondescription description
-    description description description description description descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription
-    description descriptiondescriptiondescriptiondescriptiondescription description
-    description description description description description descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription
-    description descriptiondescriptiondescriptiondescriptiondescription description
-    description description description description description descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription
-    description descriptiondescriptiondescriptiondescriptiondescription description
-    description description description description description descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription
-    description descriptiondescriptiondescriptiondescriptiondescription description
-    description description description description description descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription
-    description descriptiondescriptiondescriptiondescriptiondescription description
-    description description description description description descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription
-    description descriptiondescriptiondescriptiondescriptiondescription description
-    description description description description description descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription
+  m_text: "This is a educational game for children to know what foods are healthy
+    and unhealthy. This game is created for the Capstone Project and Research of
+    the developers where the developers studies about the use of mobile application
+    on the knowledge enrichment among the third-grade students. The purpose of this
+    game is to educate the children and improve their knowledge about the healthy
+    and unhealthy foods and the importance of maintaining a balanced diet.\n\n\nFEATURES\n\nLearn
+    about the different foods that classifies from go, grow, and glow and facts about
+    fatty and sugary foods. This game has a runner that runs on a three-lane path
+    where the runner can either eat or avoid healthy or unhealthy foods to maintain
+    a balanced diet.\n\n\nDEVELOPMENT TEAM\n\nFERNANDEZ, CHRISTIAN\nProject Manager\n\nCAMBAY,
+    DENVER MILES\nGame Artist\r\n\nNARITO, REXIE\nAssist Game Artist & Researcher\n\nDELA
+    PE\xD1A, GABRIEL\nGame Developer\n\nPARAJAS, DIANNE RHOCEL\nResearcher\n\n\nSPECIAL
+    THANKS\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2754,7 +2753,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
+  m_fontSize: 43.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2790,7 +2789,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -211.62799}
+  m_margin: {x: 0, y: 0, z: 0, w: 58.00348}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4660,8 +4659,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2138186500}
   m_HandleRect: {fileID: 2138186499}
   m_Direction: 2
-  m_Value: 0.99938464
-  m_Size: 0.2748508
+  m_Value: -0.000000013382354
+  m_Size: 0.19773757
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5538,8 +5537,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -1482.0176}
-  m_SizeDelta: {x: 0, y: 2045}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 2842.504}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1629073469
 MonoBehaviour:
@@ -5619,11 +5618,11 @@ RectTransform:
   m_Father: {fileID: 1982252710}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00018310547, y: -0.000030517578}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: -37.93}
   m_SizeDelta: {x: 0, y: 600}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1754539833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6077,6 +6076,8 @@ MonoBehaviour:
   healthyScrollView: {fileID: 0}
   junkScrollView: {fileID: 0}
   points: {fileID: 0}
+  aboutScrollView: {fileID: 227781156}
+  leaderboardScrollView: {fileID: 1101497085}
 --- !u!4 &1914903379
 Transform:
   m_ObjectHideFlags: 0
@@ -6567,8 +6568,8 @@ RectTransform:
   m_Father: {fileID: 342561207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.724703}
-  m_AnchorMax: {x: 1, y: 0.9995538}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.19773757}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

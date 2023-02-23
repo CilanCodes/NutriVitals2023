@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject healthyScrollView;
     [SerializeField] private GameObject junkScrollView;
     [SerializeField] private TextMeshProUGUI points;
+
+    [SerializeField] private ScrollRect aboutScrollView;
+    [SerializeField] private ScrollRect leaderboardScrollView;
+
 
 
     //private float timeLeft = 25.0f; // 5 minutes in seconds
@@ -77,11 +82,13 @@ public class GameManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnPromptAbout"))
         {
+            aboutScrollView.verticalNormalizedPosition = 1f;
             animator.SetTrigger("ActiveAbout");
         }
 
         if (SimpleInput.GetButtonDown("OnPromptLeaderboard"))
         {
+            leaderboardScrollView.verticalNormalizedPosition = 1f;
             animator.SetTrigger("ActiveLeaderboard");
         }
 
@@ -103,6 +110,7 @@ public class GameManager : MonoBehaviour
         if (SimpleInput.GetButtonDown("OnPromptPaused"))
         {
             Debug.Log("Paused");
+            animator.SetTrigger("InActivateOverlayStatus");
             animator.SetTrigger("ActivePause");
             Time.timeScale = 0;
             HUDManager.swipeEnabled = false;
