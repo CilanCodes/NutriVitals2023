@@ -48,14 +48,12 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        #region BUTTON GUIDES
         //Update your ProjectSettings>Player>OtherSettings>ActiveInputHandling>Both
         //SimpleInput.GetButton <-- Holding a Button
         //SimpleInput.GetButtonDown <-- Upon Pressing, execute
         //SimpleInput.GetButtonUp <-- Upon Release, execute
-
-/*        timeLeft -= Time.deltaTime;
-        points.text = ((int)timeLeft).ToString();*/
-
+        #endregion
 
         if (SimpleInput.GetButtonDown("OnRunNowGameScreen"))
         {

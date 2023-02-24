@@ -1354,6 +1354,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317426249}
   m_CullTransparentMesh: 1
+--- !u!1 &382975610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 382975612}
+  - component: {fileID: 382975611}
+  m_Layer: 0
+  m_Name: PowerUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &382975611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382975610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7525aa52e872f5e4db53d241f1e52a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &382975612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382975610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 415.4121, y: 687.60706, z: 2.1834192}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &458619260
 GameObject:
   m_ObjectHideFlags: 0
@@ -3250,7 +3294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0c9ab621f8e640140aeb7e025a205824, type: 3}
       propertyPath: m_Name
-      value: Running
+      value: MaleCharacter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c9ab621f8e640140aeb7e025a205824, type: 3}
@@ -4312,6 +4356,8 @@ MonoBehaviour:
   healthyScrollView: {fileID: 0}
   junkScrollView: {fileID: 0}
   points: {fileID: 577333934}
+  aboutScrollView: {fileID: 0}
+  leaderboardScrollView: {fileID: 0}
 --- !u!4 &1943460285
 Transform:
   m_ObjectHideFlags: 0
@@ -4630,3 +4676,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2135274916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135274913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea481d3057dc5d44aa92ee46fff2699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

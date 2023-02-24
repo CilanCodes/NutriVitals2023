@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float laneDistance = 2.5f;
     public int smoothMovementSpeed = 30;
 
+    public static float swipeSensitivity;
     private Vector2 startTouchPosition;
     private Vector2 endTouchPosition;
 
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         direction.z = forwardSpeed;
 
-        #region ArrowButton
+        #region ARROW BUTTON CODES
         //arrow buttons
         /*        if (Input.GetKeyDown(KeyCode.RightArrow) || SwipeManager.swipeRight )
                 {
@@ -49,7 +50,8 @@ public class PlayerController : MonoBehaviour
                 }*/
         #endregion
 
-        #region SwipeLeftRight
+        #region SWIPE LEFT AND RIGHT CODES
+
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             startTouchPosition = Input.GetTouch(0).position;
@@ -59,32 +61,96 @@ public class PlayerController : MonoBehaviour
         {
             endTouchPosition = Input.GetTouch(0).position;
 
-            if ((endTouchPosition.x < startTouchPosition.x ) && HUDManager.swipeEnabled)
-            {
-                //LeftSwipe
-                desiredLane--;
-                 
-                if (desiredLane == -1)
-                {
-                    desiredLane = 0;
+            if (HUDManager.energyStatus == "LOW DANGER") { 
+                #region WITH SWIPE SENSITIVITY
 
+                float swipeDistance = endTouchPosition.x - startTouchPosition.x;
+
+                if (swipeDistance > swipeSensitivity && HUDManager.swipeEnabled)
+                {
+                    // Right Swipe
+                    desiredLane++;
+
+                    if (desiredLane == 3)
+                    {
+                        desiredLane = 2;
+                    }
+                }
+                else if (swipeDistance < -swipeSensitivity && HUDManager.swipeEnabled)
+                {
+                    // Left Swipe
+                    desiredLane--;
+
+                    if (desiredLane == -1)
+                    {
+                        desiredLane = 0;
+                    }
                 }
 
+                #endregion
             }
-            else if ((endTouchPosition.x > startTouchPosition.x) && HUDManager.swipeEnabled)
-            {
-                //RightSwipe
-                desiredLane++;
 
-                if (desiredLane == 3)
+            else if (HUDManager.energyStatus == "HIGH DANGER")
+            {
+                #region WITH REVERSE SWIPE SENSITIVITY
+
+                if ((endTouchPosition.x > startTouchPosition.x) && HUDManager.swipeEnabled)
                 {
-                    desiredLane = 2;
+                    //LeftSwipe
+                    desiredLane--;
+
+                    if (desiredLane == -1)
+                    {
+                        desiredLane = 0;
+
+                    }
+
                 }
+                else if ((endTouchPosition.x < startTouchPosition.x) && HUDManager.swipeEnabled)
+                {
+                    //RightSwipe
+                    desiredLane++;
+
+                    if (desiredLane == 3)
+                    {
+                        desiredLane = 2;
+                    }
+                }
+
+                #endregion
+            }
+
+            else
+            {
+                #region NO SWIPE SENSITIVITY
+                if ((endTouchPosition.x < startTouchPosition.x) && HUDManager.swipeEnabled)
+                {
+                    //LeftSwipe
+                    desiredLane--;
+
+                    if (desiredLane == -1)
+                    {
+                        desiredLane = 0;
+
+                    }
+
+                }
+                else if ((endTouchPosition.x > startTouchPosition.x) && HUDManager.swipeEnabled)
+                {
+                    //RightSwipe
+                    desiredLane++;
+
+                    if (desiredLane == 3)
+                    {
+                        desiredLane = 2;
+                    }
+                }
+                #endregion
             }
         }
         #endregion
 
-        //movement calculation
+        #region PLAYER MOVEMENT CALCULATION
 
         targetPosition =
             transform.position.z * transform.forward +
@@ -105,39 +171,55 @@ public class PlayerController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothMovementSpeed * Time.deltaTime);
         controller.center = controller.center;
 
+        #endregion
+
+        
         if (Time.timeScale == 0)
             return;
-        //Decrease the Energy
+
+        //DECREASE ENERGY OVER TIME
         HUDManager.UpdateScoreEnergyPoints(0, -.00075f);
 
     }
 
+    #region FOOD COLLIDER
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.transform.tag == "Go")
+        if(hit.transform.tag == "Go" || hit.transform.tag == "Grow" || hit.transform.tag == "Glow")
         {
-            HUDManager.UpdateFoodPoints(1, 0, 0);
+            // GENERAL GOOD FOOD BENEFITS
             HUDManager.UpdateScoreEnergyPoints(50, .025f);
-        }
 
-        else if(hit.transform.tag == "Grow")
-        {
-            HUDManager.UpdateFoodPoints(0, 1, 0);
-            HUDManager.UpdateScoreEnergyPoints(50, .025f);
-        }
 
-        else if(hit.transform.tag == "Glow")
-        {
-            HUDManager.UpdateFoodPoints(0, 0, 1);
-            HUDManager.UpdateScoreEnergyPoints(50, .025f);
-        }
+            // GO GROW GLOW COUNTERS
+            switch (hit.transform.tag)
+            {
+                case "Go":
+                    HUDManager.UpdateFoodPoints(1, 0, 0);
+                    break;
 
+                case "Grow":
+                    HUDManager.UpdateFoodPoints(0, 1, 0);
+                    break;
+
+                case "Glow":
+                    HUDManager.UpdateFoodPoints(0, 0, 1);
+                    break;
+
+            }
+        }
         else if (hit.transform.tag == "Junk")
         {
             HUDManager.ResetFoodPoints();
             HUDManager.UpdateScoreEnergyPoints(-100, 0.5f);
         }
 
+
+
         Destroy(hit.gameObject);
     }
+
+    #endregion
+
 }
