@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public static Vector3 targetPosition;
 
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -48,6 +49,15 @@ public class PlayerController : MonoBehaviour
                         desiredLane = 0;
                     }
                 }*/
+
+        /*if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+
+            characterAnimationController.AnimateToPower();
+
+
+        }*/
+
         #endregion
 
         #region SWIPE LEFT AND RIGHT CODES
@@ -61,7 +71,7 @@ public class PlayerController : MonoBehaviour
         {
             endTouchPosition = Input.GetTouch(0).position;
 
-            if (HUDManager.energyStatus == "LOW DANGER") { 
+            if (HUDManager.energyStatus == "LOW DANGER" || HUDManager.energyStatus == "HIGH DANGER") { 
                 #region WITH SWIPE SENSITIVITY
 
                 float swipeDistance = endTouchPosition.x - startTouchPosition.x;
@@ -90,7 +100,8 @@ public class PlayerController : MonoBehaviour
                 #endregion
             }
 
-            else if (HUDManager.energyStatus == "HIGH DANGER")
+
+            else if (HUDManager.energyStatus == "DRUNK")//FOR FUTURE UPDATE
             {
                 #region WITH REVERSE SWIPE SENSITIVITY
 
@@ -178,7 +189,23 @@ public class PlayerController : MonoBehaviour
             return;
 
         //DECREASE ENERGY OVER TIME
-        HUDManager.UpdateScoreEnergyPoints(0, -.00075f);
+
+        #region ENERGY BURN
+
+        if (HUDManager.energyStatus == "HIGH DANGER")
+        {
+            HUDManager.UpdateScoreEnergyPoints(0, -.0015f);
+        }
+        else if (HUDManager.energyStatus == "LOW DANGER")
+        {
+            HUDManager.UpdateScoreEnergyPoints(0, -.00025f);
+        }
+        else
+        {
+            HUDManager.UpdateScoreEnergyPoints(0, -.00075f);
+        }
+
+        #endregion
 
     }
 
@@ -189,7 +216,22 @@ public class PlayerController : MonoBehaviour
         if(hit.transform.tag == "Go" || hit.transform.tag == "Grow" || hit.transform.tag == "Glow")
         {
             // GENERAL GOOD FOOD BENEFITS
-            HUDManager.UpdateScoreEnergyPoints(50, .025f);
+
+            if (HUDManager.energyStatus == "LOW DANGER")
+            {
+                HUDManager.UpdateScoreEnergyPoints(50, .075f);
+            }
+
+            if (HUDManager.energyStatus == "LOW WARNING")
+            {
+                HUDManager.UpdateScoreEnergyPoints(50, .050f);
+            }
+
+            else
+            {
+                HUDManager.UpdateScoreEnergyPoints(50, .025f);
+            }
+                
 
 
             // GO GROW GLOW COUNTERS
@@ -212,10 +254,8 @@ public class PlayerController : MonoBehaviour
         else if (hit.transform.tag == "Junk")
         {
             HUDManager.ResetFoodPoints();
-            HUDManager.UpdateScoreEnergyPoints(-100, 0.5f);
+            HUDManager.UpdateScoreEnergyPoints(-100, 0.75f);
         }
-
-
 
         Destroy(hit.gameObject);
     }

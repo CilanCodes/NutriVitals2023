@@ -88,7 +88,7 @@ public class HUDManager : MonoBehaviour
             if (0 <= energyBarFill.fillAmount && energyBarFill.fillAmount <= .17)
             {
                 energyStatus = "LOW DANGER";
-                PlayerController.swipeSensitivity = 300f;
+                PlayerController.swipeSensitivity = 150f;
                 PlayerController.forwardSpeed = 80;
                 CharacterAnimationController.animationRunSpeed = 0.4f;
             }
@@ -97,7 +97,7 @@ public class HUDManager : MonoBehaviour
             if (.835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1)
             {
                 energyStatus = "HIGH DANGER";
-                PlayerController.swipeSensitivity = 100f;
+                PlayerController.swipeSensitivity = 0.5f;
                 PlayerController.forwardSpeed = 300;
                 CharacterAnimationController.animationRunSpeed = 2f;
             }
@@ -153,6 +153,10 @@ public class HUDManager : MonoBehaviour
         }
 
         #endregion
+
+
+        
+
     }
 
     #region UPDATE FUNCTIONS
@@ -166,11 +170,12 @@ public class HUDManager : MonoBehaviour
 
     public static void UpdateScoreEnergyPoints(int score, float energy)
     {
-        
+
         //Determines if the score or energy reaches negative, if so reset the value to 0
         if (scorePoints >= 0)
         {
-            if((scorePoints+score) < 0) {
+            if ((scorePoints + score) < 0)
+            {
                 score = 0;
                 scorePoints = 0;
             }
@@ -180,6 +185,7 @@ public class HUDManager : MonoBehaviour
             }
 
         }
+
         if (energyPoints >= 0)
         {
             if ((energyPoints + energy) < 0)
@@ -196,9 +202,9 @@ public class HUDManager : MonoBehaviour
             {
                 energyPoints += energy;
             }
-            
+
         }
-        
+
     }
     #endregion
 
