@@ -27,6 +27,8 @@ public class PowerUpManager : MonoBehaviour
             if(isNotAnimated)
                 characterAnimationController.AnimateToPower();
 
+            StartCoroutine(PowerUpDurationThreeSeconds());
+
 
             if (HUDManager.goPoints == 5)
             {
@@ -85,4 +87,13 @@ public class PowerUpManager : MonoBehaviour
 
     #endregion
 
-}
+    #region POWER UP RESET AFTER 3 SECONDS
+    private static IEnumerator PowerUpDurationThreeSeconds()
+    {
+        yield return new WaitForSeconds(3f);
+        powerupStatus = "NONE";
+        typeOfPowerUp = "NONE";
+    }
+        #endregion
+
+    }

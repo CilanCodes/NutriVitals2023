@@ -61,9 +61,22 @@ public class HUDManager : MonoBehaviour
         scoreTextPoints.text = scorePoints.ToString();
         gameOverTextPoints.text = scorePoints.ToString();
 
-        goTextPoints.text = goPoints.ToString();
-        growTextPoints.text = growPoints.ToString();
-        glowTextPoints.text = glowPoints.ToString();
+        
+        if(PowerUpManager.typeOfPowerUp == "GO")
+        {
+            goTextPoints.text = "5";
+            growTextPoints.text = growPoints.ToString();
+            glowTextPoints.text = glowPoints.ToString();
+        }
+        else
+        {
+            goTextPoints.text = goPoints.ToString();
+            growTextPoints.text = growPoints.ToString();
+            glowTextPoints.text = glowPoints.ToString();
+        }
+        
+
+        
 
         #endregion
 

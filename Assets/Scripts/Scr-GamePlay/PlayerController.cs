@@ -216,21 +216,30 @@ public class PlayerController : MonoBehaviour
         if(hit.transform.tag == "Go" || hit.transform.tag == "Grow" || hit.transform.tag == "Glow")
         {
             // GENERAL GOOD FOOD BENEFITS
-
-            if (HUDManager.energyStatus == "LOW DANGER")
+            if (PowerUpManager.typeOfPowerUp == "GO")
             {
-                HUDManager.UpdateScoreEnergyPoints(50, .075f);
-            }
-
-            if (HUDManager.energyStatus == "LOW WARNING")
-            {
-                HUDManager.UpdateScoreEnergyPoints(50, .050f);
+                HUDManager.UpdateScoreEnergyPoints(50, 0);
+                HUDManager.ResetEnergyPoints();
             }
 
             else
             {
-                HUDManager.UpdateScoreEnergyPoints(50, .025f);
+                if (HUDManager.energyStatus == "LOW DANGER")
+                {
+                    HUDManager.UpdateScoreEnergyPoints(50, .075f);
+                }
+
+                if (HUDManager.energyStatus == "LOW WARNING")
+                {
+                    HUDManager.UpdateScoreEnergyPoints(50, .050f);
+                }
+
+                else
+                {
+                    HUDManager.UpdateScoreEnergyPoints(50, .025f);
+                }
             }
+            
                 
 
 
@@ -238,7 +247,15 @@ public class PlayerController : MonoBehaviour
             switch (hit.transform.tag)
             {
                 case "Go":
-                    HUDManager.UpdateFoodPoints(1, 0, 0);
+
+                    if(PowerUpManager.typeOfPowerUp == "GO")
+                    {
+                        HUDManager.ResetFoodPoints();
+                    }
+                    else
+                    {
+                        HUDManager.UpdateFoodPoints(1, 0, 0);
+                    }
                     break;
 
                 case "Grow":
