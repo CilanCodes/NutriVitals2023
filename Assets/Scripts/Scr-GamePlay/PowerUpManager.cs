@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUpManager : MonoBehaviour
 {
@@ -9,19 +10,40 @@ public class PowerUpManager : MonoBehaviour
     public static string typeOfPowerUp; //GO, GROW, GLOW
     public static bool isNotAnimated;
 
-    private CharacterAnimationController characterAnimationController; //animation class holder
+    [SerializeField] public GameObject powerUpRaysImage;
+    [SerializeField] public GameObject powerUpOverlayStatus;
+    [SerializeField] public Sprite powerupSprite;
+    [SerializeField] public Sprite dangerSprite;
 
+    private CharacterAnimationController characterAnimationController; //animation class holder
+    private Image overlayStatusImage;
+    private GameManager gameManager;
 
     private void Start()
     {
         characterAnimationController = FindObjectOfType<CharacterAnimationController>(); //reference it
         typeOfPowerUp = "NONE";
         powerupStatus = "NONE";
+
+        overlayStatusImage = powerUpOverlayStatus.GetComponent<Image>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 
     private void Update()
     {
+        if (powerupStatus == "POWER UP")
+        {
+            gameManager.GetAnimator.SetTrigger("ActiveOverlayStatus");
+            overlayStatusImage.sprite = powerupSprite;
+            powerUpRaysImage.SetActive(true);
+        }
+        else if (powerupStatus == "NONE")
+        {
+            gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+            overlayStatusImage.sprite = dangerSprite;
+            powerUpRaysImage.SetActive(false);
+        }
 
         //POWERUP
         if (HUDManager.goPoints == 5 || HUDManager.growPoints == 5 || HUDManager.glowPoints == 5)
