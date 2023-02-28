@@ -18,7 +18,7 @@ public class HUDManager : MonoBehaviour
     public static string energyStatus;
 
     [SerializeField] private Image energyBarFill;
-    [SerializeField] private Image healthBarFill;
+    [SerializeField] public Image healthBarFill;
     [SerializeField] private TextMeshProUGUI scoreTextPoints;
     [SerializeField] private TextMeshProUGUI gameOverTextPoints;
     [SerializeField] private TextMeshProUGUI goTextPoints;
@@ -42,7 +42,7 @@ public class HUDManager : MonoBehaviour
         StartCoroutine(EnableSwipeAfterDelay());
         Debug.Log(healthPoints);
 
-        scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
+        //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
 
         gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
     }
@@ -67,6 +67,18 @@ public class HUDManager : MonoBehaviour
             goTextPoints.text = "5";
             growTextPoints.text = growPoints.ToString();
             glowTextPoints.text = glowPoints.ToString();
+        }
+        else if (PowerUpManager.typeOfPowerUp == "GROW")
+        {
+            goTextPoints.text = goPoints.ToString(); ;
+            growTextPoints.text = "5";
+            glowTextPoints.text = glowPoints.ToString();
+        }
+        else if (PowerUpManager.typeOfPowerUp == "GLOW")
+        {
+            goTextPoints.text = goPoints.ToString();
+            growTextPoints.text = growPoints.ToString();
+            glowTextPoints.text = "5";
         }
         else
         {
@@ -273,7 +285,11 @@ public class HUDManager : MonoBehaviour
 
         healthBarFill.fillAmount = targetFillAmount;
     }
+
+   
     #endregion
+
+  
 
     #region SWIPE DELAY
 

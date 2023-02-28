@@ -24,41 +24,13 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+
+
     }
 
     private void Update()
     {
         direction.z = forwardSpeed;
-
-        #region ARROW BUTTON CODES
-        //arrow buttons
-        /*        if (Input.GetKeyDown(KeyCode.RightArrow) || SwipeManager.swipeRight )
-                {
-                    desiredLane++;
-                    if (desiredLane == 3)
-                    {
-                        desiredLane = 2;
-                    }
-                }*/
-
-        /*        if (Input.GetKeyDown(KeyCode.LeftArrow) || SwipeManager.swipeLeft )
-                {
-                    desiredLane--;
-                    if (desiredLane == -1)
-                    {
-                        desiredLane = 0;
-                    }
-                }*/
-
-        /*if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-
-            characterAnimationController.AnimateToPower();
-
-
-        }*/
-
-        #endregion
 
         #region SWIPE LEFT AND RIGHT CODES
 
@@ -189,23 +161,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         //DECREASE ENERGY OVER TIME
-
-        #region ENERGY BURN
-
-        if (HUDManager.energyStatus == "HIGH DANGER")
-        {
-            HUDManager.UpdateScoreEnergyPoints(0, -.0015f);
-        }
-        else if (HUDManager.energyStatus == "LOW DANGER")
-        {
-            HUDManager.UpdateScoreEnergyPoints(0, -.00025f);
-        }
-        else
-        {
-            HUDManager.UpdateScoreEnergyPoints(0, -.00075f);
-        }
-
-        #endregion
+        AdjustmentFunctions.DecreaseEnergyOverTime();
 
     }
 
@@ -213,49 +169,79 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.transform.tag == "Go" || hit.transform.tag == "Grow" || hit.transform.tag == "Glow")
+        #region WITH POWER UP COLLIDER
+        if (PowerUpManager.powerupStatus == "POWER UP")
         {
-            // GENERAL GOOD FOOD BENEFITS
-            if (PowerUpManager.typeOfPowerUp == "GO")
+            switch (PowerUpManager.typeOfPowerUp)
             {
-                HUDManager.UpdateScoreEnergyPoints(50, 0);
-                HUDManager.ResetEnergyPoints();
-            }
-
-            else
-            {
-                if (HUDManager.energyStatus == "LOW DANGER")
-                {
-                    HUDManager.UpdateScoreEnergyPoints(50, .075f);
-                }
-
-                if (HUDManager.energyStatus == "LOW WARNING")
-                {
-                    HUDManager.UpdateScoreEnergyPoints(50, .050f);
-                }
-
-                else
-                {
-                    HUDManager.UpdateScoreEnergyPoints(50, .025f);
-                }
-            }
-            
-                
-
-
-            // GO GROW GLOW COUNTERS
-            switch (hit.transform.tag)
-            {
-                case "Go":
-
-                    if(PowerUpManager.typeOfPowerUp == "GO")
+                case "GO":
+                    if (hit.transform.tag == "Go")
                     {
-                        HUDManager.ResetFoodPoints();
+                        HUDManager.UpdateScoreEnergyPoints(25, 0.5f);
+                    }
+                    break;
+
+                case "GROW":
+                    if (hit.transform.tag == "Grow")
+                    {
+                        GameObject hudManagerObject = GameObject.Find("HUDManager");
+                        HUDManager hudManager = hudManagerObject.GetComponent<HUDManager>();
+                        hudManager.healthBarFill.fillAmount += 0.1667f;
+                    }
+                    else if (hit.transform.tag != "Junk")
+                    {
+                        AdjustmentFunctions.GoodFoodBenefits(1);
                     }
                     else
                     {
-                        HUDManager.UpdateFoodPoints(1, 0, 0);
+                        HUDManager.ResetFoodPoints();
+                        HUDManager.UpdateScoreEnergyPoints(-100, 0.75f);
                     }
+                    break;
+
+                case "GLOW":
+                    if (hit.transform.tag == "Glow")
+                    {
+                        AdjustmentFunctions.GoodFoodBenefits(3);
+                    }
+                    else if (hit.transform.tag != "Junk")
+                    {
+                        AdjustmentFunctions.GoodFoodBenefits(2);
+                    }
+                    else
+                    {
+                        HUDManager.ResetFoodPoints();
+                        HUDManager.UpdateScoreEnergyPoints(-100, 0.75f);
+                    }
+
+                    break;
+
+                case "NONE":
+                    if (hit.transform.tag != "Junk")
+                    {
+                        AdjustmentFunctions.GoodFoodBenefits(1);
+                    }
+                    else
+                    {
+                        HUDManager.ResetFoodPoints();
+                        HUDManager.UpdateScoreEnergyPoints(-100, 0.75f);
+                    }
+                    break;
+            }
+        }
+        #endregion
+
+        #region NO POWER UP COLLIDER
+        else if (PowerUpManager.powerupStatus == "NONE")
+        {
+            if(hit.transform.tag != "Junk") {
+                AdjustmentFunctions.GoodFoodBenefits(1);
+            }
+            
+            switch (hit.transform.tag)
+            {
+                case "Go":
+                    HUDManager.UpdateFoodPoints(1, 0, 0);
                     break;
 
                 case "Grow":
@@ -266,15 +252,17 @@ public class PlayerController : MonoBehaviour
                     HUDManager.UpdateFoodPoints(0, 0, 1);
                     break;
 
+                case "Junk":
+                    //Damage -100 Scores + Energy Spike by 75% + Resets Food Counter
+                    HUDManager.ResetFoodPoints();
+                    HUDManager.UpdateScoreEnergyPoints(-100, 0.75f);
+                    break;
             }
         }
-        else if (hit.transform.tag == "Junk")
-        {
-            HUDManager.ResetFoodPoints();
-            HUDManager.UpdateScoreEnergyPoints(-100, 0.75f);
-        }
+        #endregion
 
         Destroy(hit.gameObject);
+
     }
 
     #endregion

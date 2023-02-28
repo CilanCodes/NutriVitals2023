@@ -15,6 +15,8 @@ public class PowerUpManager : MonoBehaviour
     private void Start()
     {
         characterAnimationController = FindObjectOfType<CharacterAnimationController>(); //reference it
+        typeOfPowerUp = "NONE";
+        powerupStatus = "NONE";
     }
 
 
@@ -79,6 +81,7 @@ public class PowerUpManager : MonoBehaviour
     {
         powerupStatus = "POWER UP";
         typeOfPowerUp = "GLOW";
+
     }
 
     #endregion
@@ -90,9 +93,11 @@ public class PowerUpManager : MonoBehaviour
     #region POWER UP RESET AFTER 3 SECONDS
     private static IEnumerator PowerUpDurationThreeSeconds()
     {
+        yield return new WaitForSeconds(5f);
+        typeOfPowerUp = "NONE";
+
         yield return new WaitForSeconds(3f);
         powerupStatus = "NONE";
-        typeOfPowerUp = "NONE";
     }
         #endregion
 
