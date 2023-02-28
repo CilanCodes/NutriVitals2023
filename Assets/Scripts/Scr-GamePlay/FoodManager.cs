@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FoodManager : MonoBehaviour
 {
+    public static bool isReplayAgain;
 
     [SerializeField] private GameObject[] foodItems;
     
@@ -19,8 +20,11 @@ public class FoodManager : MonoBehaviour
 
     private void Start()
     {
-
-        if (PlayerController.targetPosition.z > 40)
+        if (isReplayAgain)
+        {
+            StartCoroutine(WaitFor3Seconds());
+        }
+        else 
         {
 
             if (PowerUpManager.typeOfPowerUp == "GO")
@@ -43,11 +47,21 @@ public class FoodManager : MonoBehaviour
                 }
 
             }
-            #endregion
+                #endregion
             else
             {
                 #region FOR RANDOM NON POWER UP FOOD SPAWN
-                int noOfFoods = Random.Range(1, 4);
+
+                int noOfFoods;
+
+                if (PowerUpManager.typeOfPowerUp == "GROW" || PowerUpManager.typeOfPowerUp == "GLOW")
+                {
+                    noOfFoods = Random.Range(3, 6);
+                }
+                else
+                {
+                    noOfFoods = Random.Range(1, 4);
+                }
 
                 for (int i = 1; i < noOfFoods; i++)
                 {
@@ -87,7 +101,17 @@ public class FoodManager : MonoBehaviour
                 #endregion
             }
         }
-            
+    }
+
+    IEnumerator WaitFor3Seconds()
+    {
+        Debug.Log("Wait for 3 Secs");
+
+        yield return new WaitForSeconds(1);
+
+        Debug.Log("Time's Up");
+
+        isReplayAgain = false;
 
     }
 

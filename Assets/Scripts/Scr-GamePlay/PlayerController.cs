@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        
+
         direction.z = forwardSpeed;
 
         #region SWIPE LEFT AND RIGHT CODES

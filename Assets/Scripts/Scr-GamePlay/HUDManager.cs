@@ -40,11 +40,12 @@ public class HUDManager : MonoBehaviour
 
         ResetAllPoints();
         StartCoroutine(EnableSwipeAfterDelay());
-        Debug.Log(healthPoints);
 
         //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
 
         gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+
+        FoodManager.isReplayAgain = true;
     }
 
     private void Update()

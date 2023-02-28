@@ -118,6 +118,8 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameScreen");
             Time.timeScale = 1;
+            Debug.Log(PlayerController.targetPosition.z);
+            FoodManager.isReplayAgain = true;
 
         }
 
