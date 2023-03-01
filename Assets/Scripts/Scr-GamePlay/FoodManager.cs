@@ -63,7 +63,9 @@ public class FoodManager : MonoBehaviour
                     noOfFoods = Random.Range(1, 4);
                 }
 
-                for (int i = 1; i < noOfFoods; i++)
+                itemPosition = new int[noOfFoods];
+
+                for (int i = 0; i < noOfFoods; i++)
                 {
                     int randomFoodItemPosition = Random.Range(0, foodItems.Length);
                     itemPosition[i] = randomFoodItemPosition;
@@ -94,8 +96,6 @@ public class FoodManager : MonoBehaviour
                             spriteRenderer.sprite = junkSprites[Random.Range(0, goSprites.Length)];
                             break;
                     }
-
-
 
                 }
                 #endregion

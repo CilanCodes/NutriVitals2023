@@ -34,13 +34,12 @@ public class PowerUpManager : MonoBehaviour
     {
         if (powerupStatus == "POWER UP")
         {
-            gameManager.GetAnimator.SetTrigger("ActiveOverlayStatus");
             overlayStatusImage.sprite = powerupSprite;
             powerUpRaysImage.SetActive(true);
         }
         else if (powerupStatus == "NONE")
         {
-            gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+            //gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
             overlayStatusImage.sprite = dangerSprite;
             powerUpRaysImage.SetActive(false);
         }

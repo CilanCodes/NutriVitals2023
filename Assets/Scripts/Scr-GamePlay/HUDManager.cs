@@ -135,7 +135,14 @@ public class HUDManager : MonoBehaviour
         #region HEALTHY / WARNING LEVELS
         else
         {
-            gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+            if (PowerUpManager.powerupStatus == "POWER UP")
+            {
+                gameManager.GetAnimator.SetTrigger("ActiveOverlayStatus");
+            }
+            else
+            {
+                gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+            }
 
             //WARNING / YELLOW ENERGY LEVEL
             if ((0.17 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.37) || (0.635 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.835))

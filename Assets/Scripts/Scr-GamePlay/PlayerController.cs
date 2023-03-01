@@ -177,6 +177,7 @@ public class PlayerController : MonoBehaviour
             switch (PowerUpManager.typeOfPowerUp)
             {
                 case "GO":
+                    HUDManager.UpdateScoreEnergyPoints(0, 0.5f);
                     if (hit.transform.tag == "Go")
                     {
                         HUDManager.UpdateScoreEnergyPoints(25, 0.5f);
