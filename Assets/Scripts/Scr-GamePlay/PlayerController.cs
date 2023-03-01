@@ -158,10 +158,13 @@ public class PlayerController : MonoBehaviour
 
         #endregion
 
-        
-        if (Time.timeScale == 0)
+        //BLOCKS ENERGY DECREMENT
+        if (Time.timeScale == 0 || PowerUpManager.typeOfPowerUp == "GO")
+        {
+            HUDManager.ResetEnergyPoints();
             return;
-
+        }
+            
         //DECREASE ENERGY OVER TIME
         AdjustmentFunctions.DecreaseEnergyOverTime();
 
@@ -177,10 +180,10 @@ public class PlayerController : MonoBehaviour
             switch (PowerUpManager.typeOfPowerUp)
             {
                 case "GO":
-                    HUDManager.UpdateScoreEnergyPoints(0, 0.5f);
+                    
                     if (hit.transform.tag == "Go")
                     {
-                        HUDManager.UpdateScoreEnergyPoints(25, 0.5f);
+                        HUDManager.UpdateScoreEnergyPoints(25, 0f);
                     }
                     break;
 

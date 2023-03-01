@@ -56,11 +56,11 @@ public class FoodManager : MonoBehaviour
 
                 if (PowerUpManager.typeOfPowerUp == "GROW" || PowerUpManager.typeOfPowerUp == "GLOW")
                 {
-                    noOfFoods = Random.Range(3, 6);
+                    noOfFoods = Random.Range(2, 4);
                 }
                 else
                 {
-                    noOfFoods = Random.Range(1, 4);
+                    noOfFoods = Random.Range(1, 3);
                 }
 
                 itemPosition = new int[noOfFoods];

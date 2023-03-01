@@ -17,7 +17,8 @@ public class PowerUpManager : MonoBehaviour
 
     private CharacterAnimationController characterAnimationController; //animation class holder
     private Image overlayStatusImage;
-    private GameManager gameManager;
+
+
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class PowerUpManager : MonoBehaviour
         powerupStatus = "NONE";
 
         overlayStatusImage = powerUpOverlayStatus.GetComponent<Image>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
 
 
@@ -35,13 +36,20 @@ public class PowerUpManager : MonoBehaviour
         if (powerupStatus == "POWER UP")
         {
             overlayStatusImage.sprite = powerupSprite;
-            powerUpRaysImage.SetActive(true);
+            //powerUpRaysImage.SetActive(true);
+
+            #region SCALE to 1.4
+
+            #endregion
+
+
         }
         else if (powerupStatus == "NONE")
         {
-            //gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+
             overlayStatusImage.sprite = dangerSprite;
-            powerUpRaysImage.SetActive(false);
+            //powerUpRaysImage.SetActive(false);
+
         }
 
         //POWERUP
@@ -120,6 +128,6 @@ public class PowerUpManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         powerupStatus = "NONE";
     }
-        #endregion
+    #endregion
 
-    }
+}
