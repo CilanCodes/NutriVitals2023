@@ -174,6 +174,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+
+        if (hit.transform.tag != "Junk")
+        {
+            //SoundEffectsManager.PlayEatGoodSoundEffect();
+        }
+        else
+        {
+            //SoundEffectsManager.PlayEatBadSoundEffect();
+        }
+
         #region WITH POWER UP COLLIDER
         if (PowerUpManager.powerupStatus == "POWER UP")
         {

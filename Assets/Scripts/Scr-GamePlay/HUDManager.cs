@@ -142,6 +142,7 @@ public class HUDManager : MonoBehaviour
             else
             {
                 gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+
             }
 
             //WARNING / YELLOW ENERGY LEVEL

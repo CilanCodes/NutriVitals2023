@@ -32,17 +32,45 @@ public class FoodManager : MonoBehaviour
                 #region FOR GO POWER UP FOOD SPAWN
                 int noOfFoods = foodItems.Length;
                 int goSelectedFood = Random.Range(0, goSprites.Length);
+                int randomLane = Random.Range(0,2);
 
                 for (int i = 0; i < noOfFoods; i++)
                 {
-                    
-                    GameObject goFoodItem = foodItems[i];
-                    goFoodItem.SetActive(true);
+                    if (randomLane == 0 &&
+                        (i==0 || i == 3 || i == 6 || i == 9))
+                    {
+                        GameObject goFoodItem = foodItems[i];
+                        goFoodItem.SetActive(true);
 
-                    SpriteRenderer spriteRenderer = goFoodItem.GetComponent<SpriteRenderer>();
+                        SpriteRenderer spriteRenderer = goFoodItem.GetComponent<SpriteRenderer>();
 
-                    goFoodItem.tag = "Go";
-                    spriteRenderer.sprite = goSprites[goSelectedFood];
+                        goFoodItem.tag = "Go";
+                        spriteRenderer.sprite = goSprites[goSelectedFood];
+                    }
+
+                    else if (randomLane == 1 &&
+                        (i == 1 || i == 4 || i == 7 || i == 10))
+                    {
+                        GameObject goFoodItem = foodItems[i];
+                        goFoodItem.SetActive(true);
+
+                        SpriteRenderer spriteRenderer = goFoodItem.GetComponent<SpriteRenderer>();
+
+                        goFoodItem.tag = "Go";
+                        spriteRenderer.sprite = goSprites[goSelectedFood];
+                    }
+
+                    else if (randomLane == 2 &&
+                        (i == 2 || i == 5 || i == 8 || i == 11))
+                    {
+                        GameObject goFoodItem = foodItems[i];
+                        goFoodItem.SetActive(true);
+
+                        SpriteRenderer spriteRenderer = goFoodItem.GetComponent<SpriteRenderer>();
+
+                        goFoodItem.tag = "Go";
+                        spriteRenderer.sprite = goSprites[goSelectedFood];
+                    }
 
                 }
 

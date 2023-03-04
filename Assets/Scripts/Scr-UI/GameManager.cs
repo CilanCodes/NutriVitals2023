@@ -48,6 +48,9 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        
+        
+
         #region BUTTON GUIDES
         //Update your ProjectSettings>Player>OtherSettings>ActiveInputHandling>Both
         //SimpleInput.GetButton <-- Holding a Button
@@ -127,6 +130,7 @@ public class GameManager : MonoBehaviour
         {
             
         }
+
     }
 
 
