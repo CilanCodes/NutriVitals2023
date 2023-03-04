@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 endTouchPosition;
 
     public static Vector3 targetPosition;
-
+    
+    
 
     private void Start()
     {
@@ -174,14 +175,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        
 
         if (hit.transform.tag != "Junk")
         {
-            //SoundEffectsManager.PlayEatGoodSoundEffect();
+            FindObjectOfType<SoundManager>().PlayEatGoodFood();
         }
         else
         {
-            //SoundEffectsManager.PlayEatBadSoundEffect();
+            FindObjectOfType<SoundManager>().PlayEatBadFood();
         }
 
         #region WITH POWER UP COLLIDER
