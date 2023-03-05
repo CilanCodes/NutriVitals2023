@@ -56,4 +56,6 @@ public class SoundManager : MonoBehaviour
     public void PlayEatGoodFood() => SoundFxPlay(1);
 
     public void PlayEatBadFood() => SoundFxPlay(2);
+
+    public void PlayPowerUp() => SoundFxPlay(3);
 }

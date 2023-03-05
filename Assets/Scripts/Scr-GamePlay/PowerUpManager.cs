@@ -9,6 +9,7 @@ public class PowerUpManager : MonoBehaviour
     public static string powerupStatus; //NONE, POWER UP
     public static string typeOfPowerUp; //GO, GROW, GLOW
     public static bool isNotAnimated;
+    public static bool isPowerUpSFXNotPlayed;
 
     [SerializeField] public GameObject powerUpRaysImage;
     [SerializeField] public GameObject powerUpOverlayStatus;
@@ -42,10 +43,14 @@ public class PowerUpManager : MonoBehaviour
             StartCoroutine(ScaleDownObject());
             #endregion
 
+            PlayPowerUpMusicOnce();
+
 
         }
         else if (powerupStatus == "NONE")
         {
+            isPowerUpSFXNotPlayed = true;
+
             Transform rayTransform = powerUpRaysImage.GetComponent<Transform>();
             rayTransform.localScale = new Vector3(3f, 3f, 3f);
 
@@ -150,5 +155,14 @@ public class PowerUpManager : MonoBehaviour
         }
 
         rayTransform.localScale = destinationScale;
+    }
+
+    public void PlayPowerUpMusicOnce()
+    {
+        if (isPowerUpSFXNotPlayed)
+        {
+            FindObjectOfType<SoundManager>().PlayPowerUp();
+            isPowerUpSFXNotPlayed = false;
+        }
     }
 }
