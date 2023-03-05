@@ -30,7 +30,7 @@ public class CharacterAnimationController : MonoBehaviour
 
     IEnumerator PowerJumpDelay()
     {
-        Debug.Log("Coroutine started");
+        //Debug.Log("Coroutine started");
 
         Time.timeScale = 0; // Stop the game
         HUDManager.swipeEnabled = false;
@@ -49,7 +49,7 @@ public class CharacterAnimationController : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log("Coroutine resumed");
+       // Debug.Log("Coroutine resumed");
 
         PlayerController.forwardSpeed = holder;
 

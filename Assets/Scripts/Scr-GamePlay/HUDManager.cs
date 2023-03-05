@@ -15,6 +15,7 @@ public class HUDManager : MonoBehaviour
     public static int growPoints;
     public static int glowPoints;
     public static bool swipeEnabled;
+    public static bool isScoreAdded;
     public static string energyStatus;
 
     [SerializeField] private Image energyBarFill;
@@ -33,7 +34,6 @@ public class HUDManager : MonoBehaviour
 
     private GameManager gameManager;
 
-
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -46,6 +46,9 @@ public class HUDManager : MonoBehaviour
         gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
 
         FoodManager.isReplayAgain = true;
+        isScoreAdded = false;
+
+
     }
 
     private void Update()
@@ -317,6 +320,19 @@ public class HUDManager : MonoBehaviour
         Time.timeScale = 0;
         gameManager.GetAnimator.SetTrigger("ActiveGameOver");
         swipeEnabled = false;
+
+        if (isScoreAdded)
+        {
+            return;
+        }
+
+        int newScore = scorePoints;
+
+        FindObjectOfType<User>().leaderboardScores.Add(newScore);
+        FindObjectOfType<User>().OnSave();
+
+        //leaderboardManager.AddCurrentScoreToLeaderboard();
+        isScoreAdded = true;
     }
 
     #endregion

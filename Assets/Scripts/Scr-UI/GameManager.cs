@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
         {
             //PauseUnpauseTime(1);
             animator.SetTrigger("InActivate");
-            Debug.Log("Hide Paused");
+            //Debug.Log("Hide Paused");
             Time.timeScale = 1;
             HUDManager.swipeEnabled = true;
 
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnPromptPaused"))
         {
-            Debug.Log("Paused");
+            //Debug.Log("Paused");
             animator.SetTrigger("InActivateOverlayStatus");
             animator.SetTrigger("ActivePause");
             Time.timeScale = 0;
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameScreen");
             Time.timeScale = 1;
-            Debug.Log(PlayerController.targetPosition.z);
+            //Debug.Log(PlayerController.targetPosition.z);
             FoodManager.isReplayAgain = true;
 
         }

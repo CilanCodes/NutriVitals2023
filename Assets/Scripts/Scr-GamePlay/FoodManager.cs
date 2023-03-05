@@ -133,11 +133,11 @@ public class FoodManager : MonoBehaviour
 
     IEnumerator WaitFor3Seconds()
     {
-        Debug.Log("Wait for 3 Secs");
+        //Debug.Log("Wait for 3 Secs");
 
         yield return new WaitForSeconds(1);
 
-        Debug.Log("Time's Up");
+        //Debug.Log("Time's Up");
 
         isReplayAgain = false;
 
