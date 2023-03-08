@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {
-            Invoke("OpenHomeScreen", 5f);
+            //Invoke("OpenHomeScreen", 15f);
         }
 
         PlayerPrefs.SetInt("index", 2);
@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
             
         }
 
+    
     }
 
 
