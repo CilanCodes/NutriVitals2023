@@ -19,6 +19,10 @@ public class StoryModeManager : MonoBehaviour
     private void Start()
     {
         submitButton.SetActive(false);
+
+        StartCoroutine(StartGameStory());
+
+        
     }
 
     void Update()
@@ -66,5 +70,11 @@ public class StoryModeManager : MonoBehaviour
             submitButton.SetActive(false);
         }
         #endregion
+    }
+
+    IEnumerator StartGameStory()
+    {
+        yield return new WaitForSeconds(0.3f);
+        panelStoryTime.GetComponent<Animator>().SetTrigger("OnStartStory");
     }
 }
