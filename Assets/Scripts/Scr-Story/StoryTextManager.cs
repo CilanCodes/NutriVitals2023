@@ -8,6 +8,9 @@ public class StoryTextManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coachStoryText;
 
+    [SerializeField] private float typingSpeed = 0.04f;
+    private int index = 0;
+
     public static bool isStoryTextChangeStarts;
     public static string userName;
 
@@ -20,6 +23,7 @@ public class StoryTextManager : MonoBehaviour
 
     private string initialText;
 
+
     private void Start()
     {
         isStoryTextChangeStarts = false;
@@ -29,7 +33,7 @@ public class StoryTextManager : MonoBehaviour
     {
         if (userName != null)
         {
-            initialText = "HELLO " + userName + "," + "\nIM MR. NUTRI V. ITALS" + "\nAND I WILL BE YOUR COACH";
+           initialText = "HELLO " + userName + "," + "\nIM MR. NUTRI V. ITALS" + "\nAND I WILL BE YOUR COACH";
         }
         else
         {
@@ -45,18 +49,33 @@ public class StoryTextManager : MonoBehaviour
 
     IEnumerator TextStoryBegin()
     {
-        coachStoryText.text = initialText;
-
+        coachStoryText.text = string.Empty;
+        yield return new WaitForSeconds(2.0f);
+        //coachStoryText.text = initialText; USELESS CODE
+        
+    foreach (char a in initialText.ToCharArray())
+    {
+        coachStoryText.text += a;
+        yield return new WaitForSeconds(typingSpeed);
+    }
         yield return new WaitForSeconds(6.5f);
-
-        for ( int i=0 ; i < 4; i++)
+        /* USELESS CODE
+       for ( int i=0 ; i < 4; i++)
         {
             coachStoryText.text = storyTexts[i];
             yield return new WaitForSeconds(6.5f);
         }
-
+        */
+        coachStoryText.text = string.Empty;
+        foreach (char c in storyTexts[index].ToCharArray())
+      {
+          coachStoryText.text += c;
+          yield return new WaitForSeconds(typingSpeed);
+      }
+        yield return new WaitForSeconds(6.5f);
         OpenHomeScreen();
     }
+ 
 
     private void OpenHomeScreen()
     {
