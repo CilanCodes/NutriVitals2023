@@ -30,9 +30,7 @@ public class User : MonoBehaviour
     private void NewUser()
     {
 
-        LeaderboardScores = new List<int> {
-        200, 175, 150, 125, 95,
-        70, 60, 50, 40, 30,};
+        LeaderboardScores = FindObjectOfType<ENV>().LEADERBOARDS;
 
         LocalSave();
 
