@@ -1552,6 +1552,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coachStoryText: {fileID: 560120077}
   typingSpeed: 0.04
+--- !u!1 &643771985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 643771986}
+  m_Layer: 0
+  m_Name: IntroManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &643771986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643771985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1186.4873, y: 1287.7571, z: -2.6865287}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &690028243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,6 +2443,7 @@ GameObject:
   - component: {fileID: 1034126427}
   - component: {fileID: 1034126430}
   - component: {fileID: 1034126431}
+  - component: {fileID: 1034126432}
   m_Layer: 5
   m_Name: CharacterC
   m_TagString: Untagged
@@ -2496,6 +2528,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &1034126432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034126426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnCharacterPick
+    value: 0
 --- !u!1 &1053150201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2544,6 +2591,7 @@ GameObject:
   - component: {fileID: 1053229177}
   - component: {fileID: 1053229180}
   - component: {fileID: 1053229181}
+  - component: {fileID: 1053229182}
   m_Layer: 5
   m_Name: CharacterA
   m_TagString: Untagged
@@ -2628,6 +2676,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!114 &1053229182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053229176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnCharacterPick
+    value: 0
 --- !u!1 &1084121391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4432,6 +4495,7 @@ GameObject:
   - component: {fileID: 1602902286}
   - component: {fileID: 1602902289}
   - component: {fileID: 1602902290}
+  - component: {fileID: 1602902291}
   m_Layer: 5
   m_Name: CharacterB
   m_TagString: Untagged
@@ -4516,6 +4580,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &1602902291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602902285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnCharacterPick
+    value: 0
 --- !u!1 &1606507190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,6 +5056,7 @@ GameObject:
   - component: {fileID: 1715434556}
   - component: {fileID: 1715434559}
   - component: {fileID: 1715434560}
+  - component: {fileID: 1715434561}
   m_Layer: 5
   m_Name: CharacterD
   m_TagString: Untagged
@@ -5061,6 +5141,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &1715434561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715434555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnCharacterPick
+    value: 0
 --- !u!1 &1726071775
 GameObject:
   m_ObjectHideFlags: 0
