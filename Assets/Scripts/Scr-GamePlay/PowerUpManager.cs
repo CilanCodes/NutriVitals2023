@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -62,7 +61,7 @@ public class PowerUpManager : MonoBehaviour
         //POWERUP
         if (HUDManager.goPoints == 5 || HUDManager.growPoints == 5 || HUDManager.glowPoints == 5)
         {
-            if(isNotAnimated)
+            if (isNotAnimated)
                 characterAnimationController.AnimateToPower();
 
             StartCoroutine(PowerUpDurationThreeSeconds());
@@ -97,7 +96,7 @@ public class PowerUpManager : MonoBehaviour
     {
         powerupStatus = "POWER UP";
         typeOfPowerUp = "GO";
-        
+
     }
 
     #endregion
@@ -136,7 +135,7 @@ public class PowerUpManager : MonoBehaviour
         powerupStatus = "NONE";
     }
     #endregion
-    
+
     private IEnumerator ScaleDownObject()
     {
         Transform rayTransform = powerUpRaysImage.GetComponent<Transform>();

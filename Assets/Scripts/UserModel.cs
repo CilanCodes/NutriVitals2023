@@ -6,7 +6,8 @@ public class UserModel
 {
     public List<int> leaderboardScores;
 
-    public UserModel(User user) {
+    public UserModel(User user)
+    {
 
         leaderboardScores = user.leaderboardScores;
 

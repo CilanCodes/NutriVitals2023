@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,7 +31,7 @@ public class User : MonoBehaviour
         70, 60, 50, 40, 30,};
 
         LocalSave();
-        
+
     }
 
     public void OnNewUser() => NewUser();

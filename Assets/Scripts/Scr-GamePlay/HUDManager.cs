@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System;
 
 public class HUDManager : MonoBehaviour
 {
@@ -65,8 +63,8 @@ public class HUDManager : MonoBehaviour
         scoreTextPoints.text = scorePoints.ToString();
         gameOverTextPoints.text = scorePoints.ToString();
 
-        
-        if(PowerUpManager.typeOfPowerUp == "GO")
+
+        if (PowerUpManager.typeOfPowerUp == "GO")
         {
             goTextPoints.text = "5";
             growTextPoints.text = growPoints.ToString();
@@ -90,9 +88,9 @@ public class HUDManager : MonoBehaviour
             growTextPoints.text = growPoints.ToString();
             glowTextPoints.text = glowPoints.ToString();
         }
-        
 
-        
+
+
 
         #endregion
 
@@ -109,7 +107,7 @@ public class HUDManager : MonoBehaviour
 
         #region DANGER LEVELS
 
-        if (( 0 <= energyBarFill.fillAmount && energyBarFill.fillAmount <= .17) || ( .835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1))
+        if ((0 <= energyBarFill.fillAmount && energyBarFill.fillAmount <= .17) || (.835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1))
         {
             DecreaseHealthBar();
 
@@ -152,7 +150,7 @@ public class HUDManager : MonoBehaviour
             if ((0.17 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.37) || (0.635 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.835))
             {
                 //LOW LEVEL WARNING
-                if(0.17 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.37)
+                if (0.17 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.37)
                 {
                     energyStatus = "LOW WARNING";
                     PlayerController.forwardSpeed = 130;
@@ -192,7 +190,7 @@ public class HUDManager : MonoBehaviour
         #endregion
 
 
-        
+
 
     }
 
@@ -298,10 +296,10 @@ public class HUDManager : MonoBehaviour
         healthBarFill.fillAmount = targetFillAmount;
     }
 
-   
+
     #endregion
 
-  
+
 
     #region SWIPE DELAY
 

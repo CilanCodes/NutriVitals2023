@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class StoryTextManager : MonoBehaviour
 {
@@ -49,7 +47,7 @@ public class StoryTextManager : MonoBehaviour
 
         yield return new WaitForSeconds(6.5f);
 
-        for ( int i=0 ; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
             coachStoryText.text = storyTexts[i];
             yield return new WaitForSeconds(6.5f);

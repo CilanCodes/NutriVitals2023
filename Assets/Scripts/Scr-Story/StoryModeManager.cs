@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class StoryModeManager : MonoBehaviour
 {
@@ -28,12 +27,13 @@ public class StoryModeManager : MonoBehaviour
 
         submitButton.SetActive(false);
         isGameStoryBegin = false;
-}
+    }
 
     void Update()
     {
 
-        if (isGameStoryBegin) {
+        if (isGameStoryBegin)
+        {
             StartCoroutine(StartGameStory());
             isGameStoryBegin = false;
         }
@@ -53,7 +53,7 @@ public class StoryModeManager : MonoBehaviour
             panelSelectCharacter.SetActive(false);
             panelVerification.SetActive(true);
             isSelectCharacterPanelDone = true;
-            
+
         }
 
         if (SimpleInput.GetButtonDown("OnVerifySubmit"))

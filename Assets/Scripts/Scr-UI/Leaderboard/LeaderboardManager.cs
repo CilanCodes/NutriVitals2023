@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
 
 public class LeaderboardEntry
@@ -34,7 +33,7 @@ public class LeaderboardManager : MonoBehaviour
 
         leaderboardScores = model.leaderboardScores;
 
-        leaderboardScores.Sort((x,y)=>y.CompareTo(x));
+        leaderboardScores.Sort((x, y) => y.CompareTo(x));
 
         // Populate leaderboardEntries with data from PlayerPrefs or some other storage
         for (int i = 0; i <= 9; i++)
