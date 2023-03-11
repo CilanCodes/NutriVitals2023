@@ -4,11 +4,19 @@ using System.Collections.Generic;
 
 public class UserModel
 {
-    public List<int> leaderboardScores;
 
-    public UserModel(User user) {
+    public List<int> leaderboard_scores;
 
-        leaderboardScores = user.leaderboardScores;
+    public int user_character_state;
+
+    public string user_name;
+
+    public UserModel(User user)
+    {
+
+        leaderboard_scores = user.LeaderboardScores;
+        user_character_state = user.UserCharacterState;
+        user_name = user.UserName;
 
     }
 

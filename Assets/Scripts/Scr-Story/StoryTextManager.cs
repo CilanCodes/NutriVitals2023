@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class StoryTextManager : MonoBehaviour
 {
@@ -33,7 +31,7 @@ public class StoryTextManager : MonoBehaviour
     {
         if (userName != null)
         {
-           initialText = "HELLO " + userName + "," + "\nIM MR. NUTRI V. ITALS" + "\nAND I WILL BE YOUR COACH";
+            initialText = "HELLO " + userName + "," + "\nIM MR. NUTRI V. ITALS" + "\nAND I WILL BE YOUR COACH";
         }
         else
         {
@@ -49,37 +47,27 @@ public class StoryTextManager : MonoBehaviour
 
     IEnumerator TextStoryBegin()
     {
+
         coachStoryText.text = string.Empty;
         yield return new WaitForSeconds(2.0f);
-        //coachStoryText.text = initialText; USELESS CODE
-        
-    foreach (char a in initialText.ToCharArray())
-    {
-        coachStoryText.text += a;
-        yield return new WaitForSeconds(typingSpeed);
-    }
-        yield return new WaitForSeconds(6.5f);
-        /* USELESS CODE
-       for ( int i=0 ; i < 4; i++)
+
+        foreach (char a in initialText.ToCharArray())
         {
-            coachStoryText.text = storyTexts[i];
-            yield return new WaitForSeconds(6.5f);
+            coachStoryText.text += a;
+            yield return new WaitForSeconds(typingSpeed);
         }
-        */
+        yield return new WaitForSeconds(6.5f);
+
         coachStoryText.text = string.Empty;
         foreach (char c in storyTexts[index].ToCharArray())
-      {
-          coachStoryText.text += c;
-          yield return new WaitForSeconds(typingSpeed);
-      }
+        {
+            coachStoryText.text += c;
+            yield return new WaitForSeconds(typingSpeed);
+        }
         yield return new WaitForSeconds(6.5f);
-        OpenHomeScreen();
-    }
- 
 
-    private void OpenHomeScreen()
-    {
-        SceneManager.LoadScene(2);
-    }
+        FindObjectOfType<GameManager>().OnLoadScene(2);
 
+    }
+    
 }
