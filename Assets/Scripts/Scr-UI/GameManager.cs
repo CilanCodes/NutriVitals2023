@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject junkScrollView;
     [SerializeField] private TextMeshProUGUI points;
 
+    [SerializeField] private ScrollRect aboutScrollView;
+    [SerializeField] private ScrollRect leaderboardScrollView;
 
     //private float timeLeft = 25.0f; // 5 minutes in seconds
-
 
     public Animator GetAnimator
     {
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {
-            Invoke("OpenHomeScreen", 5f);
+            //Invoke("OpenHomeScreen", 15f);
         }
 
         PlayerPrefs.SetInt("index", 2);
@@ -42,15 +44,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
+
+        #region BUTTON GUIDES
         //Update your ProjectSettings>Player>OtherSettings>ActiveInputHandling>Both
         //SimpleInput.GetButton <-- Holding a Button
         //SimpleInput.GetButtonDown <-- Upon Pressing, execute
         //SimpleInput.GetButtonUp <-- Upon Release, execute
-
-/*        timeLeft -= Time.deltaTime;
-        points.text = ((int)timeLeft).ToString();*/
-
+        #endregion
 
         if (SimpleInput.GetButtonDown("OnRunNowGameScreen"))
         {
@@ -77,11 +78,13 @@ public class GameManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnPromptAbout"))
         {
+            aboutScrollView.verticalNormalizedPosition = 1f;
             animator.SetTrigger("ActiveAbout");
         }
 
         if (SimpleInput.GetButtonDown("OnPromptLeaderboard"))
         {
+            leaderboardScrollView.verticalNormalizedPosition = 1f;
             animator.SetTrigger("ActiveLeaderboard");
         }
 
@@ -89,20 +92,21 @@ public class GameManager : MonoBehaviour
         {
             //PauseUnpauseTime(1);
             animator.SetTrigger("InActivate");
-            Debug.Log("Hide Paused");
+            //Debug.Log("Hide Paused");
             Time.timeScale = 1;
             HUDManager.swipeEnabled = true;
 
         }
 
-        if (SimpleInput.GetButtonDown("OnPromptGameOver"))
+        if (SimpleInput.GetButtonDown("OnSkipStory"))
         {
-
+            OpenHomeScreen();
         }
 
         if (SimpleInput.GetButtonDown("OnPromptPaused"))
         {
-            Debug.Log("Paused");
+            //Debug.Log("Paused");
+            animator.SetTrigger("InActivateOverlayStatus");
             animator.SetTrigger("ActivePause");
             Time.timeScale = 0;
             HUDManager.swipeEnabled = false;
@@ -112,13 +116,11 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameScreen");
             Time.timeScale = 1;
+            //Debug.Log(PlayerController.targetPosition.z);
+            FoodManager.isReplayAgain = true;
 
         }
 
-        if (SimpleInput.GetButtonDown("OnActiveHealthyScrollView"))
-        {
-            
-        }
     }
 
 
