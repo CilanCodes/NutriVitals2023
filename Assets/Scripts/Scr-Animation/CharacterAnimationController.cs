@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterAnimationController : MonoBehaviour
@@ -49,7 +48,7 @@ public class CharacterAnimationController : MonoBehaviour
             yield return null;
         }
 
-       // Debug.Log("Coroutine resumed");
+        // Debug.Log("Coroutine resumed");
 
         PlayerController.forwardSpeed = holder;
 

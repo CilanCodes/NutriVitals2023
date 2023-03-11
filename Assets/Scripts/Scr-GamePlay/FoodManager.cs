@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FoodManager : MonoBehaviour
@@ -7,7 +6,7 @@ public class FoodManager : MonoBehaviour
     public static bool isReplayAgain;
 
     [SerializeField] private GameObject[] foodItems;
-    
+
     [SerializeField] private Sprite[] goSprites;
     [SerializeField] private Sprite[] growSprites;
     [SerializeField] private Sprite[] glowSprites;
@@ -24,7 +23,7 @@ public class FoodManager : MonoBehaviour
         {
             StartCoroutine(WaitFor3Seconds());
         }
-        else 
+        else
         {
 
             if (PowerUpManager.typeOfPowerUp == "GO")
@@ -32,12 +31,12 @@ public class FoodManager : MonoBehaviour
                 #region FOR GO POWER UP FOOD SPAWN
                 int noOfFoods = foodItems.Length;
                 int goSelectedFood = Random.Range(0, goSprites.Length);
-                int randomLane = Random.Range(0,2);
+                int randomLane = Random.Range(0, 2);
 
                 for (int i = 0; i < noOfFoods; i++)
                 {
                     if (randomLane == 0 &&
-                        (i==0 || i == 3 || i == 6 || i == 9))
+                        (i == 0 || i == 3 || i == 6 || i == 9))
                     {
                         GameObject goFoodItem = foodItems[i];
                         goFoodItem.SetActive(true);
@@ -75,7 +74,7 @@ public class FoodManager : MonoBehaviour
                 }
 
             }
-                #endregion
+            #endregion
             else
             {
                 #region FOR RANDOM NON POWER UP FOOD SPAWN

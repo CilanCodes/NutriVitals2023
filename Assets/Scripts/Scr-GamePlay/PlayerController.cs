@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -19,8 +16,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 endTouchPosition;
 
     public static Vector3 targetPosition;
-    
-    
+
+
 
     private void Start()
     {
@@ -29,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
+
 
         direction.z = forwardSpeed;
 
@@ -44,7 +41,8 @@ public class PlayerController : MonoBehaviour
         {
             endTouchPosition = Input.GetTouch(0).position;
 
-            if (HUDManager.energyStatus == "LOW DANGER" || HUDManager.energyStatus == "HIGH DANGER") { 
+            if (HUDManager.energyStatus == "LOW DANGER" || HUDManager.energyStatus == "HIGH DANGER")
+            {
                 #region WITH SWIPE SENSITIVITY
 
                 float swipeDistance = endTouchPosition.x - startTouchPosition.x;
@@ -163,7 +161,7 @@ public class PlayerController : MonoBehaviour
             HUDManager.ResetEnergyPoints();
             return;
         }
-            
+
         //DECREASE ENERGY OVER TIME
         AdjustmentFunctions.DecreaseEnergyOverTime();
 
@@ -173,7 +171,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        
+
 
         if (hit.transform.tag != "Junk")
         {
@@ -190,7 +188,7 @@ public class PlayerController : MonoBehaviour
             switch (PowerUpManager.typeOfPowerUp)
             {
                 case "GO":
-                    
+
                     if (hit.transform.tag == "Go")
                     {
                         HUDManager.UpdateScoreEnergyPoints(25, 0f);
@@ -250,10 +248,11 @@ public class PlayerController : MonoBehaviour
         #region NO POWER UP COLLIDER
         else if (PowerUpManager.powerupStatus == "NONE")
         {
-            if(hit.transform.tag != "Junk") {
+            if (hit.transform.tag != "Junk")
+            {
                 AdjustmentFunctions.GoodFoodBenefits(1);
             }
-            
+
             switch (hit.transform.tag)
             {
                 case "Go":

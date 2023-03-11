@@ -1,7 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class StoryModeManager : MonoBehaviour
 {
@@ -26,14 +25,16 @@ public class StoryModeManager : MonoBehaviour
         panelStoryTime.SetActive(false);
         panelVerification.SetActive(false);
 
-        submitButton.SetActive(false);
         isGameStoryBegin = false;
-}
+    }
 
     void Update()
     {
 
-        if (isGameStoryBegin) {
+        submitButton.SetActive(inputUserName.text.Length > 3);
+
+        if (isGameStoryBegin)
+        {
             StartCoroutine(StartGameStory());
             isGameStoryBegin = false;
         }
@@ -46,6 +47,7 @@ public class StoryModeManager : MonoBehaviour
             isUserNamePanelDone = true;
 
             userNameHolder = inputUserName.text.Trim().ToUpper();
+            
         }
 
         if (SimpleInput.GetButtonDown("OnSelectCharacter"))
@@ -53,13 +55,14 @@ public class StoryModeManager : MonoBehaviour
             panelSelectCharacter.SetActive(false);
             panelVerification.SetActive(true);
             isSelectCharacterPanelDone = true;
-            
+
         }
 
         if (SimpleInput.GetButtonDown("OnVerifySubmit"))
         {
             if (isUserNamePanelDone)
             {
+                FindObjectOfType<User>().UserName = userNameHolder;
                 StoryTextManager.userName = userNameHolder;
                 panelVerification.SetActive(false);
                 panelSelectCharacter.SetActive(true);
@@ -75,18 +78,8 @@ public class StoryModeManager : MonoBehaviour
             }
         }
 
-        // Check if the input field has any characters
-        if (inputUserName.text.Length > 3)
-        {
-            // Enable the button if there is text
-            submitButton.SetActive(true);
-        }
-        else
-        {
-            // Disable the button if there is no text
-            submitButton.SetActive(false);
-        }
         #endregion
+
     }
 
     IEnumerator StartGameStory()

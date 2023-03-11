@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,11 +36,11 @@ public class TileManager : MonoBehaviour
         if (playerTransform.position.z - 50 > zSpawn - (numberOfTiles * tileLength))
         {
 
-            if(HUDManager.scorePoints <= 1500)
+            if (HUDManager.scorePoints <= 1500)
             {
                 SpawnTileMap(map1TilePreFabs);
             }
-            else if(HUDManager.scorePoints <= 3000 || HUDManager.scorePoints >= 1501)
+            else if (HUDManager.scorePoints <= 3000 || HUDManager.scorePoints >= 1501)
             {
                 SpawnTileMap(map2TilePreFabs);
             }
@@ -71,7 +70,7 @@ public class TileManager : MonoBehaviour
         zSpawn += tileLength;
     }
 
-   
+
 
     public void DeleteTile()
     {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AdjustmentFunctions : MonoBehaviour
@@ -28,17 +26,17 @@ public class AdjustmentFunctions : MonoBehaviour
     public static void GoodFoodBenefits(int multiplier)
     {
         // GENERAL GOOD FOOD BENEFITS
-            if (HUDManager.energyStatus == "LOW DANGER")
-            {
-                HUDManager.UpdateScoreEnergyPoints(25 * multiplier, .075f);
-            }
-            else if (HUDManager.energyStatus == "LOW WARNING")
-            {
-                HUDManager.UpdateScoreEnergyPoints(25 * multiplier, .050f);
-            }
-            else
-            {
-                HUDManager.UpdateScoreEnergyPoints(25 * multiplier, .025f);
-            }
+        if (HUDManager.energyStatus == "LOW DANGER")
+        {
+            HUDManager.UpdateScoreEnergyPoints(25 * multiplier, .075f);
+        }
+        else if (HUDManager.energyStatus == "LOW WARNING")
+        {
+            HUDManager.UpdateScoreEnergyPoints(25 * multiplier, .050f);
+        }
+        else
+        {
+            HUDManager.UpdateScoreEnergyPoints(25 * multiplier, .025f);
+        }
     }
 }
