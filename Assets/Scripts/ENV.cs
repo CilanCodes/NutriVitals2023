@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ENV : MonoBehaviour
@@ -7,6 +8,22 @@ public class ENV : MonoBehaviour
     {
 
         DontDestroy();
+
+        LEADERBOARDS = new List<int> 
+        {
+
+            200, 
+            175, 
+            150, 
+            125, 
+            95,
+            70,
+            60, 
+            50,
+            40, 
+            30,
+
+        };
 
     }
 
@@ -22,5 +39,7 @@ public class ENV : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
     }
+
+    public List<int> LEADERBOARDS { get; private set; }
 
 }
