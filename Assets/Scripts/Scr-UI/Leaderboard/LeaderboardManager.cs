@@ -31,7 +31,7 @@ public class LeaderboardManager : MonoBehaviour
         else
             FindObjectOfType<User>().OnLoad();
 
-        leaderboardScores = model.leaderboardScores;
+        leaderboardScores = model.leaderboard_scores;
 
         leaderboardScores.Sort((x, y) => y.CompareTo(x));
 

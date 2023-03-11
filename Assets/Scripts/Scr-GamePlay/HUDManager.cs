@@ -326,7 +326,7 @@ public class HUDManager : MonoBehaviour
 
         int newScore = scorePoints;
 
-        FindObjectOfType<User>().leaderboardScores.Add(newScore);
+        FindObjectOfType<User>().LeaderboardScores.Add(newScore);
         FindObjectOfType<User>().OnSave();
 
         //leaderboardManager.AddCurrentScoreToLeaderboard();
