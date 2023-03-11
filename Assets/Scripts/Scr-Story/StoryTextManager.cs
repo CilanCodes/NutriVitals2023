@@ -55,12 +55,8 @@ public class StoryTextManager : MonoBehaviour
             yield return new WaitForSeconds(6.5f);
         }
 
-        OpenHomeScreen();
-    }
+        FindObjectOfType<GameManager>().OnLoadScene(2);
 
-    private void OpenHomeScreen()
-    {
-        SceneManager.LoadScene(2);
     }
 
 }

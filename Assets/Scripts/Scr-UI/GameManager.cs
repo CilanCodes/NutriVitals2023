@@ -26,25 +26,15 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void Start()
+    void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            //Invoke("OpenHomeScreen", 15f);
-        }
 
         PlayerPrefs.SetInt("index", 2);
 
-
-    }
-
-    private void OpenHomeScreen()
-    {
-        SceneManager.LoadScene(2);
     }
 
     private void Update()
-    {   
+    {
 
         #region BUTTON GUIDES
         //Update your ProjectSettings>Player>OtherSettings>ActiveInputHandling>Both
@@ -54,16 +44,13 @@ public class GameManager : MonoBehaviour
         #endregion
 
         if (SimpleInput.GetButtonDown("OnRunNowGameScreen"))
-        {
-            PlayerPrefs.SetInt("index", 4);
-            SceneManager.LoadScene(0);
-        }
+
+            LoadScene(4);
 
         if (SimpleInput.GetButtonDown("OnFoodInformationScreen"))
-        {
+
             //no need to call PlayerPrefs because your 
             SceneManager.LoadScene(3);
-        }
 
         if (SimpleInput.GetButtonDown("OnReturnHomeScreen"))
         {
@@ -99,9 +86,8 @@ public class GameManager : MonoBehaviour
         }
 
         if (SimpleInput.GetButtonDown("OnSkipStory"))
-        {
-            OpenHomeScreen();
-        }
+
+            LoadScene(2);
 
         if (SimpleInput.GetButtonDown("OnPromptPaused"))
         {
