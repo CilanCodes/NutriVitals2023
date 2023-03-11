@@ -13,26 +13,39 @@ public class StoryModeManager : MonoBehaviour
     [SerializeField] private GameObject submitButton;
     [SerializeField] private TMP_InputField inputUserName;
 
+    private string userNameHolder;
+
     private bool isUserNamePanelDone;
     private bool isSelectCharacterPanelDone;
+    private bool isGameStoryBegin;
 
     private void Start()
     {
+        panelUserName.SetActive(true);
+        panelSelectCharacter.SetActive(false);
+        panelStoryTime.SetActive(false);
+        panelVerification.SetActive(false);
+
         submitButton.SetActive(false);
-
-        StartCoroutine(StartGameStory());
-
-        
-    }
+        isGameStoryBegin = false;
+}
 
     void Update()
     {
+
+        if (isGameStoryBegin) {
+            StartCoroutine(StartGameStory());
+            isGameStoryBegin = false;
+        }
+
         #region FOR STORY SCREEN
         if (SimpleInput.GetButtonDown("OnSubmitName"))
         {
             panelUserName.SetActive(false);
             panelVerification.SetActive(true);
             isUserNamePanelDone = true;
+
+            userNameHolder = inputUserName.text.Trim().ToUpper();
         }
 
         if (SimpleInput.GetButtonDown("OnSelectCharacter"))
@@ -40,12 +53,14 @@ public class StoryModeManager : MonoBehaviour
             panelSelectCharacter.SetActive(false);
             panelVerification.SetActive(true);
             isSelectCharacterPanelDone = true;
+            
         }
 
         if (SimpleInput.GetButtonDown("OnVerifySubmit"))
         {
             if (isUserNamePanelDone)
             {
+                StoryTextManager.userName = userNameHolder;
                 panelVerification.SetActive(false);
                 panelSelectCharacter.SetActive(true);
                 isUserNamePanelDone = false;
@@ -55,6 +70,8 @@ public class StoryModeManager : MonoBehaviour
                 panelVerification.SetActive(false);
                 panelStoryTime.SetActive(true);
                 isSelectCharacterPanelDone = false;
+                isGameStoryBegin = true;
+                StoryTextManager.isStoryTextChangeStarts = true;
             }
         }
 

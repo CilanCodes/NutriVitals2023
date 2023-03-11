@@ -16,10 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ScrollRect aboutScrollView;
     [SerializeField] private ScrollRect leaderboardScrollView;
 
-
-
     //private float timeLeft = 25.0f; // 5 minutes in seconds
-
 
     public Animator GetAnimator
     {
@@ -47,9 +44,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update()
-    {
-        
-        
+    {   
 
         #region BUTTON GUIDES
         //Update your ProjectSettings>Player>OtherSettings>ActiveInputHandling>Both
@@ -103,9 +98,9 @@ public class GameManager : MonoBehaviour
 
         }
 
-        if (SimpleInput.GetButtonDown("OnPromptGameOver"))
+        if (SimpleInput.GetButtonDown("OnSkipStory"))
         {
-
+            OpenHomeScreen();
         }
 
         if (SimpleInput.GetButtonDown("OnPromptPaused"))
@@ -126,12 +121,6 @@ public class GameManager : MonoBehaviour
 
         }
 
-        if (SimpleInput.GetButtonDown("OnActiveHealthyScrollView"))
-        {
-            
-        }
-
-    
     }
 
 

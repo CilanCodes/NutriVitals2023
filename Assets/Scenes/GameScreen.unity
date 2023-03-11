@@ -5056,8 +5056,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map1TilePreFabs:
   - {fileID: 2839827948817930794, guid: 875bb56e5b0a7b542b879934a4b1f675, type: 3}
-  - {fileID: 6640838248215973255, guid: e792dca7c7a151348979c9b436d57894, type: 3}
-  - {fileID: 6640838248215973255, guid: e792dca7c7a151348979c9b436d57894, type: 3}
+  - {fileID: 2839827948817930794, guid: 875bb56e5b0a7b542b879934a4b1f675, type: 3}
+  - {fileID: 2839827948817930794, guid: 875bb56e5b0a7b542b879934a4b1f675, type: 3}
   map2TilePreFabs:
   - {fileID: 6640838248215973255, guid: e792dca7c7a151348979c9b436d57894, type: 3}
   - {fileID: 711289187854695356, guid: 84b7bd1b8702b034697748ccdbaaa4e3, type: 3}
