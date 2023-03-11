@@ -50,10 +50,16 @@ public class GameManager : MonoBehaviour
             //no need to call PlayerPrefs because your 
             SceneManager.LoadScene(3);
 
-        if (SimpleInput.GetButtonDown("OnReturnHomeScreen"))
+        if (SimpleInput.GetButtonDown("OnHomeScreen"))
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(0);
+        }
+
+        if (SimpleInput.GetButtonDown("OnReturnHomeScreen"))
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(2);
         }
 
         if (SimpleInput.GetButtonDown("OnPromptSettings"))
