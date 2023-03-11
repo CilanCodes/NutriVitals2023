@@ -25,12 +25,13 @@ public class StoryModeManager : MonoBehaviour
         panelStoryTime.SetActive(false);
         panelVerification.SetActive(false);
 
-        submitButton.SetActive(false);
         isGameStoryBegin = false;
     }
 
     void Update()
     {
+
+        submitButton.SetActive(inputUserName.text.Length > 3);
 
         if (isGameStoryBegin)
         {
@@ -46,6 +47,7 @@ public class StoryModeManager : MonoBehaviour
             isUserNamePanelDone = true;
 
             userNameHolder = inputUserName.text.Trim().ToUpper();
+            
         }
 
         if (SimpleInput.GetButtonDown("OnSelectCharacter"))
@@ -60,6 +62,7 @@ public class StoryModeManager : MonoBehaviour
         {
             if (isUserNamePanelDone)
             {
+                FindObjectOfType<User>().UserName = userNameHolder;
                 StoryTextManager.userName = userNameHolder;
                 panelVerification.SetActive(false);
                 panelSelectCharacter.SetActive(true);
@@ -75,18 +78,8 @@ public class StoryModeManager : MonoBehaviour
             }
         }
 
-        // Check if the input field has any characters
-        if (inputUserName.text.Length > 3)
-        {
-            // Enable the button if there is text
-            submitButton.SetActive(true);
-        }
-        else
-        {
-            // Disable the button if there is no text
-            submitButton.SetActive(false);
-        }
         #endregion
+
     }
 
     IEnumerator StartGameStory()

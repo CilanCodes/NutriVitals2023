@@ -40,6 +40,6 @@ public class ENV : MonoBehaviour
 
     }
 
-    public List<int> LEADERBOARDS { get; private set; }
+    public static List<int> LEADERBOARDS { get; private set; }
 
 }

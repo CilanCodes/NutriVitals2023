@@ -30,7 +30,7 @@ public class User : MonoBehaviour
     private void NewUser()
     {
 
-        LeaderboardScores = FindObjectOfType<ENV>().LEADERBOARDS;
+        LeaderboardScores = ENV.LEADERBOARDS;
 
         LocalSave();
 
