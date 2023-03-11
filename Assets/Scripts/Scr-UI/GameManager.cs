@@ -123,7 +123,14 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void LoadScene(int _index)
+    {
 
+        PlayerPrefs.SetInt("index", _index);
+        SceneManager.LoadScene(0);
 
+    }
+
+    public void OnLoadScene(int _index) => LoadScene(_index);
 
 }
