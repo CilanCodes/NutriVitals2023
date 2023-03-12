@@ -46,8 +46,8 @@ public class FoodInfoScript : MonoBehaviour
 
         foodUIImage.sprite = _foodImage;
         foodUITexts[0].text = _foodTexts[0];
-        foodUITexts[2].text = _foodTexts[1];
-        foodUITexts[1].text = _foodTexts[2];
+        foodUITexts[1].text = _foodTexts[1];
+        foodUITexts[2].text = _foodTexts[2];
 
     }
 
@@ -64,7 +64,7 @@ public class FoodInfoScript : MonoBehaviour
             ? 0
             : 3;
 
-        /*int counter = 0;
+        int counter = 0;
         for (int category = foodCategory; category < foodCategory + 3; category++)
         {
 
@@ -80,33 +80,7 @@ public class FoodInfoScript : MonoBehaviour
                 foodModel.Text[2] = FOODS[category, 1, food];
                 Debug.Log(foodModel);
                 foods.Add(foodModel);
-            }
 
-        }*/
-        int minSize = Mathf.Min(healthyFoods.Count, junkFoods.Count);
-        int counter = 0;
-        for (int category = foodCategory; category < foodCategory + 3; category++)
-        {
-
-            for (int food = 0; food < 3; food++)
-            {
-
-                FoodModel foodModel = new();
-                if (counter < minSize)
-                {
-
-                    foodModel.Image = isHealthy
-                    ? healthyFoods[counter]
-                    : junkFoods[counter];
-
-                }
-                
-                foodModel.Text[0] = FOODS[category, 0, food];
-                foodModel.Text[1] = GetFoodCategory(category);
-                foodModel.Text[2] = FOODS[category, 1, food];
-                Debug.Log(foodModel);
-                foods.Add(foodModel);
-                counter++;
             }
 
         }
