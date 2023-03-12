@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class FoodInfoScript : MonoBehaviour
 {
 
-    [SerializeField] 
+    [SerializeField]
     private ToggleGroup foodNavigationUIPanel;
 
-    [SerializeField] 
+    [SerializeField]
     private Image foodUIImage;
 
-    [SerializeField] 
+    [SerializeField]
     private TextMeshProUGUI[] foodUITexts;
 
     private string[,,] FOODS;
@@ -58,7 +58,7 @@ public class FoodInfoScript : MonoBehaviour
 
         Toggle navigation = _toggleGroup.ActiveToggles().FirstOrDefault();
         return navigation.name.ToString();
-        
+
     }
 
     private void LoadFoods()
@@ -67,9 +67,9 @@ public class FoodInfoScript : MonoBehaviour
         List<FoodModel> foods = new();
         string foodNavigation = GetNavigation(foodNavigationUIPanel);
         bool isHealthy = foodNavigation.Equals("TabHealthyFood");
-        int foodCategory = 
-            isHealthy 
-            ? 0 
+        int foodCategory =
+            isHealthy
+            ? 0
             : 3;
 
         int counter = 0;
@@ -80,8 +80,8 @@ public class FoodInfoScript : MonoBehaviour
             {
 
                 FoodModel foodModel = new();
-                foodModel.Image = isHealthy 
-                    ? healthyFoods[++counter] 
+                foodModel.Image = isHealthy
+                    ? healthyFoods[++counter]
                     : junkFoods[++counter];
                 foodModel.Text[0] = FOODS[category, 0, food];
                 foodModel.Text[1] = GetFoodCategory(category);

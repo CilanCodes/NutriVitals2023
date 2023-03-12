@@ -1,14 +1,14 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HomeManager : MonoBehaviour
 {
 
-    [SerializeField] 
+    [SerializeField]
     private ScrollRect aboutUIScrollRect;
 
-    [SerializeField] 
+    [SerializeField]
     private ScrollRect leaderboardUIScrollRect;
 
     void Update()

@@ -4,10 +4,10 @@ using UnityEngine;
 public class LoadManager : MonoBehaviour
 {
 
-    [SerializeField] 
+    [SerializeField]
     private Transform content;
 
-    [SerializeField] 
+    [SerializeField]
     private GameObject[] itemAdapter;
 
     private void LoadFoods(List<FoodModel> _foods, bool _isHealthy)
@@ -28,9 +28,9 @@ public class LoadManager : MonoBehaviour
 
                 item.FoodImage = food.Image;
                 item.FoodTexts = food.Text;
-       
+
             }
-        
+
         }
 
     }

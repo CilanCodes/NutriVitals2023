@@ -7,18 +7,18 @@ public class ENV : MonoBehaviour
     void Awake()
     {
 
-        LEADERBOARDS = new List<int> 
+        LEADERBOARDS = new List<int>
         {
 
-            200, 
-            175, 
-            150, 
-            125, 
+            200,
+            175,
+            150,
+            125,
             95,
             70,
-            60, 
+            60,
             50,
-            40, 
+            40,
             30,
 
         };
@@ -38,7 +38,7 @@ public class ENV : MonoBehaviour
 
         ADVICE_TEXT = new string[]
         {
-                
+
             "Measure and Watch Your Weight",
 
             "Limit Unhealthy Foods and Eat Healthy Meals",
@@ -106,7 +106,7 @@ public class ENV : MonoBehaviour
         FOODS[5, 0, 0] = "CHIPS";
         FOODS[5, 0, 1] = "POPCORN";
         FOODS[5, 0, 2] = "WAFFLES";
-        
+
         FOODS[5, 1, 0] = "May negatively impact your cardiovascular health, which can lead to stroke, heart failure, coronary heart disease and kidney disease.";
         FOODS[5, 1, 1] = "...";
         FOODS[5, 1, 2] = "...";
