@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 91049399}
   - component: {fileID: 91049398}
   - component: {fileID: 91049402}
+  - component: {fileID: 91049403}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -415,6 +416,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &91049403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91049397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 514b4789332e3514a97895781a799ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &173543122
 GameObject:
   m_ObjectHideFlags: 0
@@ -4502,12 +4515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb77750c59f328647af706d29c84178f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 91049402}
-  healthyScrollView: {fileID: 0}
-  junkScrollView: {fileID: 0}
-  points: {fileID: 0}
-  aboutScrollView: {fileID: 227781156}
-  leaderboardScrollView: {fileID: 1101497085}
 --- !u!4 &1914903379
 Transform:
   m_ObjectHideFlags: 0
