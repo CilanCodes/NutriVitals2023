@@ -7,8 +7,6 @@ public class ENV : MonoBehaviour
     void Awake()
     {
 
-        DontDestroy();
-
         LEADERBOARDS = new List<int> 
         {
 
@@ -37,19 +35,6 @@ public class ENV : MonoBehaviour
             "GOODLUCK MY DEAR TRAINEE\nI WILL BE HERE WITH YOU\nALONG THE WAY"
 
         };
-
-    }
-
-    private void DontDestroy()
-    {
-
-        if (FindObjectsOfType(GetType()).Length > 1)
-
-            Destroy(gameObject);
-
-        else
-
-            DontDestroyOnLoad(gameObject);
 
     }
 
