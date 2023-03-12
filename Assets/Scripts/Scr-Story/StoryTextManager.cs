@@ -11,26 +11,9 @@ public class StoryTextManager : MonoBehaviour
     [SerializeField] 
     private float typingSpeed = 0.04f;
 
-    void Start()
+    private void StartStory()
     {
 
-        IsStoryTextChangeStarts = false;
-
-    }
-
-    void Update()
-    {
-
-        if (IsStoryTextChangeStarts)
-
-            TextStoryBegin();
-
-    }
-
-    private void TextStoryBegin()
-    {
-
-        IsStoryTextChangeStarts = false;
         string initialText = string.Format("HELLO {0},\nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH", UserName);
 
         for (int i = 0; i < 5; i++)
@@ -61,6 +44,6 @@ public class StoryTextManager : MonoBehaviour
 
     public static string UserName { private get; set; }
 
-    public static bool IsStoryTextChangeStarts { private get; set; }
+    public void OnStartStory() => StartStory();
 
 }
