@@ -4,59 +4,56 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class FoodInfoScript : MonoBehaviour
 {
-    [SerializeField] private ToggleGroup navigationPanel;
-    [SerializeField] private GameObject healthyFoodContent;
-    [SerializeField] private GameObject junkFoodContent;
 
-    [SerializeField] private Image imageSelectedFood;
-    [SerializeField] private TextMeshProUGUI textTitleSelectedFood;
-    [SerializeField] private TextMeshProUGUI textCategorySelectedFood;
-    [SerializeField] private TextMeshProUGUI textDescSelectedFood;
+    /*[SerializeField] 
+    private ToggleGroup navigationPanel;
 
-    [SerializeField] private List<Sprite> foodSprites;
-    [SerializeField] private List<string> foodButtons;
-    [SerializeField] private List<string> foodCategory;
-    [SerializeField] private List<string> foodDescriptions;
+    [SerializeField] 
+    private Image foodUIImage;
 
+    [SerializeField] 
+    private TextMeshProUGUI[] foodUITexts;
 
     private void Update()
     {
+
         switchContent();
         loopButton();
 
     }
+    
+    private void Food(Sprite _foodImage, string[] _foodTexts)
+    {
 
+        foodUIImage.sprite = _foodImage;
+        foodUITexts[0].text = _foodTexts[0];
+        foodUITexts[2].text = _foodTexts[1];
+        foodUITexts[1].text = _foodTexts[2];
+
+    }
+
+    public void OnFood(Sprite _foodImage, string[] _foodTexts) => Food(_foodImage, _foodTexts);
 
     private string GetNavigation(ToggleGroup _toggleGroup)
     {
 
         Toggle navigation = _toggleGroup.ActiveToggles().FirstOrDefault();
         return navigation.name.ToString();
-
+        
     }
 
     private void switchContent()
     {
         string navigation = GetNavigation(navigationPanel);
-        if (navigation.Equals("TabHealthyFood"))
-        {
-            healthyFoodContent.SetActive(true);
-            junkFoodContent.SetActive(false);
-        }
-        else
-        {
-            healthyFoodContent.SetActive(false);
-            junkFoodContent.SetActive(true);
-        }
+        
     }
 
     public void selectedFood(Sprite image, string title, string category, string description)
     {
-        imageSelectedFood.sprite = image;
-        textTitleSelectedFood.text = title;
+        foodUIImage.sprite = image;
+        foodUITexts.text = title;
         textCategorySelectedFood.text = category;
         textDescSelectedFood.text = description;
     }
@@ -76,6 +73,6 @@ public class FoodInfoScript : MonoBehaviour
             }
             foodIndex += 1;
         }
-    }
+    }*/
 
 }

@@ -207,7 +207,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 909122774}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -981,7 +981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollViewContent: {fileID: 0}
-  preFabButton: {fileID: 0}
+  preFabButton: []
   healthyFoods:
   - {fileID: 21300000, guid: 59e4a4d77fe65224fa001c4bbfd1ce6d, type: 3}
   - {fileID: 21300000, guid: dd36267bca3ddc94abe3daf7dfa555dd, type: 3}
@@ -2419,7 +2419,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 385671333}
   m_HandleRect: {fileID: 385671332}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

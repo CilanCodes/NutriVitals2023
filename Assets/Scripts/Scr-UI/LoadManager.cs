@@ -5,10 +5,10 @@ public class LoadManager : MonoBehaviour
 {
 
     [SerializeField] 
-    private Transform scrollViewContent;
+    private Transform content;
 
     [SerializeField] 
-    private GameObject[] preFabButton;
+    private GameObject[] foodAdapter;
 
     [SerializeField]
     private List<Sprite> healthyFoods;
@@ -29,4 +29,40 @@ public class LoadManager : MonoBehaviour
         }**/
 
     }
+
+    private void LoadFoods()
+    {
+
+        bool isHealthy = true;
+
+        content.ClearChildren();
+
+        if (isHealthy)
+        {
+
+            for (int j = 0; j < 3; j++)
+            {
+
+
+
+            }
+
+
+        }/*
+
+        for (int i = 0; i < 10; i++)
+        {
+
+            GameObject newItem = Instantiate(foodAdapter, Rooms);
+            if (newItem.TryGetComponent(out FoodAdapter item))
+            {
+
+
+
+            }
+        
+        }*/
+
+    }
+
 }
