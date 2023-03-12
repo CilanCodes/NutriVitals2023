@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -10,10 +11,16 @@ public class IntroManager : MonoBehaviour
     private GameObject[] UIButtons;
 
     [SerializeField]
+    private TextMeshProUGUI storyUIText;
+
+    [SerializeField]
     private TMP_InputField userNameUIInputField;
 
     [SerializeField]
     private ToggleGroup characterUIPanel;
+
+    [SerializeField]
+    private float typingSpeed = 0.04f;
 
     private int decisionState;
     private string username;
@@ -29,14 +36,6 @@ public class IntroManager : MonoBehaviour
     void Update()
     {
 
-        if (SimpleInput.GetButtonDown("OnCharacterPick"))
-
-            OnCharacterPick();
-
-        if (SimpleInput.GetButtonDown("OnSkip"))
-
-            GameManager.OnLoadScene(2);
-
         FindObjectOfType<GameManager>()
             .Animator
             .SetInteger("decisionState", decisionState);
@@ -46,6 +45,14 @@ public class IntroManager : MonoBehaviour
             .Trim();
 
         UIButtons[0].SetActive(username.Length > 3);
+
+        if (SimpleInput.GetButtonDown("OnCharacterPick"))
+
+            OnCharacterPick();
+
+        if (SimpleInput.GetButtonDown("OnSkip"))
+
+            GameManager.OnLoadScene(2);
 
         if (SimpleInput.GetButtonDown("OnSubmit"))
         {
@@ -58,15 +65,15 @@ public class IntroManager : MonoBehaviour
             {
 
                 decisionState = 2;
-                GetUserName(username);
+                FindObjectOfType<User>().UserName = username.ToUpper();
 
             }
             else if (decisionState == 3)
             {
 
                 decisionState = 4;
-                FindObjectOfType<IntroManager>().OnSkip();
-                FindObjectOfType<StoryTextManager>().OnStartStory();
+                Skip();
+                StartStory();
 
             }
 
@@ -76,22 +83,19 @@ public class IntroManager : MonoBehaviour
         {
 
             if (decisionState == 1)
+            {
 
                 decisionState = 0;
+                userNameUIInputField.text = "";
+
+            }
+                
 
             else if (decisionState == 3)
 
                 decisionState = 2;
 
         }
-
-    }
-    private void GetUserName(string _username)
-    {
-
-        _username.ToUpper();
-        FindObjectOfType<User>().UserName = _username;
-        StoryTextManager.UserName = _username;
 
     }
 
@@ -126,13 +130,42 @@ public class IntroManager : MonoBehaviour
 
     }
 
+    private void StartStory()
+    {
+
+        string initialText = string.Format("HELLO {0},\nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH", username);
+
+        for (int i = 0; i < 5; i++)
+
+            StartCoroutine(GetText(
+                i == 0
+                ? initialText
+                : ENV.STORY_TEXT[i - 1]));
+
+        GameManager.OnLoadScene(2);
+
+    }
+
+    private IEnumerator GetText(string _text)
+    {
+
+        storyUIText.text = string.Empty;
+        foreach (char letter in _text.ToCharArray())
+        {
+
+            storyUIText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+
+        }
+        yield return new WaitForSeconds(6.5f);
+
+    }
+
     private bool IsSkipUIButtonVisible 
     {
 
         set => UIButtons[1].SetActive(value); 
 
     }
-
-    public void OnSkip() => Skip();
 
 }
