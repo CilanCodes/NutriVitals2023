@@ -30,6 +30,10 @@ public class IntroManager : MonoBehaviour
 
             OnCharacterPick();
 
+        if (SimpleInput.GetButtonDown("OnSkip"))
+
+            GameManager.OnLoadScene(2);
+
     }
 
     private void OnCharacterPick()

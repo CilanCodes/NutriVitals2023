@@ -28,8 +28,10 @@ public class GameManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnReturnHomeScreen"))
         {
+
             Time.timeScale = 1;
             SceneManager.LoadScene(2);
+
         }
 
         if (SimpleInput.GetButtonDown("OnPromptSettings"))
