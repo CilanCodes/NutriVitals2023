@@ -4,78 +4,115 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class FoodInfoScript : MonoBehaviour
 {
-    [SerializeField] private ToggleGroup navigationPanel;
-    [SerializeField] private GameObject healthyFoodContent;
-    [SerializeField] private GameObject junkFoodContent;
 
-    [SerializeField] private Image imageSelectedFood;
-    [SerializeField] private TextMeshProUGUI textTitleSelectedFood;
-    [SerializeField] private TextMeshProUGUI textCategorySelectedFood;
-    [SerializeField] private TextMeshProUGUI textDescSelectedFood;
+    [SerializeField] 
+    private ToggleGroup foodNavigationUIPanel;
 
-    [SerializeField] private List<Sprite> foodSprites;
-    [SerializeField] private List<string> foodButtons;
-    [SerializeField] private List<string> foodCategory;
-    [SerializeField] private List<string> foodDescriptions;
+    [SerializeField] 
+    private Image foodUIImage;
 
+    [SerializeField] 
+    private TextMeshProUGUI[] foodUITexts;
 
-    private void Update()
+    private string[,,] FOODS;
+
+    [SerializeField]
+    private List<Sprite> healthyFoods;
+
+    [SerializeField]
+    private List<Sprite> junkFoods;
+
+    void Start()
     {
-        switchContent();
-        loopButton();
+
+        FOODS = ENV.FOODS;
+        LoadFoods();
 
     }
 
+    void Update()
+    {
+
+        if (SimpleInput.GetButtonUp("OnFoodNavigation"))
+
+            LoadFoods();
+
+    }
+
+    private void Food(Sprite _foodImage, string[] _foodTexts)
+    {
+
+        foodUIImage.sprite = _foodImage;
+        foodUITexts[0].text = _foodTexts[0];
+        foodUITexts[2].text = _foodTexts[1];
+        foodUITexts[1].text = _foodTexts[2];
+
+    }
+
+    public void OnFood(Sprite _foodImage, string[] _foodTexts) => Food(_foodImage, _foodTexts);
 
     private string GetNavigation(ToggleGroup _toggleGroup)
     {
 
         Toggle navigation = _toggleGroup.ActiveToggles().FirstOrDefault();
         return navigation.name.ToString();
-
+        
     }
 
-    private void switchContent()
+    private void LoadFoods()
     {
-        string navigation = GetNavigation(navigationPanel);
-        if (navigation.Equals("TabHealthyFood"))
-        {
-            healthyFoodContent.SetActive(true);
-            junkFoodContent.SetActive(false);
-        }
-        else
-        {
-            healthyFoodContent.SetActive(false);
-            junkFoodContent.SetActive(true);
-        }
-    }
 
-    public void selectedFood(Sprite image, string title, string category, string description)
-    {
-        imageSelectedFood.sprite = image;
-        textTitleSelectedFood.text = title;
-        textCategorySelectedFood.text = category;
-        textDescSelectedFood.text = description;
-    }
+        List<FoodModel> foods = new();
+        string foodNavigation = GetNavigation(foodNavigationUIPanel);
+        bool isHealthy = foodNavigation.Equals("TabHealthyFood");
+        int foodCategory = 
+            isHealthy 
+            ? 0 
+            : 3;
 
-    private void loopButton()
-    {
-        int foodIndex = 0;
-        foreach (string foodButton in foodButtons)
+        int counter = 0;
+        for (int category = foodCategory; category < foodCategory + 3; category++)
         {
-            if (SimpleInput.GetButtonDown(foodButton))
+
+            for (int food = 0; food < 3; food++)
             {
-                Debug.Log(foodButton);
-                Debug.Log(foodIndex);
 
-                selectedFood(foodSprites[foodIndex], foodButtons[foodIndex], foodCategory[foodIndex], foodDescriptions[foodIndex]);
+                FoodModel foodModel = new();
+                foodModel.Image = isHealthy 
+                    ? healthyFoods[++counter] 
+                    : junkFoods[++counter];
+                foodModel.Text[0] = FOODS[category, 0, food];
+                foodModel.Text[1] = GetFoodCategory(category);
+                foodModel.Text[2] = FOODS[category, 1, food];
+                foods.Add(foodModel);
 
             }
-            foodIndex += 1;
+
         }
+
+        FindObjectOfType<LoadManager>().OnLoadFoods(foods, isHealthy);
+
     }
+
+    private string GetFoodCategory(int category) => category switch
+    {
+
+        1 => "Grow Food",
+
+        2 => "Glow Food",
+
+        3 => "Sugary Food",
+
+        4 => "Fatty Food",
+
+        5 => "Processed Food",
+
+        _ => "Go Food",
+
+    };
+
+    private void OnLoadFoods() => LoadFoods();
 
 }

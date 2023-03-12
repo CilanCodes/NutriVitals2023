@@ -94,8 +94,6 @@ public class IntroManager : MonoBehaviour
                 userNameUIInputField.text = "";
 
             }
-                
-
             else if (decisionState == 3)
 
                 decisionState = 2;
@@ -163,8 +161,12 @@ public class IntroManager : MonoBehaviour
             StartCoroutine(GetText(ENV.STORY_TEXT[textState - 1]));
 
         else
-            
+        {
+
+            FindObjectOfType<User>().OnSave();
             GameManager.OnLoadScene(2);
+
+        }
 
     }
 
