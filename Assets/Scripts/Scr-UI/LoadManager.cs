@@ -1,12 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DynamicScrollView : MonoBehaviour
+public class LoadManager : MonoBehaviour
 {
-    [SerializeField] private Transform scrollViewContent;
-    [SerializeField] private GameObject preFabButton;
-    [SerializeField] private List<Sprite> healthyFoods;
-    [SerializeField] private List<Sprite> junkFoods;
+
+    [SerializeField] 
+    private Transform scrollViewContent;
+
+    [SerializeField] 
+    private GameObject[] preFabButton;
+
+    [SerializeField]
+    private List<Sprite> healthyFoods;
+
+    [SerializeField]
+    private List<Sprite> junkFoods;
 
     private void Start()
     {

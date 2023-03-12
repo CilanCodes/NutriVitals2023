@@ -161,8 +161,12 @@ public class IntroManager : MonoBehaviour
             StartCoroutine(GetText(ENV.STORY_TEXT[textState - 1]));
 
         else
-            
+        {
+
+            FindObjectOfType<User>().OnSave();
             GameManager.OnLoadScene(2);
+
+        }
 
     }
 
