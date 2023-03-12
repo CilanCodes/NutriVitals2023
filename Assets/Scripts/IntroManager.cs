@@ -23,6 +23,7 @@ public class IntroManager : MonoBehaviour
     private float typingSpeed = 0.04f;
 
     private int decisionState;
+    private int textState;
     private string username;
 
     void Start()
@@ -138,19 +139,15 @@ public class IntroManager : MonoBehaviour
     {
 
         string initialText = string.Format("HELLO {0},\nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH", username);
-
-        for (int i = 0; i < 5; i++)
-
-            StartCoroutine(GetText(
-                i == 0
-                ? initialText
-                : ENV.STORY_TEXT[i - 1]));
+        textState = 0;
+        StartCoroutine(GetText(initialText));
 
     }
 
     private IEnumerator GetText(string _text)
     {
 
+        textState++;
         storyUIText.text = string.Empty;
         foreach (char letter in _text.ToCharArray())
         {
@@ -161,7 +158,13 @@ public class IntroManager : MonoBehaviour
         }
         yield return new WaitForSeconds(6.5f);
 
-        GameManager.OnLoadScene(2);
+        if (textState < 5)
+            
+            StartCoroutine(GetText(ENV.STORY_TEXT[textState - 1]));
+
+        else
+            
+            GameManager.OnLoadScene(2);
 
     }
 
