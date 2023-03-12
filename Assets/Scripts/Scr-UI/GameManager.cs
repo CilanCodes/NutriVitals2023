@@ -26,11 +26,25 @@ public class GameManager : MonoBehaviour
 
             LoadScene(2);
 
-        if (SimpleInput.GetButtonDown("OnReturnHomeScreen"))
+        if (SimpleInput.GetButtonDown("OnReturn"))
         {
 
             Time.timeScale = 1;
             SceneManager.LoadScene(2);
+
+        }
+
+        if (SimpleInput.GetButtonDown("OnClose1"))
+        {
+
+            FindObjectOfType<GameManager>().OnTrigger("close");
+
+            if (SceneManager.GetActiveScene().buildIndex != 4)
+            {
+                Time.timeScale = 1;
+                HUDManager.swipeEnabled = true;
+
+            }
 
         }
 

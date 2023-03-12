@@ -94,8 +94,6 @@ public class IntroManager : MonoBehaviour
                 userNameUIInputField.text = "";
 
             }
-                
-
             else if (decisionState == 3)
 
                 decisionState = 2;

@@ -1840,7 +1840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnPromptDisable
+    m_key: OnClose1
     value: 0
 --- !u!1 &684921486
 GameObject:
@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnPromptDisable
+    m_key: OnClose1
     value: 0
 --- !u!1 &758745624
 GameObject:
@@ -2612,7 +2612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnPromptDisable
+    m_key: OnClose1
     value: 0
 --- !u!1 &1101497083
 GameObject:
