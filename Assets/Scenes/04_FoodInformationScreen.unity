@@ -778,7 +778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnReturnHomeScreen
+    m_key: OnReturn
     value: 0
 --- !u!1001 &134753798
 PrefabInstance:
@@ -2139,12 +2139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb77750c59f328647af706d29c84178f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  healthyScrollView: {fileID: 0}
-  junkScrollView: {fileID: 0}
-  points: {fileID: 0}
-  aboutScrollView: {fileID: 0}
-  leaderboardScrollView: {fileID: 0}
 --- !u!4 &873146416
 Transform:
   m_ObjectHideFlags: 0

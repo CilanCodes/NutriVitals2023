@@ -61,6 +61,8 @@ public class ENV : MonoBehaviour
 
         };
 
+        MAX_ENTRIES = 10;
+
     }
 
     public static List<int> LEADERBOARDS { get; private set; }
@@ -68,5 +70,7 @@ public class ENV : MonoBehaviour
     public static string[] STORY_TEXT { get; private set; }
 
     public static string[] ADVICE_TEXT { get; private set; }
+
+    public static int MAX_ENTRIES { get; private set; }
 
 }

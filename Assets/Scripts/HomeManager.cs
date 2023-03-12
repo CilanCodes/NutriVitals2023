@@ -11,6 +11,21 @@ public class HomeManager : MonoBehaviour
     [SerializeField] 
     private ScrollRect leaderboardUIScrollRect;
 
+    void Start()
+    {
+
+        UserModel userModel = Database.LocalLoadUser();
+
+        if (userModel == null)
+
+            FindObjectOfType<User>().OnNewUser();
+
+        else
+
+            FindObjectOfType<User>().OnLoad();
+
+    }
+
     void Update()
     {
 
