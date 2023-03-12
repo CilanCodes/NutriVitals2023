@@ -66,7 +66,7 @@ public class StoryTextManager : MonoBehaviour
         }
         yield return new WaitForSeconds(6.5f);
 
-        FindObjectOfType<GameManager>().OnLoadScene(2);
+        GameManager.OnLoadScene(2);
 
     }
     

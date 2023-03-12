@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        PlayerPrefs.SetInt("index", 2);
         CoachAdviceRandomizer();
 
     }
@@ -69,10 +68,8 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(3);
 
         if (SimpleInput.GetButtonDown("OnHomeScreen"))
-        {
-            Time.timeScale = 1;
-            SceneManager.LoadScene(0);
-        }
+
+            LoadScene(2);
 
         if (SimpleInput.GetButtonDown("OnReturnHomeScreen"))
         {
@@ -133,7 +130,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void LoadScene(int _index)
+    private static void LoadScene(int _index)
     {
 
         PlayerPrefs.SetInt("index", _index);
@@ -147,7 +144,7 @@ public class GameManager : MonoBehaviour
         coachAdvice.text = randomAdvice;
     }
 
-    public void OnLoadScene(int _index) => LoadScene(_index);
+    public static void OnLoadScene(int _index) => LoadScene(_index);
 
     /*
      * Upon calling this method it must return a string value of current active toggle belong to the toggle group.
