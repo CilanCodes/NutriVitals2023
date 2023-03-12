@@ -207,7 +207,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 909122774}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -960,9 +960,8 @@ GameObject:
   m_Component:
   - component: {fileID: 636947636}
   - component: {fileID: 636947635}
-  - component: {fileID: 636947637}
   m_Layer: 0
-  m_Name: ScrollManager
+  m_Name: LoadManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -980,22 +979,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98513e3be2214534eb764b220954b361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollViewContent: {fileID: 0}
-  preFabButton: []
-  healthyFoods:
-  - {fileID: 21300000, guid: 59e4a4d77fe65224fa001c4bbfd1ce6d, type: 3}
-  - {fileID: 21300000, guid: dd36267bca3ddc94abe3daf7dfa555dd, type: 3}
-  - {fileID: 21300000, guid: cff7cd769ea24f644bb3b6f23155ecf3, type: 3}
-  - {fileID: 21300000, guid: 88143edf19359ac449be555e60687c8f, type: 3}
-  - {fileID: 21300000, guid: 8b4207aa7223c0b4c8b631ff7b106e3c, type: 3}
-  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
-  junkFoods:
-  - {fileID: 21300000, guid: d67faed78f943b84ca2119be556299e4, type: 3}
-  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
-  - {fileID: 21300000, guid: d67faed78f943b84ca2119be556299e4, type: 3}
-  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
-  - {fileID: 21300000, guid: d67faed78f943b84ca2119be556299e4, type: 3}
-  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  content: {fileID: 1731868699}
+  itemAdapter:
+  - {fileID: 8720112837551615232, guid: 6f68cefcabd10914bbd73c91fc4ce4e8, type: 3}
+  - {fileID: 4934484539311063774, guid: 8fd3726ecfc284b449e6967e2922fde3, type: 3}
 --- !u!4 &636947636
 Transform:
   m_ObjectHideFlags: 0
@@ -1009,47 +996,78 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &636947637
+--- !u!1 &676476863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 676476865}
+  - component: {fileID: 676476864}
+  m_Layer: 0
+  m_Name: FoodInformationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &676476864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 636947634}
+  m_GameObject: {fileID: 676476863}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdb2550f645e7d840aafd7d9f68b1501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navigationPanel: {fileID: 2008833718}
-  healthyFoodContent: {fileID: 839976405}
-  junkFoodContent: {fileID: 0}
-  imageSelectedFood: {fileID: 1437927570}
-  textTitleSelectedFood: {fileID: 73868237}
-  textCategorySelectedFood: {fileID: 1637620830}
-  textDescSelectedFood: {fileID: 1084106502}
-  foodSprites:
-  - {fileID: 21300000, guid: 59e4a4d77fe65224fa001c4bbfd1ce6d, type: 3}
-  - {fileID: 21300000, guid: 8b4207aa7223c0b4c8b631ff7b106e3c, type: 3}
+  foodNavigationUIPanel: {fileID: 2008833718}
+  foodUIImage: {fileID: 1437927570}
+  foodUITexts:
+  - {fileID: 73868237}
+  - {fileID: 1637620830}
+  - {fileID: 1084106502}
+  healthyFoods:
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  junkFoods:
   - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
-  - {fileID: 21300000, guid: d67faed78f943b84ca2119be556299e4, type: 3}
-  foodButtons:
-  - Potato
-  - Mango
-  - Softdrink
-  - Cake
-  foodCategory:
-  - Go
-  - Glow
-  - Junk
-  - Junk
-  foodDescriptions:
-  - This is Potato
-  - This is Mango
-  - This is Softdrink
-  - This is Cake
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+--- !u!4 &676476865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676476863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -184.66672, y: 424.25168, z: -14.034681}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &805586990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,8 +1707,8 @@ RectTransform:
   - {fileID: 1502455401}
   - {fileID: 1703371566}
   - {fileID: 280564802}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1661273723}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1950,7 +1968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnActiveJunkScrollView
+    m_key: OnFoodNavigation
     value: 0
 --- !u!1 &1400830980
 GameObject:
@@ -2419,7 +2437,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 385671333}
   m_HandleRect: {fileID: 385671332}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2754,9 +2772,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1101992956}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703371565
 GameObject:
@@ -3323,5 +3342,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnActiveHealthyScrollView
+    m_key: OnFoodNavigation
     value: 0

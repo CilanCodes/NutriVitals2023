@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LoadingScript : MonoBehaviour
 {
 
-    [SerializeField] 
+    [SerializeField]
     private Image loadingFillHUD;
 
     void Start()

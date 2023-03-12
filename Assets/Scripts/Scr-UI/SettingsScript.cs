@@ -4,13 +4,13 @@ using UnityEngine.UI;
 public class SettingsScript : MonoBehaviour
 {
 
-    [SerializeField] 
+    [SerializeField]
     private Button AudioUIButton;
 
-    [SerializeField] 
+    [SerializeField]
     private Button SoundsUIButton;
 
-    [SerializeField] 
+    [SerializeField]
     private Sprite[] resources;
 
     private void Update()

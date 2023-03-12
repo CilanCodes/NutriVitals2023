@@ -157,7 +157,7 @@ public class IntroManager : MonoBehaviour
         yield return new WaitForSeconds(6.5f);
 
         if (textState < 5)
-            
+
             StartCoroutine(GetText(ENV.STORY_TEXT[textState - 1]));
 
         else
@@ -170,10 +170,10 @@ public class IntroManager : MonoBehaviour
 
     }
 
-    private bool IsSkipUIButtonVisible 
+    private bool IsSkipUIButtonVisible
     {
 
-        set => UIButtons[1].SetActive(value); 
+        set => UIButtons[1].SetActive(value);
 
     }
 

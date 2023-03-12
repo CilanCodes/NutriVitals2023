@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if (animator == null)
+        if (animator == null 
+            && SceneManager.GetActiveScene().buildIndex != 3)
 
             animator = FindObjectOfType<AnimatorController>().Animator;
 

@@ -9,8 +9,8 @@ public class FoodAdapter : MonoBehaviour
 
     private string[] foodTexts;
 
-    /*private void Click() => FindObjectOfType<FoodInfoScript>().OnFood(FoodImage, FoodTexts);
-*/
+    private void Click() => FindObjectOfType<FoodInfoScript>().OnFood(FoodImage, FoodTexts);
+
     public Sprite FoodImage
     {
 
@@ -27,6 +27,6 @@ public class FoodAdapter : MonoBehaviour
 
     }
 
-    /*public void OnClick() => Click();*/
+    public void OnClick() => Click();
 
 }

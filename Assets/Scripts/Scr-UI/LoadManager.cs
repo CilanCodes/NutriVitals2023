@@ -4,65 +4,37 @@ using UnityEngine;
 public class LoadManager : MonoBehaviour
 {
 
-    [SerializeField] 
+    [SerializeField]
     private Transform content;
 
-    [SerializeField] 
-    private GameObject[] foodAdapter;
-
     [SerializeField]
-    private List<Sprite> healthyFoods;
+    private GameObject[] itemAdapter;
 
-    [SerializeField]
-    private List<Sprite> junkFoods;
-
-    private void Start()
+    private void LoadFoods(List<FoodModel> _foods, bool _isHealthy)
     {
 
-        /**foreach (Sprite food in healthyFoods)
-        {
-            GameObject newFood = Instantiate(preFabButton, scrollViewContent);
-            if (newFood.TryGetComponent<ScrollViewItem>(out ScrollViewItem item))
-            {
-                item.ChangeImage(food);
-            }
-        }**/
-
-    }
-
-    private void LoadFoods()
-    {
-
-        bool isHealthy = true;
+        GameObject foodAdapter =
+            _isHealthy
+            ? itemAdapter[0]
+            : itemAdapter[1];
 
         content.ClearChildren();
-
-        if (isHealthy)
+        foreach (FoodModel food in _foods)
         {
 
-            for (int j = 0; j < 3; j++)
-            {
-
-
-
-            }
-
-
-        }/*
-
-        for (int i = 0; i < 10; i++)
-        {
-
-            GameObject newItem = Instantiate(foodAdapter, Rooms);
+            GameObject newItem = Instantiate(foodAdapter, content);
             if (newItem.TryGetComponent(out FoodAdapter item))
             {
 
-
+                item.FoodImage = food.Image;
+                item.FoodTexts = food.Text;
 
             }
-        
-        }*/
+
+        }
 
     }
+
+    public void OnLoadFoods(List<FoodModel> _foods, bool _isHealthy) => LoadFoods(_foods, _isHealthy);
 
 }
