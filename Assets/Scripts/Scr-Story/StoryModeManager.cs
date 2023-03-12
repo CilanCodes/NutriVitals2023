@@ -62,7 +62,7 @@ public class StoryModeManager : MonoBehaviour
             if (isUserNamePanelDone)
             {
                 FindObjectOfType<User>().UserName = userNameHolder;
-                StoryTextManager.userName = userNameHolder;
+                StoryTextManager.UserName = userNameHolder;
                 panelUserName.SetActive(false);
                 panelVerification.SetActive(false);
                 panelSelectCharacter.SetActive(true);
@@ -75,7 +75,7 @@ public class StoryModeManager : MonoBehaviour
                 panelStoryTime.SetActive(true);
                 isSelectCharacterPanelDone = false;
                 IsGameStoryBegin = true;
-                StoryTextManager.isStoryTextChangeStarts = true;
+                StoryTextManager.IsStoryTextChangeStarts = true;
             }
         }
 

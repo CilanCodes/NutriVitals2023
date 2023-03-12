@@ -25,6 +25,19 @@ public class ENV : MonoBehaviour
 
         };
 
+        STORY_TEXT = new string[]
+        {
+
+            "I WILL HELP YOU UNDERSTAND\nTHAT PROPER NUTRITION\nIS AS IMPORTANT AS PHYSICAL TRAINING",
+
+            "YOUR TRAINING GROUND\nWILL BE FILLED WITH\nHEALTHY FOODS AND TEMPTING JUNK FOODS",
+
+            "ALONG THE WAY,\nYOU MUST CHOOSE THE\nRIGHT FOODS  TO\nFUEL YOUR BODY AND\nIMPROVE YOUR PERFORMANCE",
+
+            "GOODLUCK MY DEAR TRAINEE\nI WILL BE HERE WITH YOU\nALONG THE WAY"
+
+        };
+
     }
 
     private void DontDestroy()
@@ -41,5 +54,7 @@ public class ENV : MonoBehaviour
     }
 
     public static List<int> LEADERBOARDS { get; private set; }
+
+    public static string[] STORY_TEXT { get; private set; }
 
 }
