@@ -32,7 +32,32 @@ public class ENV : MonoBehaviour
 
             "ALONG THE WAY,\nYOU MUST CHOOSE THE\nRIGHT FOODS  TO\nFUEL YOUR BODY AND\nIMPROVE YOUR PERFORMANCE",
 
-            "GOODLUCK MY DEAR TRAINEE\nI WILL BE HERE WITH YOU\nALONG THE WAY"
+            "GOODLUCK MY DEAR TRAINEE\nI WILL BE HERE WITH YOU\nALONG THE WAY",
+
+        };
+
+        ADVICE_TEXT = new string[]
+        {
+                
+            "Measure and Watch Your Weight",
+
+            "Limit Unhealthy Foods and Eat Healthy Meals",
+
+            "Take Multivitamin Supplements",
+
+            "Drink Water and Stay Hydrated, and Limit Sugared Beverages",
+
+            "Exercise Regularly and Be Physically Active",
+
+            "Reduce Sitting and Screen Time",
+
+            "Get Enough Good Sleep",
+
+            "Go Easy on Alcohol and Stay Sober",
+
+            "Find Ways to Manage Your Emotions",
+
+            "Use an App to Keep Track of Your Movement, Sleep, and Heart Rate",
 
         };
 
@@ -41,5 +66,7 @@ public class ENV : MonoBehaviour
     public static List<int> LEADERBOARDS { get; private set; }
 
     public static string[] STORY_TEXT { get; private set; }
+
+    public static string[] ADVICE_TEXT { get; private set; }
 
 }

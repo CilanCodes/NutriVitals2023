@@ -16,6 +16,7 @@ public class LoadLeaderboardManager : MonoBehaviour
 
     public GameObject leaderboardEntryPrefab;
     public Transform content;
+
     private List<LeaderboardEntry> leaderboardEntries = new List<LeaderboardEntry>();
 
     private int maxEntries = 10;

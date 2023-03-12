@@ -34,10 +34,6 @@ public class GameManager : MonoBehaviour
 
         }
 
-        if (SimpleInput.GetButtonDown("OnPromptSettings"))
-
-            OnTrigger("ActiveSettings");
-
     }
 
     private static void LoadScene(int _index)
