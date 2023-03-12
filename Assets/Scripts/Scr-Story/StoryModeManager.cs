@@ -42,7 +42,6 @@ public class StoryModeManager : MonoBehaviour
         #region FOR STORY SCREEN
         if (SimpleInput.GetButtonDown("OnSubmitName"))
         {
-            panelUserName.SetActive(false);
             panelVerification.SetActive(true);
             isUserNamePanelDone = true;
 
@@ -52,7 +51,7 @@ public class StoryModeManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnSelectCharacter"))
         {
-            panelSelectCharacter.SetActive(false);
+            
             panelVerification.SetActive(true);
             isSelectCharacterPanelDone = true;
 
@@ -64,12 +63,14 @@ public class StoryModeManager : MonoBehaviour
             {
                 FindObjectOfType<User>().UserName = userNameHolder;
                 StoryTextManager.userName = userNameHolder;
+                panelUserName.SetActive(false);
                 panelVerification.SetActive(false);
                 panelSelectCharacter.SetActive(true);
                 isUserNamePanelDone = false;
             }
             if (isSelectCharacterPanelDone)
             {
+                panelSelectCharacter.SetActive(false);
                 panelVerification.SetActive(false);
                 panelStoryTime.SetActive(true);
                 isSelectCharacterPanelDone = false;

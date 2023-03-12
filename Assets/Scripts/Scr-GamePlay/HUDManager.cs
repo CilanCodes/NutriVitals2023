@@ -41,7 +41,7 @@ public class HUDManager : MonoBehaviour
 
         //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
 
-        gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+        gameManager.Animator.SetTrigger("InActivateOverlayStatus");
 
         FoodManager.isReplayAgain = true;
         isScoreAdded = false;
@@ -138,11 +138,11 @@ public class HUDManager : MonoBehaviour
         {
             if (PowerUpManager.powerupStatus == "POWER UP")
             {
-                gameManager.GetAnimator.SetTrigger("ActiveOverlayStatus");
+                gameManager.Animator.SetTrigger("ActiveOverlayStatus");
             }
             else
             {
-                gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+                gameManager.Animator.SetTrigger("InActivateOverlayStatus");
 
             }
 
@@ -268,7 +268,7 @@ public class HUDManager : MonoBehaviour
     //SMOOTH HEALTH BAR
     private void DecreaseHealthBar()
     {
-        gameManager.GetAnimator.SetTrigger("ActiveOverlayStatus");
+        gameManager.Animator.SetTrigger("ActiveOverlayStatus");
 
         timeSinceLastDecrease += Time.deltaTime;
 
@@ -316,7 +316,7 @@ public class HUDManager : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0;
-        gameManager.GetAnimator.SetTrigger("ActiveGameOver");
+        gameManager.Animator.SetTrigger("ActiveGameOver");
         swipeEnabled = false;
 
         if (isScoreAdded)
