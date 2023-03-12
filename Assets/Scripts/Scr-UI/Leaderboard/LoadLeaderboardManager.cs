@@ -10,7 +10,7 @@ public class LeaderboardEntry
     public int score;
 }
 
-public class LeaderboardManager : MonoBehaviour
+public class LoadLeaderboardManager : MonoBehaviour
 {
 
 
