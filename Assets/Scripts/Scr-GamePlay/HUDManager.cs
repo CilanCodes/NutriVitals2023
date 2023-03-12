@@ -14,7 +14,8 @@ public class HUDManager : MonoBehaviour
     public static int glowPoints;
     public static bool swipeEnabled;
     public static bool isScoreAdded;
-    public static string energyStatus;
+
+    
 
     [SerializeField] private Image energyBarFill;
     [SerializeField] public Image healthBarFill;
@@ -30,18 +31,16 @@ public class HUDManager : MonoBehaviour
     [SerializeField] private float decreaseSpeed = 2f;
     [SerializeField] private const float decreaseInterval = 4f;
 
-    private GameManager gameManager;
 
     private void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         ResetAllPoints();
         StartCoroutine(EnableSwipeAfterDelay());
 
         //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
 
-        gameManager.Animator.SetTrigger("InActivateOverlayStatus");
+        FindObjectOfType<GameManager>().OnTrigger("InActivateOverlayStatus");
 
         FoodManager.isReplayAgain = true;
         isScoreAdded = false;
@@ -64,19 +63,19 @@ public class HUDManager : MonoBehaviour
         gameOverTextPoints.text = scorePoints.ToString();
 
 
-        if (PowerUpManager.typeOfPowerUp == "GO")
+        if (PowerUpManager.powerUpStatus == "GO")
         {
             goTextPoints.text = "5";
             growTextPoints.text = growPoints.ToString();
             glowTextPoints.text = glowPoints.ToString();
         }
-        else if (PowerUpManager.typeOfPowerUp == "GROW")
+        else if (PowerUpManager.powerUpStatus == "GROW")
         {
             goTextPoints.text = goPoints.ToString(); ;
             growTextPoints.text = "5";
             glowTextPoints.text = glowPoints.ToString();
         }
-        else if (PowerUpManager.typeOfPowerUp == "GLOW")
+        else if (PowerUpManager.powerUpStatus == "GLOW")
         {
             goTextPoints.text = goPoints.ToString();
             growTextPoints.text = growPoints.ToString();
@@ -136,13 +135,13 @@ public class HUDManager : MonoBehaviour
         #region HEALTHY / WARNING LEVELS
         else
         {
-            if (PowerUpManager.powerupStatus == "POWER UP")
+            if (PowerUpManager.PowerUpState == "POWER UP")
             {
-                gameManager.Animator.SetTrigger("ActiveOverlayStatus");
+                FindObjectOfType<GameManager>().OnTrigger("ActiveOverlayStatus");
             }
             else
             {
-                gameManager.Animator.SetTrigger("InActivateOverlayStatus");
+                FindObjectOfType<GameManager>().OnTrigger("InActivateOverlayStatus");
 
             }
 
@@ -268,7 +267,7 @@ public class HUDManager : MonoBehaviour
     //SMOOTH HEALTH BAR
     private void DecreaseHealthBar()
     {
-        gameManager.Animator.SetTrigger("ActiveOverlayStatus");
+        FindObjectOfType<GameManager>().OnTrigger("ActiveOverlayStatus");
 
         timeSinceLastDecrease += Time.deltaTime;
 
@@ -316,7 +315,7 @@ public class HUDManager : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0;
-        gameManager.Animator.SetTrigger("ActiveGameOver");
+        FindObjectOfType<GameManager>().OnTrigger("ActiveGameOver");
         swipeEnabled = false;
 
         if (isScoreAdded)
