@@ -68,6 +68,10 @@ public class IntroManager : MonoBehaviour
                 FindObjectOfType<User>().UserName = username.ToUpper();
 
             }
+            else if (decisionState == 2)
+
+                decisionState = 3;
+
             else if (decisionState == 3)
             {
 
@@ -142,8 +146,6 @@ public class IntroManager : MonoBehaviour
                 ? initialText
                 : ENV.STORY_TEXT[i - 1]));
 
-        GameManager.OnLoadScene(2);
-
     }
 
     private IEnumerator GetText(string _text)
@@ -158,6 +160,8 @@ public class IntroManager : MonoBehaviour
 
         }
         yield return new WaitForSeconds(6.5f);
+
+        GameManager.OnLoadScene(2);
 
     }
 
