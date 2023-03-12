@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,10 +6,25 @@ public class IntroManager : MonoBehaviour
 {
 
     [SerializeField]
+    private GameObject skipUIButton;
+
+    [SerializeField]
     private ToggleGroup characterUIPanel;
+
+    void Start()
+    {
+
+        IsSkipUIButtonVisible = false;
+
+    }
 
     void Update()
     {
+
+        if (StoryModeManager.IsGameStoryBegin
+            && !IsSkipUIButtonVisible)
+
+            Skip();
 
         if (SimpleInput.GetButtonDown("OnCharacterPick"))
 
@@ -38,5 +54,21 @@ public class IntroManager : MonoBehaviour
         _ => 0,
 
     };
+
+    private async void Skip()
+    {
+
+        await Task.Delay(5000);
+        IsSkipUIButtonVisible = true;
+
+    }
+
+    private bool IsSkipUIButtonVisible 
+    {
+
+        get => skipUIButton.activeSelf;
+        set => skipUIButton.SetActive(value); 
+
+    }
 
 }

@@ -16,7 +16,7 @@ public class StoryModeManager : MonoBehaviour
 
     private bool isUserNamePanelDone;
     private bool isSelectCharacterPanelDone;
-    private bool isGameStoryBegin;
+    public static bool IsGameStoryBegin { get; private set; }
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class StoryModeManager : MonoBehaviour
         panelStoryTime.SetActive(false);
         panelVerification.SetActive(false);
 
-        isGameStoryBegin = false;
+        IsGameStoryBegin = false;
     }
 
     void Update()
@@ -33,10 +33,10 @@ public class StoryModeManager : MonoBehaviour
 
         submitButton.SetActive(inputUserName.text.Length > 3);
 
-        if (isGameStoryBegin)
+        if (IsGameStoryBegin)
         {
             StartCoroutine(StartGameStory());
-            isGameStoryBegin = false;
+            IsGameStoryBegin = false;
         }
 
         #region FOR STORY SCREEN
@@ -73,7 +73,7 @@ public class StoryModeManager : MonoBehaviour
                 panelVerification.SetActive(false);
                 panelStoryTime.SetActive(true);
                 isSelectCharacterPanelDone = false;
-                isGameStoryBegin = true;
+                IsGameStoryBegin = true;
                 StoryTextManager.isStoryTextChangeStarts = true;
             }
         }
