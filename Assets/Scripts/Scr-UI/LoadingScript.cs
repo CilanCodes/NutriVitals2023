@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class LoadingScript : MonoBehaviour
 {
-    [SerializeField] private Image loadingFillHUD;
 
+    [SerializeField] 
+    private Image loadingFillHUD;
 
     void Start()
     {
@@ -51,4 +52,5 @@ public class LoadingScript : MonoBehaviour
         }
 
     }
+
 }

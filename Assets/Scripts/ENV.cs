@@ -7,8 +7,6 @@ public class ENV : MonoBehaviour
     void Awake()
     {
 
-        DontDestroy();
-
         LEADERBOARDS = new List<int> 
         {
 
@@ -25,21 +23,23 @@ public class ENV : MonoBehaviour
 
         };
 
-    }
+        STORY_TEXT = new string[]
+        {
 
-    private void DontDestroy()
-    {
+            "I WILL HELP YOU UNDERSTAND\nTHAT PROPER NUTRITION\nIS AS IMPORTANT AS PHYSICAL TRAINING",
 
-        if (FindObjectsOfType(GetType()).Length > 1)
+            "YOUR TRAINING GROUND\nWILL BE FILLED WITH\nHEALTHY FOODS AND TEMPTING JUNK FOODS",
 
-            Destroy(gameObject);
+            "ALONG THE WAY,\nYOU MUST CHOOSE THE\nRIGHT FOODS  TO\nFUEL YOUR BODY AND\nIMPROVE YOUR PERFORMANCE",
 
-        else
+            "GOODLUCK MY DEAR TRAINEE\nI WILL BE HERE WITH YOU\nALONG THE WAY"
 
-            DontDestroyOnLoad(gameObject);
+        };
 
     }
 
     public static List<int> LEADERBOARDS { get; private set; }
+
+    public static string[] STORY_TEXT { get; private set; }
 
 }
