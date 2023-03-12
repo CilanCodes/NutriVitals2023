@@ -53,26 +53,18 @@ public class FoodInfoScript : MonoBehaviour
 
     public void OnFood(Sprite _foodImage, string[] _foodTexts) => Food(_foodImage, _foodTexts);
 
-    private string GetNavigation(ToggleGroup _toggleGroup)
-    {
-
-        Toggle navigation = _toggleGroup.ActiveToggles().FirstOrDefault();
-        return navigation.name.ToString();
-
-    }
-
     private void LoadFoods()
     {
 
         List<FoodModel> foods = new();
-        string foodNavigation = GetNavigation(foodNavigationUIPanel);
+        string foodNavigation = FindObjectOfType<GameManager>().GetToggleName(foodNavigationUIPanel);
         bool isHealthy = foodNavigation.Equals("TabHealthyFood");
         int foodCategory =
             isHealthy
             ? 0
             : 3;
 
-        int counter = 0;
+        /*int counter = 0;
         for (int category = foodCategory; category < foodCategory + 3; category++)
         {
 
@@ -81,17 +73,45 @@ public class FoodInfoScript : MonoBehaviour
 
                 FoodModel foodModel = new();
                 foodModel.Image = isHealthy
-                    ? healthyFoods[++counter]
-                    : junkFoods[++counter];
+                    ? healthyFoods[counter++]
+                    : junkFoods[counter++];
                 foodModel.Text[0] = FOODS[category, 0, food];
                 foodModel.Text[1] = GetFoodCategory(category);
                 foodModel.Text[2] = FOODS[category, 1, food];
+                Debug.Log(foodModel);
                 foods.Add(foodModel);
+            }
 
+        }*/
+        int minSize = Mathf.Min(healthyFoods.Count, junkFoods.Count);
+        int counter = 0;
+        for (int category = foodCategory; category < foodCategory + 3; category++)
+        {
+
+            for (int food = 0; food < 3; food++)
+            {
+
+                FoodModel foodModel = new();
+                if (counter < minSize)
+                {
+
+                    foodModel.Image = isHealthy
+                    ? healthyFoods[counter]
+                    : junkFoods[counter];
+
+                }
+                
+                foodModel.Text[0] = FOODS[category, 0, food];
+                foodModel.Text[1] = GetFoodCategory(category);
+                foodModel.Text[2] = FOODS[category, 1, food];
+                Debug.Log(foodModel);
+                foods.Add(foodModel);
+                counter++;
             }
 
         }
 
+        Debug.Log(foods);
         FindObjectOfType<LoadManager>().OnLoadFoods(foods, isHealthy);
 
     }
