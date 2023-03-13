@@ -14,38 +14,51 @@ public class HUDManager : MonoBehaviour
     public static int glowPoints;
     public static bool swipeEnabled;
     public static bool isScoreAdded;
-    public static string energyStatus;
 
-    [SerializeField] private Image energyBarFill;
-    [SerializeField] public Image healthBarFill;
-    [SerializeField] private TextMeshProUGUI scoreTextPoints;
-    [SerializeField] private TextMeshProUGUI gameOverTextPoints;
-    [SerializeField] private TextMeshProUGUI goTextPoints;
-    [SerializeField] private TextMeshProUGUI growTextPoints;
-    [SerializeField] private TextMeshProUGUI glowTextPoints;
+    [SerializeField] 
+    private Image energyBarFill;
 
-    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] 
+    public Image healthBarFill;
+
+    [SerializeField] 
+    private TextMeshProUGUI scoreTextPoints;
+
+    [SerializeField] 
+    private TextMeshProUGUI gameOverTextPoints;
+
+    [SerializeField] 
+    private TextMeshProUGUI goTextPoints;
+
+    [SerializeField] 
+    private TextMeshProUGUI growTextPoints;
+
+    [SerializeField] 
+    private TextMeshProUGUI glowTextPoints;
+
+    [SerializeField] 
+    private GameObject gameOverPanel;
+
+    [SerializeField] 
+    private float decreaseSpeed = 2f;
+
+    [SerializeField] 
+    private const float decreaseInterval = 4f;
 
     private float timeSinceLastDecrease = 0f;
-    [SerializeField] private float decreaseSpeed = 2f;
-    [SerializeField] private const float decreaseInterval = 4f;
-
-    private GameManager gameManager;
 
     private void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         ResetAllPoints();
         StartCoroutine(EnableSwipeAfterDelay());
 
         //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
 
-        gameManager.Animator.SetTrigger("InActivateOverlayStatus");
+        FindObjectOfType<GameManager>().OnTrigger("InActivateOverlayStatus");
 
         FoodManager.isReplayAgain = true;
         isScoreAdded = false;
-
 
     }
 
@@ -54,6 +67,7 @@ public class HUDManager : MonoBehaviour
 
         //Prevent Update() from continuing even if the game is paused
         if (Time.timeScale == 0)
+
             return;
 
         #region UPDATE HUD ELEMENTS
@@ -64,19 +78,19 @@ public class HUDManager : MonoBehaviour
         gameOverTextPoints.text = scorePoints.ToString();
 
 
-        if (PowerUpManager.typeOfPowerUp == "GO")
+        if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GO)
         {
             goTextPoints.text = "5";
             growTextPoints.text = growPoints.ToString();
             glowTextPoints.text = glowPoints.ToString();
         }
-        else if (PowerUpManager.typeOfPowerUp == "GROW")
+        else if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GROW)
         {
             goTextPoints.text = goPoints.ToString(); ;
             growTextPoints.text = "5";
             glowTextPoints.text = glowPoints.ToString();
         }
-        else if (PowerUpManager.typeOfPowerUp == "GLOW")
+        else if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GLOW)
         {
             goTextPoints.text = goPoints.ToString();
             growTextPoints.text = growPoints.ToString();
@@ -114,7 +128,7 @@ public class HUDManager : MonoBehaviour
             //LOW ENERGY LEVEL
             if (0 <= energyBarFill.fillAmount && energyBarFill.fillAmount <= .17)
             {
-                energyStatus = "LOW DANGER";
+                StateManager.EnergyState = StateManager.ENERGY.LOW_DANGER;
                 PlayerController.swipeSensitivity = 150f;
                 PlayerController.forwardSpeed = 80;
                 CharacterAnimationController.animationRunSpeed = 0.4f;
@@ -123,7 +137,7 @@ public class HUDManager : MonoBehaviour
             //HIGH ENERGY LEVEL
             if (.835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1)
             {
-                energyStatus = "HIGH DANGER";
+                StateManager.EnergyState = StateManager.ENERGY.HIGH_DANGER;
                 PlayerController.swipeSensitivity = 0.5f;
                 PlayerController.forwardSpeed = 300;
                 CharacterAnimationController.animationRunSpeed = 2f;
@@ -136,13 +150,13 @@ public class HUDManager : MonoBehaviour
         #region HEALTHY / WARNING LEVELS
         else
         {
-            if (PowerUpManager.powerupStatus == "POWER UP")
+            if (StateManager.PowerUpState == StateManager.POWER_UP.POWER_UP)
             {
-                gameManager.Animator.SetTrigger("ActiveOverlayStatus");
+                FindObjectOfType<GameManager>().OnTrigger("ActiveOverlayStatus");
             }
             else
             {
-                gameManager.Animator.SetTrigger("InActivateOverlayStatus");
+                FindObjectOfType<GameManager>().OnTrigger("InActivateOverlayStatus");
 
             }
 
@@ -152,14 +166,14 @@ public class HUDManager : MonoBehaviour
                 //LOW LEVEL WARNING
                 if (0.17 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.37)
                 {
-                    energyStatus = "LOW WARNING";
+                    StateManager.EnergyState = StateManager.ENERGY.LOW_WARNING;
                     PlayerController.forwardSpeed = 130;
                     CharacterAnimationController.animationRunSpeed = 0.7f;
                 }
                 //HIGH LEVEL WARNING
                 if (0.635 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.835)
                 {
-                    energyStatus = "HIGH WARNING";
+                    StateManager.EnergyState = StateManager.ENERGY.HIGH_WARNING;
                     PlayerController.forwardSpeed = 170;
                     CharacterAnimationController.animationRunSpeed = 1.5f;
                 }
@@ -170,7 +184,7 @@ public class HUDManager : MonoBehaviour
             //HEALTHY / GREEN ENERGY LEVEL
             if (0.37 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.635)
             {
-                energyStatus = "BALANCED";
+                StateManager.EnergyState = StateManager.ENERGY.BALANCED;
                 PlayerController.forwardSpeed = 150;
                 CharacterAnimationController.animationRunSpeed = 1;
             }
@@ -268,7 +282,7 @@ public class HUDManager : MonoBehaviour
     //SMOOTH HEALTH BAR
     private void DecreaseHealthBar()
     {
-        gameManager.Animator.SetTrigger("ActiveOverlayStatus");
+        FindObjectOfType<GameManager>().OnTrigger("ActiveOverlayStatus");
 
         timeSinceLastDecrease += Time.deltaTime;
 
@@ -316,7 +330,7 @@ public class HUDManager : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0;
-        gameManager.Animator.SetTrigger("ActiveGameOver");
+        FindObjectOfType<GameManager>().OnTrigger("ActiveGameOver");
         swipeEnabled = false;
 
         if (isScoreAdded)

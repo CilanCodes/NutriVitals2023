@@ -5,36 +5,38 @@ using UnityEngine.UI;
 public class PowerUpManager : MonoBehaviour
 {
 
-    public static string powerupStatus; //NONE, POWER UP
-    public static string typeOfPowerUp; //GO, GROW, GLOW
+    [SerializeField] 
+    private GameObject powerUpRaysImage;
+
+    [SerializeField]
+    private GameObject powerUpOverlayStatus;
+
+    [SerializeField]
+    private Sprite powerupSprite;
+
+    [SerializeField]
+    private Sprite dangerSprite;
+
+    private CharacterAnimationController characterAnimationController;
+    private Image overlayStatusImage;
+
     public static bool isNotAnimated;
     public static bool isPowerUpSFXNotPlayed;
 
-    [SerializeField] public GameObject powerUpRaysImage;
-    [SerializeField] public GameObject powerUpOverlayStatus;
-    [SerializeField] public Sprite powerupSprite;
-    [SerializeField] public Sprite dangerSprite;
-
-    private CharacterAnimationController characterAnimationController; //animation class holder
-    private Image overlayStatusImage;
-
-
-
-    private void Start()
+    void Start()
     {
-        characterAnimationController = FindObjectOfType<CharacterAnimationController>(); //reference it
-        typeOfPowerUp = "NONE";
-        powerupStatus = "NONE";
 
+        characterAnimationController = FindObjectOfType<CharacterAnimationController>();
         overlayStatusImage = powerUpOverlayStatus.GetComponent<Image>();
 
     }
 
-
-    private void Update()
+    void Update()
     {
-        if (powerupStatus == "POWER UP")
+
+        if (StateManager.PowerUpState == StateManager.POWER_UP.POWER_UP)
         {
+
             overlayStatusImage.sprite = powerupSprite;
             powerUpRaysImage.SetActive(true);
 
@@ -44,9 +46,8 @@ public class PowerUpManager : MonoBehaviour
 
             PlayPowerUpMusicOnce();
 
-
         }
-        else if (powerupStatus == "NONE")
+        else if (StateManager.PowerUpState == StateManager.POWER_UP.NONE)
         {
             isPowerUpSFXNotPlayed = true;
 
@@ -59,7 +60,9 @@ public class PowerUpManager : MonoBehaviour
         }
 
         //POWERUP
-        if (HUDManager.goPoints == 5 || HUDManager.growPoints == 5 || HUDManager.glowPoints == 5)
+        if (HUDManager.goPoints == 5 
+            || HUDManager.growPoints == 5 
+            || HUDManager.glowPoints == 5)
         {
             if (isNotAnimated)
                 characterAnimationController.AnimateToPower();
@@ -94,8 +97,8 @@ public class PowerUpManager : MonoBehaviour
     #region GO POWER UP
     public static void GoPowerUp()
     {
-        powerupStatus = "POWER UP";
-        typeOfPowerUp = "GO";
+        StateManager.PowerUpState = StateManager.POWER_UP.POWER_UP;
+        StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.GO;
 
     }
 
@@ -104,8 +107,8 @@ public class PowerUpManager : MonoBehaviour
     #region GROW POWER UP
     public static void GrowPowerUp()
     {
-        powerupStatus = "POWER UP";
-        typeOfPowerUp = "GROW";
+        StateManager.PowerUpState = StateManager.POWER_UP.POWER_UP;
+        StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.GROW;
 
     }
 
@@ -114,8 +117,8 @@ public class PowerUpManager : MonoBehaviour
     #region GLOW POWER UP
     public static void GlowPowerUp()
     {
-        powerupStatus = "POWER UP";
-        typeOfPowerUp = "GLOW";
+        StateManager.PowerUpState = StateManager.POWER_UP.POWER_UP;
+        StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.GLOW;
 
     }
 
@@ -129,10 +132,11 @@ public class PowerUpManager : MonoBehaviour
     private static IEnumerator PowerUpDurationThreeSeconds()
     {
         yield return new WaitForSeconds(5f);
-        typeOfPowerUp = "NONE";
+        
+        StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.NONE;
 
         yield return new WaitForSeconds(3f);
-        powerupStatus = "NONE";
+        StateManager.PowerUpState = StateManager.POWER_UP.NONE;
     }
     #endregion
 

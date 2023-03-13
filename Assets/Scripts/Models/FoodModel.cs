@@ -3,22 +3,22 @@ using UnityEngine;
 public class FoodModel
 {
 
-    private string[] text = new string[] 
-    { 
+    private string[] text = new string[]
+    {
 
         "",
-        "", 
-        "", 
+        "",
+        "",
 
     };
 
     public Sprite Image { get; set; }
 
-    public string[] Text 
-    { 
+    public string[] Text
+    {
 
-        get => text; 
-        set => text = value; 
+        get => text;
+        set => text = value;
 
     }
 
