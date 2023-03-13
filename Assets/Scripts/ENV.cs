@@ -51,25 +51,28 @@ public class ENV : MonoBehaviour
         ADVICE_TEXT = new string[]
         {
 
-            "Measure and Watch Your Weight",
+            "Go foods give you energy and fuel for maintaining a healthy brain",
+            "Go Foods are Carbohydrates that provide quick energy for physical activity",
 
-            "Limit Unhealthy Foods and Eat Healthy Meals",
+            "Grow foods develops the body , becomes stronger, and becomes healthier",
+            "Grow Foods are Protein that builds and repairs tissues",
 
-            "Take Multivitamin Supplements",
+            "Glow foods help the immune system become stronger",
+            "Glow Foods provide vitamins and minerals that promote healthy skin",
 
-            "Drink Water and Stay Hydrated, and Limit Sugared Beverages",
+            "Frozen or prepared meals are often the most highly processed foods",
 
-            "Exercise Regularly and Be Physically Active",
+            "Too much added sugar in food and beverages can lead to health issues like weight gain",
 
-            "Reduce Sitting and Screen Time",
+            "Eating high amounts of saturated fat can increase LDL or bad cholesterol",
 
-            "Get Enough Good Sleep",
+            "Being in a low energy state might result in hunger, anxiety, and even small sleep problems",
 
-            "Go Easy on Alcohol and Stay Sober",
+            "Overeating can increase blood pressure and cholesterol, causing discomfort",
 
-            "Find Ways to Manage Your Emotions",
-
-            "Use an App to Keep Track of Your Movement, Sleep, and Heart Rate",
+            "Superfoods or Nutrient-dense are foods that is combination of go, grow, and glow",
+            "Berries are superfoods they contain antioxidants, fiber (Go, Glow), protein, vitamins, minerals (Grow)",
+            "Sweet potatoes are superfoods they  contain Carbs, fiber, and vitamins (Go, Glow), vitamin A (Grow).",
 
         };
 

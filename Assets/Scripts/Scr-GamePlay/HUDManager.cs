@@ -334,6 +334,7 @@ public class HUDManager : MonoBehaviour
     {
         Time.timeScale = 0;
         FindObjectOfType<GameManager>().OnTrigger(ENV.GAME_OVER);
+        FindObjectOfType<GameScreenManager>().GetAdvice();
         swipeEnabled = false;
 
         if (isScoreAdded)
