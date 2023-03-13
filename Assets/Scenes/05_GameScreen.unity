@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.854902, g: 1, b: 1, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: e2a5721f3ef3b1c429f527f4014f9e03, type: 2}
-  m_HaloStrength: 0.5
+  m_HaloStrength: 0.25
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -3359,7 +3359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967860449}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.9, y: 2.1, z: 150}
+  m_LocalPosition: {x: -19.9, y: -1.2, z: 130}
   m_LocalScale: {x: 1, y: 1, z: 2.16628}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4587,7 +4587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626967229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.7, y: 2.3, z: 146.91}
+  m_LocalPosition: {x: 15.7, y: -1.1, z: 130}
   m_LocalScale: {x: 1, y: 1, z: 2.16628}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5638,9 +5638,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map1TilePreFabs:
-  - {fileID: 6640838248215973255, guid: e792dca7c7a151348979c9b436d57894, type: 3}
-  - {fileID: 711289187854695356, guid: 84b7bd1b8702b034697748ccdbaaa4e3, type: 3}
-  - {fileID: 4861847312055821070, guid: 4d66d9fd8f8351043a9b6acc48b217a0, type: 3}
+  - {fileID: 2839827948817930794, guid: 875bb56e5b0a7b542b879934a4b1f675, type: 3}
+  - {fileID: 6782297134147071719, guid: feb2d001787616a45a776251e0a45a77, type: 3}
+  - {fileID: 8357079945969150225, guid: bbeb17958f8ec8746b1ab7d5817530cb, type: 3}
   map2TilePreFabs:
   - {fileID: 6640838248215973255, guid: e792dca7c7a151348979c9b436d57894, type: 3}
   - {fileID: 711289187854695356, guid: 84b7bd1b8702b034697748ccdbaaa4e3, type: 3}
