@@ -67,18 +67,20 @@ public class FoodInfoScript : MonoBehaviour
         for (int category = foodCategory; category < foodCategory + 3; category++)
         {
 
-            for (int food = 0; food < 3; food++)
+            for (int food = 0; food < FOODS.GetUpperBound(2)+1 ; food++)
             {
-
-                FoodModel foodModel = new();
-                foodModel.Image = isHealthy
-                    ? healthyFoods[counter++]
-                    : junkFoods[counter++];
-                foodModel.Text[0] = FOODS[category, 0, food];
-                foodModel.Text[1] = GetFoodCategory(category);
-                foodModel.Text[2] = FOODS[category, 1, food];
-                Debug.Log(foodModel);
-                foods.Add(foodModel);
+                if (!FOODS[category, 0, food].Equals(""))
+                {
+                    FoodModel foodModel = new();
+                    foodModel.Image = isHealthy
+                        ? healthyFoods[counter++]
+                        : junkFoods[counter++];
+                    foodModel.Text[0] = FOODS[category, 0, food];
+                    foodModel.Text[1] = GetFoodCategory(category);
+                    foodModel.Text[2] = FOODS[category, 1, food];
+                    foods.Add(foodModel);
+                }
+                
 
             }
 

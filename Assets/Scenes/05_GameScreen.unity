@@ -2776,7 +2776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnPromptPaused
+    m_key: OnPaused
     value: 0
 --- !u!1 &592306158
 GameObject:

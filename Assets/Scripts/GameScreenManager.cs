@@ -39,27 +39,22 @@ public class GameScreenManager : MonoBehaviour
         if (SimpleInput.GetButtonDown("OnPaused"))
         {
 
-            FindObjectOfType<GameManager>().OnTrigger("InActivateOverlayStatus");
-            FindObjectOfType<GameManager>().OnTrigger("ActivePause");
+            FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
+            FindObjectOfType<GameManager>().OnTrigger(ENV.PAUSED);
             StateManager.IsMoving = false;
             Time.timeScale = 0;
             Advice();
 
         }
 
-        //BLOCKS ENERGY DECREMENT
-        if (Time.timeScale == 0
-            || StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GO
-            || !StateManager.IsMoving)
+        if (SimpleInput.GetButtonDown("OnClose1"))
         {
-
-            HUDManager.ResetEnergyPoints();
-            return;
+            StateManager.IsMoving = true;
+            Time.timeScale = 1;
+            int countdown = 3;
+            StartCoroutine(CountdownToStart(countdown));
 
         }
-
-        //DECREASE ENERGY OVER TIME
-        AdjustmentFunctions.DecreaseEnergyOverTime();
 
     }
 

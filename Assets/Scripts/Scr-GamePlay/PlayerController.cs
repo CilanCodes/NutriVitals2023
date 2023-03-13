@@ -130,6 +130,20 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        //BLOCKS ENERGY DECREMENT
+        if (Time.timeScale == 0
+            || StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GO
+            || !StateManager.IsMoving)
+        {
+
+            HUDManager.ResetEnergyPoints();
+            return;
+
+        }
+
+        //DECREASE ENERGY OVER TIME
+        AdjustmentFunctions.DecreaseEnergyOverTime();
+
     }
 
     #region FOOD COLLIDER
