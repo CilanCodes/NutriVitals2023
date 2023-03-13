@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnRestart
+    m_key: OnReturnHome
     value: 0
 --- !u!1 &56764094
 GameObject:

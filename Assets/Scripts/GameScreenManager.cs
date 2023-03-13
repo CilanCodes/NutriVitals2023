@@ -36,6 +36,15 @@ public class GameScreenManager : MonoBehaviour
 
         }
 
+        if (SimpleInput.GetButtonDown("OnReturnHome"))
+        {
+
+            GameManager.OnLoadScene(2);
+            Time.timeScale = 1;
+            FoodManager.isReplayAgain = true;
+
+        }
+
         if (SimpleInput.GetButtonDown("OnPaused"))
         {
 
