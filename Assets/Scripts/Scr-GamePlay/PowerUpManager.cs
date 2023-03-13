@@ -97,8 +97,8 @@ public class PowerUpManager : MonoBehaviour
     #region GO POWER UP
     public static void GoPowerUp()
     {
-        PowerUpState = "POWER UP";
-        PowerUpTypeState = "GO";
+        StateManager.PowerUpState = StateManager.POWER_UP.POWER_UP;
+        StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.GO;
 
     }
 
@@ -107,8 +107,8 @@ public class PowerUpManager : MonoBehaviour
     #region GROW POWER UP
     public static void GrowPowerUp()
     {
-        PowerUpState = "POWER UP";
-        PowerUpTypeState = "GROW";
+        StateManager.PowerUpState = StateManager.POWER_UP.POWER_UP;
+        StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.GROW;
 
     }
 
@@ -117,8 +117,8 @@ public class PowerUpManager : MonoBehaviour
     #region GLOW POWER UP
     public static void GlowPowerUp()
     {
-        PowerUpState = "POWER UP";
-        PowerUpTypeState = "GLOW";
+        StateManager.PowerUpState = StateManager.POWER_UP.POWER_UP;
+        StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.GLOW;
 
     }
 
@@ -132,10 +132,11 @@ public class PowerUpManager : MonoBehaviour
     private static IEnumerator PowerUpDurationThreeSeconds()
     {
         yield return new WaitForSeconds(5f);
-        PowerUpTypeState = "NONE";
+        
+        StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.NONE;
 
         yield return new WaitForSeconds(3f);
-        PowerUpState = "NONE";
+        StateManager.PowerUpState = StateManager.POWER_UP.NONE;
     }
     #endregion
 

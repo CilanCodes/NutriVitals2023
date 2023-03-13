@@ -25,8 +25,8 @@ public class FoodManager : MonoBehaviour
         }
         else
         {
-
-            if (PowerUpManager.powerUpStatus == "GO")
+            
+            if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GO)
             {
                 #region FOR GO POWER UP FOOD SPAWN
                 int noOfFoods = foodItems.Length;
@@ -81,7 +81,8 @@ public class FoodManager : MonoBehaviour
 
                 int noOfFoods;
 
-                if (PowerUpManager.powerUpStatus == "GROW" || PowerUpManager.powerUpStatus == "GLOW")
+                if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GROW 
+                    || StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GLOW)
                 {
                     noOfFoods = Random.Range(2, 4);
                 }

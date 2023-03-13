@@ -75,7 +75,7 @@ public class GameScreenManager : MonoBehaviour
     {
 
         countdownHUD.SetActive(true);
-        PlayerController.IsMoving = false;
+        StateManager.IsMoving = false;
 
         while (_countdown > 0)
         {

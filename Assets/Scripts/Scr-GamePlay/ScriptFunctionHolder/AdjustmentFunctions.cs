@@ -7,11 +7,11 @@ public class AdjustmentFunctions : MonoBehaviour
     {
         #region ENERGY BURN
 
-        if (HUDManager.energyStatus == "HIGH DANGER")
+        if (StateManager.EnergyState == StateManager.ENERGY.HIGH_DANGER)
         {
             HUDManager.UpdateScoreEnergyPoints(0, -.0015f);
         }
-        else if (HUDManager.energyStatus == "LOW DANGER")
+        else if (StateManager.EnergyState == StateManager.ENERGY.LOW_DANGER)
         {
             HUDManager.UpdateScoreEnergyPoints(0, -.00025f);
         }
@@ -26,11 +26,11 @@ public class AdjustmentFunctions : MonoBehaviour
     public static void GoodFoodBenefits(int multiplier)
     {
         // GENERAL GOOD FOOD BENEFITS
-        if (HUDManager.energyStatus == "LOW DANGER")
+        if (StateManager.EnergyState == StateManager.ENERGY.LOW_DANGER)
         {
             HUDManager.UpdateScoreEnergyPoints(25 * multiplier, .075f);
         }
-        else if (HUDManager.energyStatus == "LOW WARNING")
+        else if (StateManager.EnergyState == StateManager.ENERGY.LOW_WARNING)
         {
             HUDManager.UpdateScoreEnergyPoints(25 * multiplier, .050f);
         }
