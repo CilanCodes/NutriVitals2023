@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e2a5721f3ef3b1c429f527f4014f9e03, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.22754633, g: 0.39637658, b: 0.5265675, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3359,7 +3359,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967860449}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.9, y: 3.54, z: 116.8}
+  m_LocalPosition: {x: -19.9, y: 2.1, z: 150}
   m_LocalScale: {x: 1, y: 1, z: 2.16628}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4587,7 +4587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626967229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.7, y: 3.54, z: 116.8}
+  m_LocalPosition: {x: 15.7, y: 2.3, z: 146.91}
   m_LocalScale: {x: 1, y: 1, z: 2.16628}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5638,9 +5638,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map1TilePreFabs:
-  - {fileID: 2839827948817930794, guid: 875bb56e5b0a7b542b879934a4b1f675, type: 3}
-  - {fileID: 2839827948817930794, guid: 875bb56e5b0a7b542b879934a4b1f675, type: 3}
-  - {fileID: 2839827948817930794, guid: 875bb56e5b0a7b542b879934a4b1f675, type: 3}
+  - {fileID: 6640838248215973255, guid: e792dca7c7a151348979c9b436d57894, type: 3}
+  - {fileID: 711289187854695356, guid: 84b7bd1b8702b034697748ccdbaaa4e3, type: 3}
+  - {fileID: 4861847312055821070, guid: 4d66d9fd8f8351043a9b6acc48b217a0, type: 3}
   map2TilePreFabs:
   - {fileID: 6640838248215973255, guid: e792dca7c7a151348979c9b436d57894, type: 3}
   - {fileID: 711289187854695356, guid: 84b7bd1b8702b034697748ccdbaaa4e3, type: 3}
