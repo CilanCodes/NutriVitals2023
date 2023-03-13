@@ -11,6 +11,13 @@ public class HomeManager : MonoBehaviour
     [SerializeField]
     private ScrollRect leaderboardUIScrollRect;
 
+    void Start()
+    {
+
+        PlayerPrefs.SetInt("index", 2);
+
+    }
+
     void Update()
     {
 

@@ -4,13 +4,13 @@ public class PlayerController : MonoBehaviour
 {
     
     private CharacterController characterController;
-    private int desiredLane;
+    private int desiredLane = 1;
     private Vector2 endTouchPosition;
     private Vector2 startTouchPosition;
     private Vector3 direction;
-    public float laneDistance;
-    public int smoothMovementSpeed;
-    public static float forwardSpeed;
+    public float laneDistance = 2.5f;
+    public int smoothMovementSpeed = 30;
+    public static float forwardSpeed = 150;
     public static float swipeSensitivity;
     public static Vector3 targetPosition;
 
@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     {
 
         characterController = GetComponent<CharacterController>();
-        Init();
 
     }
 
@@ -133,23 +132,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Init()
-    {
-
-        desiredLane = 1;
-        laneDistance = 2.5f;
-        smoothMovementSpeed = 30;
-        forwardSpeed = 150;
-
-    }
-
     #region FOOD COLLIDER
 
     private void OnControllerColliderHit(ControllerColliderHit _controllerColliderHit)
     {
 
-        string hitTag = _controllerColliderHit.transform.tag;
-        StateManager.HitState = StateManager.GetHit(hitTag);
+        string hit = _controllerColliderHit.transform.tag;
+        StateManager.HitState = StateManager.GetHit(hit);
 
         if (StateManager.HitState != StateManager.HIT.JUNK)
 
@@ -169,7 +158,7 @@ public class PlayerController : MonoBehaviour
 
                 if (StateManager.HitState == StateManager.HIT.GO)
 
-                    HUDManager.UpdateScoreEnergyPoints(25, 0f); HUDManager.UpdateScoreEnergyPoints(25, 0f);
+                    HUDManager.UpdateScoreEnergyPoints(25, 0f);
 
             }
             else if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GROW)
@@ -179,7 +168,7 @@ public class PlayerController : MonoBehaviour
 
                     FindObjectOfType<HUDManager>().healthBarFill.fillAmount += 0.1667f;
 
-                else if (StateManager.HitState == StateManager.HIT.JUNK)
+                else if (StateManager.HitState != StateManager.HIT.JUNK)
                     
                     AdjustmentFunctions.GoodFoodBenefits(1);
 
@@ -199,7 +188,7 @@ public class PlayerController : MonoBehaviour
 
                     AdjustmentFunctions.GoodFoodBenefits(3);
 
-                else if (StateManager.HitState == StateManager.HIT.JUNK)
+                else if (StateManager.HitState != StateManager.HIT.JUNK)
 
                     AdjustmentFunctions.GoodFoodBenefits(2);
 
@@ -215,7 +204,7 @@ public class PlayerController : MonoBehaviour
             else
             {
 
-                if (StateManager.HitState == StateManager.HIT.JUNK)
+                if (StateManager.HitState != StateManager.HIT.JUNK)
 
                     AdjustmentFunctions.GoodFoodBenefits(1);
 

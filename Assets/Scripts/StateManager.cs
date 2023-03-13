@@ -53,8 +53,8 @@ public class StateManager : MonoBehaviour
     {
 
         isMoving = false;
-        PowerUpState = POWER_UP.NONE;
-        PowerUpTypeState = POWER_UP_TYPE.NONE;
+        powerUpState = POWER_UP.NONE;
+        powerUpTypeState = POWER_UP_TYPE.NONE;
 
     }
 
