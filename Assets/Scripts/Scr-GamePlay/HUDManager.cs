@@ -54,7 +54,11 @@ public class HUDManager : MonoBehaviour
 
         //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
 
+<<<<<<< HEAD
         FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
+=======
+        FindObjectOfType<GameManager>().OnTrigger("InActivateOverlayStatus");
+>>>>>>> dev
 
         FoodManager.isReplayAgain = true;
         isScoreAdded = false;
@@ -123,7 +127,6 @@ public class HUDManager : MonoBehaviour
         if ((0 <= energyBarFill.fillAmount && energyBarFill.fillAmount <= .17) || (.835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1))
         {
             DecreaseHealthBar();
-            FindObjectOfType<GameManager>().OnTrigger(ENV.ON_OVERLAY_STATUS);
 
             //LOW ENERGY LEVEL
             if (0 <= energyBarFill.fillAmount && energyBarFill.fillAmount <= .17)
@@ -152,19 +155,17 @@ public class HUDManager : MonoBehaviour
         {
             if (StateManager.PowerUpState == StateManager.POWER_UP.POWER_UP)
             {
-                FindObjectOfType<GameManager>().OnTrigger(ENV.ON_OVERLAY_STATUS);
+                FindObjectOfType<GameManager>().OnTrigger("ActiveOverlayStatus");
             }
             else
             {
-                FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
+                FindObjectOfType<GameManager>().OnTrigger("InActivateOverlayStatus");
 
             }
 
             //WARNING / YELLOW ENERGY LEVEL
             if ((0.17 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.37) || (0.635 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.835))
             {
-                FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
-
                 //LOW LEVEL WARNING
                 if (0.17 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.37)
                 {
@@ -281,7 +282,7 @@ public class HUDManager : MonoBehaviour
     //SMOOTH HEALTH BAR
     private void DecreaseHealthBar()
     {
-        FindObjectOfType<GameManager>().OnTrigger(ENV.ON_OVERLAY_STATUS);
+        FindObjectOfType<GameManager>().OnTrigger("ActiveOverlayStatus");
 
         timeSinceLastDecrease += Time.deltaTime;
 
@@ -329,11 +330,16 @@ public class HUDManager : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0;
+<<<<<<< HEAD
         //FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
         FindObjectOfType<GameManager>().OnTrigger(ENV.GAME_OVER);
 
         FindObjectOfType<GameScreenManager>().GetAdvice();
         StateManager.IsMoving = false;
+=======
+        FindObjectOfType<GameManager>().OnTrigger("ActiveGameOver");
+        swipeEnabled = false;
+>>>>>>> dev
 
         if (isScoreAdded)
         {
