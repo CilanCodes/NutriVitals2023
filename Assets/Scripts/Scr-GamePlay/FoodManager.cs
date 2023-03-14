@@ -13,7 +13,7 @@ public class FoodManager : MonoBehaviour
     [SerializeField] private Sprite[] junkSprites;
 
     private string[] foodCategory = { "Go", "Grow", "Glow", "Junk" };
-    private int[] itemPosition;
+    public int[] itemPosition;
 
     public static float elapsedTime;
 
