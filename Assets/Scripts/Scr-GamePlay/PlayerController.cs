@@ -131,7 +131,13 @@ public class PlayerController : MonoBehaviour
 
         }
 
+<<<<<<< HEAD
+        //BLOCKS ENERGY DECREMENT
+        if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GO)
+        {
+=======
     }
+>>>>>>> dev
 
     private void Init()
     {

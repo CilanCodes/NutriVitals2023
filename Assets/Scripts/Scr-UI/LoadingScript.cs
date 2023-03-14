@@ -13,6 +13,7 @@ public class LoadingScript : MonoBehaviour
     void Start()
     {
 
+        Time.timeScale = 1;
         int countdown = 2;
         StartCoroutine(LoadingToStart(countdown));
 

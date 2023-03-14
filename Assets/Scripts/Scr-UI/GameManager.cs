@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             if (SceneManager.GetActiveScene().buildIndex != 4)
             {
                 Time.timeScale = 1;
-                HUDManager.swipeEnabled = true;
+                StateManager.IsMoving = true;
 
             }
 

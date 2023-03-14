@@ -12,7 +12,6 @@ public class HUDManager : MonoBehaviour
     public static int goPoints;
     public static int growPoints;
     public static int glowPoints;
-    public static bool swipeEnabled;
     public static bool isScoreAdded;
 
     [SerializeField] 
@@ -55,7 +54,11 @@ public class HUDManager : MonoBehaviour
 
         //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
 
+<<<<<<< HEAD
+        FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
+=======
         FindObjectOfType<GameManager>().OnTrigger("InActivateOverlayStatus");
+>>>>>>> dev
 
         FoodManager.isReplayAgain = true;
         isScoreAdded = false;
@@ -225,7 +228,6 @@ public class HUDManager : MonoBehaviour
         {
             if ((scorePoints + score) < 0)
             {
-                score = 0;
                 scorePoints = 0;
             }
             else
@@ -239,12 +241,10 @@ public class HUDManager : MonoBehaviour
         {
             if ((energyPoints + energy) < 0)
             {
-                energy = 0;
                 energyPoints = 0;
             }
             else if ((energyPoints + energy) > 1)
             {
-                energy = 1.0005f;
                 energyPoints = 1.0005f;
             }
             else
@@ -320,7 +320,7 @@ public class HUDManager : MonoBehaviour
     private IEnumerator EnableSwipeAfterDelay()
     {
         yield return new WaitForSeconds(.25f);
-        swipeEnabled = true;
+        StateManager.IsMoving = true;
     }
 
     #endregion
@@ -330,8 +330,16 @@ public class HUDManager : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0;
+<<<<<<< HEAD
+        //FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
+        FindObjectOfType<GameManager>().OnTrigger(ENV.GAME_OVER);
+
+        FindObjectOfType<GameScreenManager>().GetAdvice();
+        StateManager.IsMoving = false;
+=======
         FindObjectOfType<GameManager>().OnTrigger("ActiveGameOver");
         swipeEnabled = false;
+>>>>>>> dev
 
         if (isScoreAdded)
         {
