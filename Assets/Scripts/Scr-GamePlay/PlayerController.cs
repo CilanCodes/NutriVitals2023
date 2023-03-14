@@ -14,9 +14,15 @@ public class PlayerController : MonoBehaviour
     public static float swipeSensitivity;
     public static Vector3 targetPosition;
 
+    [SerializeField] private GameObject[] characterModels;
+    private int characterIndex;
+
+
     void Start()
     {
 
+        characterIndex = PlayerPrefs.GetInt("_characterIndex", 0);
+        characterModels[characterIndex].SetActive(true);
         characterController = GetComponent<CharacterController>();
 
     }
