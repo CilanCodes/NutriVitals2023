@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         if (SimpleInput.GetButtonDown("OnClose1"))
         {
 
-            FindObjectOfType<GameManager>().OnTrigger(ENV.CLOSE);
+            FindObjectOfType<GameManager>().OnTrigger("close");
 
             if (SceneManager.GetActiveScene().buildIndex != 4)
             {

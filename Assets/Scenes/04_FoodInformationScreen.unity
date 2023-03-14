@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1034,43 +1034,25 @@ MonoBehaviour:
   - {fileID: 1637620830}
   - {fileID: 1084106502}
   healthyFoods:
-  - {fileID: 21300000, guid: 59e4a4d77fe65224fa001c4bbfd1ce6d, type: 3}
-  - {fileID: 21300000, guid: b843aa145da25e14aaf5f6dde52678ff, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: 93d9ecd953fd5a74ca88b687b4f58a1b, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: 8a1b572edb0fd7c46a569b5c8a850662, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: 88143edf19359ac449be555e60687c8f, type: 3}
-  - {fileID: 21300000, guid: cff7cd769ea24f644bb3b6f23155ecf3, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: 7d0e1b7231861ba4cba3c45d177cdbda, type: 3}
-  - {fileID: 21300000, guid: 28ffb2c950963014fb21ccf397c1c4b9, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: 8b4207aa7223c0b4c8b631ff7b106e3c, type: 3}
   - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
-  - {fileID: 21300000, guid: e860e1d3e2f5a2c46bbe6573b1587ed9, type: 3}
-  - {fileID: 21300000, guid: ca8ed9c742b2f404ebd0546991fba396, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
   junkFoods:
-  - {fileID: 21300000, guid: d67faed78f943b84ca2119be556299e4, type: 3}
   - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: 4d5f5906bf93c884d854139452ed8628, type: 3}
-  - {fileID: 21300000, guid: 8ead283f6aa2f36468de56051a3b5862, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
+  - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
 --- !u!4 &676476865
 Transform:
   m_ObjectHideFlags: 0
