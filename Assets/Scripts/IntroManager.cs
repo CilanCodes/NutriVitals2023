@@ -39,7 +39,7 @@ public class IntroManager : MonoBehaviour
 
         IsSkipUIButtonVisible = false;
         decisionState = 0;
-
+        characterIndex = -1;
     }
 
     void Update()
@@ -55,6 +55,26 @@ public class IntroManager : MonoBehaviour
 
         UIButtons[0].SetActive(username.Length > 3);
         UIButtons[2].SetActive(username.Length < 3);
+
+        if (SimpleInput.GetButtonDown("OnCharacterA"))
+            characterIndex = 0;
+
+        if (SimpleInput.GetButtonDown("OnCharacterB"))
+            characterIndex = 1;
+
+        if (SimpleInput.GetButtonDown("OnCharacterC"))
+            characterIndex = 2;
+
+        if (SimpleInput.GetButtonDown("OnCharacterD"))
+            characterIndex = 3;
+
+        UIButtons[3].SetActive(characterIndex < 0);
+        UIButtons[4].SetActive(characterIndex >= 0);
+        
+
+        //Debug.Log(characterIndex);
+        //Debug.Log( characterIndex != 5);
+        //Debug.Log(!(characterIndex != 5));
 
         if (SimpleInput.GetButtonDown("OnCharacterPick"))
 
@@ -80,7 +100,6 @@ public class IntroManager : MonoBehaviour
             }
             else if (decisionState == 2)
             {
-
                 CheckSelectedCharacter(false);
                 decisionState = 3;
             }
@@ -89,7 +108,7 @@ public class IntroManager : MonoBehaviour
 
             else if (decisionState == 3)
             {
-
+                PlayerPrefs.SetInt("_characterIndex", characterIndex);
                 decisionState = 4;
                 Skip();
                 StartStory();
@@ -124,7 +143,7 @@ public class IntroManager : MonoBehaviour
         FindObjectOfType<User>().UserCharacterState = GetCharacterState(character);
 
         Debug.Log(GetCharacterState(character));
-        characterIndex = GetCharacterState(character);
+        //characterIndex = GetCharacterState(character);
         
 
     }
@@ -210,7 +229,7 @@ public class IntroManager : MonoBehaviour
             characterToggles[1].SetActive(true);
             characterToggles[2].SetActive(true);
             characterToggles[3].SetActive(true);
-            
+            characterIndex = -1;
 
         }
         else

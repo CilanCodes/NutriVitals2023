@@ -38,9 +38,12 @@ public class CharacterAnimationController : MonoBehaviour
         PowerUpManager.isNotAnimated = false;
         PlayerController.forwardSpeed = 0;
 
-        GameObject objectMaleCharacter = GameObject.Find("MaleCharacter");
+        /*GameObject objectMaleCharacter = GameObject.Find("MaleCharacter");
         Animator objectMaleAnimator = objectMaleCharacter.GetComponent<Animator>();
-        objectMaleAnimator.SetTrigger("ActivatePowerJump");
+        objectMaleAnimator.SetTrigger("ActivatePowerJump");*/
+
+        Animator charAnimator = GetComponent<Animator>();
+        charAnimator.SetTrigger("ActivatePowerJump");
 
         float pauseTime = Time.realtimeSinceStartup + 1.5f;
         while (Time.realtimeSinceStartup < pauseTime)
