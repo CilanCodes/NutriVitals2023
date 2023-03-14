@@ -12,7 +12,6 @@ public class HUDManager : MonoBehaviour
     public static int goPoints;
     public static int growPoints;
     public static int glowPoints;
-    public static bool swipeEnabled;
     public static bool isScoreAdded;
 
     [SerializeField] 
@@ -320,7 +319,7 @@ public class HUDManager : MonoBehaviour
     private IEnumerator EnableSwipeAfterDelay()
     {
         yield return new WaitForSeconds(.25f);
-        swipeEnabled = true;
+        StateManager.IsMoving = true;
     }
 
     #endregion
@@ -334,7 +333,7 @@ public class HUDManager : MonoBehaviour
         FindObjectOfType<GameManager>().OnTrigger(ENV.GAME_OVER);
 
         FindObjectOfType<GameScreenManager>().GetAdvice();
-        swipeEnabled = false;
+        StateManager.IsMoving = false;
 
         if (isScoreAdded)
         {
