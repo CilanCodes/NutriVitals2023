@@ -32,7 +32,7 @@ public class CharacterAnimationController : MonoBehaviour
         //Debug.Log("Coroutine started");
 
         Time.timeScale = 0; // Stop the game
-        StateManager.IsMoving = false;
+        HUDManager.swipeEnabled = false;
 
         float holder = PlayerController.forwardSpeed;
         PowerUpManager.isNotAnimated = false;
@@ -53,7 +53,7 @@ public class CharacterAnimationController : MonoBehaviour
         PlayerController.forwardSpeed = holder;
 
         Time.timeScale = 1.0f; // Resume the game
-        StateManager.IsMoving = true;
+        HUDManager.swipeEnabled = true;
 
     }
 
