@@ -131,9 +131,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //BLOCKS ENERGY DECREMENT
-        if (Time.timeScale == 0
-            || StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GO
-            || !StateManager.IsMoving)
+        if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GO)
         {
 
             HUDManager.ResetEnergyPoints();

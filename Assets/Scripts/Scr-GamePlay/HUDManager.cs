@@ -55,7 +55,7 @@ public class HUDManager : MonoBehaviour
 
         //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
 
-        FindObjectOfType<GameManager>().OnTrigger("offOverlayStatus");
+        FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
 
         FoodManager.isReplayAgain = true;
         isScoreAdded = false;
@@ -228,7 +228,6 @@ public class HUDManager : MonoBehaviour
         {
             if ((scorePoints + score) < 0)
             {
-                score = 0;
                 scorePoints = 0;
             }
             else
@@ -242,12 +241,10 @@ public class HUDManager : MonoBehaviour
         {
             if ((energyPoints + energy) < 0)
             {
-                energy = 0;
                 energyPoints = 0;
             }
             else if ((energyPoints + energy) > 1)
             {
-                energy = 1.0005f;
                 energyPoints = 1.0005f;
             }
             else
