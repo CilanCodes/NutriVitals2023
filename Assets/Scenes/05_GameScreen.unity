@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnReturnHome
+    m_key: OnRestart
     value: 0
 --- !u!1 &56764094
 GameObject:
@@ -3763,7 +3763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnHomeScreen
+    m_key: OnReturnHome
     value: 0
 --- !u!1 &1245516727
 GameObject:
@@ -5413,7 +5413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button:
-    m_key: OnHomeScreen
+    m_key: OnReturnHome
     value: 0
 --- !u!1 &1944493904
 GameObject:

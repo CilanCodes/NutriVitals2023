@@ -333,7 +333,9 @@ public class HUDManager : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0;
+        //FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
         FindObjectOfType<GameManager>().OnTrigger(ENV.GAME_OVER);
+
         FindObjectOfType<GameScreenManager>().GetAdvice();
         swipeEnabled = false;
 
