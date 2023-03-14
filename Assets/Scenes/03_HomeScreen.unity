@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4148,10 +4148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundFX:
-  - {fileID: 0}
   - {fileID: 8300000, guid: 55ee5c34361a01546b5525789b0c3264, type: 3}
-  - {fileID: 8300000, guid: 800cddf1026507641b6f2304b8d5346c, type: 3}
-  - {fileID: 8300000, guid: 24d0167afbe28d542a5f11dba1a97baf, type: 3}
+  - {fileID: 8300000, guid: 26fcd63950479784a8624ad1b98c0cd3, type: 3}
+  - {fileID: 8300000, guid: 3f80a26dd6bc6a14dac4d3b19f2fbecd, type: 3}
+  - {fileID: 8300000, guid: c381217788641f34ca3a8f3a6d809213, type: 3}
+  - {fileID: 8300000, guid: 562fe32045e65284b8f8dbdcf2126809, type: 3}
+  - {fileID: 8300000, guid: ea1b7815a0824dd4f97233ef0d35d087, type: 3}
 --- !u!114 &1802876927
 MonoBehaviour:
   m_ObjectHideFlags: 0

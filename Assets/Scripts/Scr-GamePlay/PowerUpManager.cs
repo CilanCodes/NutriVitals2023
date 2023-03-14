@@ -33,35 +33,9 @@ public class PowerUpManager : MonoBehaviour
 
     void Update()
     {
-
-        if (StateManager.PowerUpState == StateManager.POWER_UP.POWER_UP)
-        {
-
-            overlayStatusImage.sprite = powerupSprite;
-            powerUpRaysImage.SetActive(true);
-
-            #region SCALE to 1.4
-            StartCoroutine(ScaleDownObject());
-            #endregion
-
-            PlayPowerUpMusicOnce();
-
-        }
-        else if (StateManager.PowerUpState == StateManager.POWER_UP.NONE)
-        {
-            isPowerUpSFXNotPlayed = true;
-
-            Transform rayTransform = powerUpRaysImage.GetComponent<Transform>();
-            rayTransform.localScale = new Vector3(3f, 3f, 3f);
-
-            overlayStatusImage.sprite = dangerSprite;
-            powerUpRaysImage.SetActive(false);
-
-        }
-
         //POWERUP
-        if (HUDManager.goPoints == 5 
-            || HUDManager.growPoints == 5 
+        if (HUDManager.goPoints == 5
+            || HUDManager.growPoints == 5
             || HUDManager.glowPoints == 5)
         {
             if (isNotAnimated)
@@ -90,6 +64,31 @@ public class PowerUpManager : MonoBehaviour
             isNotAnimated = true;
         }
 
+
+        if (StateManager.PowerUpState == StateManager.POWER_UP.POWER_UP)
+        {
+
+            overlayStatusImage.sprite = powerupSprite;
+            powerUpRaysImage.SetActive(true);
+
+            #region SCALE to 1.4
+            StartCoroutine(ScaleDownObject());
+            #endregion
+
+            PlayPowerUpMusicOnce();
+
+        }
+        else if (StateManager.PowerUpState == StateManager.POWER_UP.NONE)
+        {
+            isPowerUpSFXNotPlayed = true;
+
+            Transform rayTransform = powerUpRaysImage.GetComponent<Transform>();
+            rayTransform.localScale = new Vector3(3f, 3f, 3f);
+
+            overlayStatusImage.sprite = dangerSprite;
+            powerUpRaysImage.SetActive(false);
+
+        }
 
 
     }

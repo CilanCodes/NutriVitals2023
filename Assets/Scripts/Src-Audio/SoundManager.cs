@@ -51,9 +51,17 @@ public class SoundManager : MonoBehaviour
 
     public void OnClicked() => SoundFxPlay(0);
 
-    public void PlayEatGoodFood() => SoundFxPlay(1);
+    //public void PlayEatGoodFood() => SoundFxPlay(1);
 
-    public void PlayEatBadFood() => SoundFxPlay(2);
+    //public void PlayEatBadFood() => SoundFxPlay(2);
 
-    public void PlayPowerUp() => SoundFxPlay(3);
+    public void PlayPowerUp() => SoundFxPlay(1);
+
+    public void PlayGo() => SoundFxPlay(2);
+
+    public void PlayGrow() => SoundFxPlay(3);
+
+    public void PlayGlow() => SoundFxPlay(4);
+
+    public void PlayOhno() => SoundFxPlay(5);
 }

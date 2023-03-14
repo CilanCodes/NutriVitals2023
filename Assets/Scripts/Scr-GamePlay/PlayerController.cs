@@ -159,12 +159,31 @@ public class PlayerController : MonoBehaviour
         StateManager.HitState = StateManager.GetHit(hit);
 
         if (StateManager.HitState != StateManager.HIT.JUNK)
+        {
 
-            FindObjectOfType<SoundManager>().PlayEatGoodFood();
+            if (StateManager.HitState == StateManager.HIT.GO)
+            {
+                FindObjectOfType<SoundManager>().PlayGo();
+            }
+            else if (StateManager.HitState == StateManager.HIT.GROW)
+            {
+                FindObjectOfType<SoundManager>().PlayGrow();
+            }
+            else if (StateManager.HitState == StateManager.HIT.GLOW)
+            {
+                FindObjectOfType<SoundManager>().PlayGlow();
+            }
+
+        }
 
         else
-
-            FindObjectOfType<SoundManager>().PlayEatBadFood();
+        {
+            if (StateManager.HitState == StateManager.HIT.JUNK)
+            {
+                FindObjectOfType<SoundManager>().PlayOhno();
+            }
+        }
+            
 
         #region WITH POWER UP COLLIDER
 
