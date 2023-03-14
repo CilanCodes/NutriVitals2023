@@ -18,6 +18,7 @@ public class GameScreenManager : MonoBehaviour
     void Start()
     {
 
+        PlayerPrefs.SetInt("index", 2);
         int countdown = 3;
         StartCoroutine(CountdownToStart(countdown));
 
@@ -30,35 +31,39 @@ public class GameScreenManager : MonoBehaviour
         {
 
             GameManager.OnLoadScene(4);
-            /*SceneManager.LoadScene("GameScreen");
             Time.timeScale = 1;
-            //Debug.Log(PlayerController.targetPosition.z);
-            FoodManager.isReplayAgain = true;*/
+            FoodManager.isReplayAgain = true;
+
+        }
+
+        if (SimpleInput.GetButtonDown("OnReturnHome"))
+        {
+
+            GameManager.OnLoadScene(2);
+            Time.timeScale = 1;
+            FoodManager.isReplayAgain = true;
 
         }
 
         if (SimpleInput.GetButtonDown("OnPaused"))
         {
-            //Debug.Log("Paused");
-            /*FindObjectOfType<GameManager>().OnTrigger("InActivateOverlayStatus");
-            FindObjectOfType<GameManager>().OnTrigger("ActivePause");*/
+
+            FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
+            FindObjectOfType<GameManager>().OnTrigger(ENV.PAUSED);
+            StateManager.IsMoving = false;
             Time.timeScale = 0;
-            //HUDManager.swipeEnabled = false;
             Advice();
+
         }
 
-        //BLOCKS ENERGY DECREMENT
-        if (Time.timeScale == 0
-            || StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GO)
+        if (SimpleInput.GetButtonDown("OnClose1"))
         {
-
-            HUDManager.ResetEnergyPoints();
-            return;
+            StateManager.IsMoving = true;
+            Time.timeScale = 1;
+            int countdown = 3;
+            StartCoroutine(CountdownToStart(countdown));
 
         }
-
-        //DECREASE ENERGY OVER TIME
-        AdjustmentFunctions.DecreaseEnergyOverTime();
 
     }
 
@@ -88,11 +93,10 @@ public class GameScreenManager : MonoBehaviour
 
         }
 
+        StateManager.IsMoving = true;
         countdownHUD.SetActive(false);
 
     }
-
-    public bool IsPlaying { get; private set; }
 
     public void GetAdvice() => Advice();
 

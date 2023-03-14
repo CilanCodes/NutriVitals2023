@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -26,12 +27,19 @@ public class IntroManager : MonoBehaviour
     private int textState;
     private string username;
 
+    /*public ToggleGroup characterToggleGroup;
+    public GameObject[] characterToggles;
+    public int characterIndex;*/
+
+    public GameObject[] characterToggles;
+    int characterIndex;
+
     void Start()
     {
 
         IsSkipUIButtonVisible = false;
         decisionState = 0;
-
+        characterIndex = -1;
     }
 
     void Update()
@@ -46,6 +54,27 @@ public class IntroManager : MonoBehaviour
             .Trim();
 
         UIButtons[0].SetActive(username.Length > 3);
+        UIButtons[2].SetActive(username.Length < 3);
+
+        if (SimpleInput.GetButtonDown("OnCharacterA"))
+            characterIndex = 0;
+
+        if (SimpleInput.GetButtonDown("OnCharacterB"))
+            characterIndex = 1;
+
+        if (SimpleInput.GetButtonDown("OnCharacterC"))
+            characterIndex = 2;
+
+        if (SimpleInput.GetButtonDown("OnCharacterD"))
+            characterIndex = 3;
+
+        UIButtons[3].SetActive(characterIndex < 0);
+        UIButtons[4].SetActive(characterIndex >= 0);
+        
+
+        //Debug.Log(characterIndex);
+        //Debug.Log( characterIndex != 5);
+        //Debug.Log(!(characterIndex != 5));
 
         if (SimpleInput.GetButtonDown("OnCharacterPick"))
 
@@ -70,12 +99,16 @@ public class IntroManager : MonoBehaviour
 
             }
             else if (decisionState == 2)
-
+            {
+                CheckSelectedCharacter(false);
                 decisionState = 3;
+            }
+
+                
 
             else if (decisionState == 3)
             {
-
+                PlayerPrefs.SetInt("_characterIndex", characterIndex);
                 decisionState = 4;
                 Skip();
                 StartStory();
@@ -86,6 +119,7 @@ public class IntroManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnClose"))
         {
+            CheckSelectedCharacter(true);
 
             if (decisionState == 1)
             {
@@ -95,9 +129,8 @@ public class IntroManager : MonoBehaviour
 
             }
             else if (decisionState == 3)
-
                 decisionState = 2;
-
+            
         }
 
     }
@@ -105,10 +138,13 @@ public class IntroManager : MonoBehaviour
     private void OnCharacterPick()
     {
 
-        FindObjectOfType<SoundManager>().OnClicked();
-
+        //FindObjectOfType<SoundManager>().OnClicked();
         string character = FindObjectOfType<GameManager>().GetToggleName(characterUIPanel);
         FindObjectOfType<User>().UserCharacterState = GetCharacterState(character);
+
+        Debug.Log(GetCharacterState(character));
+        //characterIndex = GetCharacterState(character);
+        
 
     }
 
@@ -177,4 +213,36 @@ public class IntroManager : MonoBehaviour
 
     }
 
+
+    private void CheckSelectedCharacter(bool isReset)
+    {
+
+        if (isReset)
+        {
+            /*for (int i = 0; i > 6; i++)
+            {
+                characterToggles[i].SetActive(true);
+            }*/
+            characterToggles[4].SetActive(true);
+            characterToggles[5].SetActive(true);
+            characterToggles[0].SetActive(true);
+            characterToggles[1].SetActive(true);
+            characterToggles[2].SetActive(true);
+            characterToggles[3].SetActive(true);
+            characterIndex = -1;
+
+        }
+        else
+        {
+            characterToggles[0].SetActive(characterIndex == 0);
+            characterToggles[1].SetActive(characterIndex == 1);
+            characterToggles[2].SetActive(characterIndex == 2);
+            characterToggles[3].SetActive(characterIndex == 3);
+            characterToggles[4].SetActive(characterIndex == 0 || characterIndex == 1);
+            characterToggles[5].SetActive(characterIndex == 2 || characterIndex == 3);
+        }
+
+
+
+    }
 }
