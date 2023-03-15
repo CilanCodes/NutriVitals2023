@@ -1,8 +1,12 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    [SerializeField] private GameObject itemTextObj;
+    [SerializeField] private TextMeshProUGUI itemText;
+
     private CharacterController characterController;
     private int desiredLane = 1;
     private Vector2 endTouchPosition;
@@ -16,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject[] characterModels;
     private int characterIndex;
-
+    Vector3 returnPos;
 
     void Start()
     {
@@ -25,6 +29,7 @@ public class PlayerController : MonoBehaviour
         characterModels[characterIndex].SetActive(true);
         characterController = GetComponent<CharacterController>();
 
+        Vector3 returnPos = itemTextObj.transform.position;
     }
 
     void Update()
@@ -144,6 +149,11 @@ public class PlayerController : MonoBehaviour
             return;
 
         }
+        else if (!StateManager.IsMoving)
+        {
+            return;
+
+        }
 
         //DECREASE ENERGY OVER TIME
         AdjustmentFunctions.DecreaseEnergyOverTime();
@@ -164,14 +174,17 @@ public class PlayerController : MonoBehaviour
             if (StateManager.HitState == StateManager.HIT.GO)
             {
                 FindObjectOfType<SoundManager>().PlayGo();
+                StartCoroutine(ShowCollected("+1\nGo", returnPos));
             }
             else if (StateManager.HitState == StateManager.HIT.GROW)
             {
                 FindObjectOfType<SoundManager>().PlayGrow();
+                StartCoroutine(ShowCollected("+1\nGrow", returnPos));
             }
             else if (StateManager.HitState == StateManager.HIT.GLOW)
             {
                 FindObjectOfType<SoundManager>().PlayGlow();
+                StartCoroutine(ShowCollected("+1\nGlow", returnPos));
             }
 
         }
@@ -181,6 +194,7 @@ public class PlayerController : MonoBehaviour
             if (StateManager.HitState == StateManager.HIT.JUNK)
             {
                 FindObjectOfType<SoundManager>().PlayOhno();
+                StartCoroutine(ShowCollected("Junk Food\nOh No!", returnPos));
             }
         }
             
@@ -317,6 +331,36 @@ public class PlayerController : MonoBehaviour
         if (desiredLane == -1)
 
             desiredLane = 0;
+
+    }
+
+
+
+
+    private IEnumerator ShowCollected(string collectedIndicator, Vector3 xreturnPos)
+    {
+        
+        itemText.text = collectedIndicator;
+
+        Vector3 startPos = itemTextObj.transform.position;
+        Vector3 endPos = itemTextObj.transform.position + Vector3.up * 40f;
+
+        float elapsedTime = 0f;
+        float duration = 0.5f;
+
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            itemTextObj.transform.position = Vector3.Lerp(startPos, endPos, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Move the itemTextObj back to its original position
+        yield return new WaitForSeconds(1f);
+        itemText.text = "";
+        itemTextObj.transform.position = startPos;
+
 
     }
 

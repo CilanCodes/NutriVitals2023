@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PowerUpManager : MonoBehaviour
 {
 
-    [SerializeField] 
+    [SerializeField]
     private GameObject powerUpRaysImage;
 
     [SerializeField]
@@ -33,6 +33,32 @@ public class PowerUpManager : MonoBehaviour
 
     void Update()
     {
+
+        if (StateManager.PowerUpState == StateManager.POWER_UP.POWER_UP)
+        {
+
+            overlayStatusImage.sprite = powerupSprite;
+            powerUpRaysImage.SetActive(true);
+
+            #region SCALE to 1.4
+            StartCoroutine(ScaleDownObject());
+            #endregion
+
+            PlayPowerUpMusicOnce();
+
+        }
+        else if (StateManager.PowerUpState == StateManager.POWER_UP.NONE)
+        {
+            isPowerUpSFXNotPlayed = true;
+
+            Transform rayTransform = powerUpRaysImage.GetComponent<Transform>();
+            rayTransform.localScale = new Vector3(3f, 3f, 3f);
+
+            overlayStatusImage.sprite = dangerSprite;
+            powerUpRaysImage.SetActive(false);
+
+        }
+
         //POWERUP
         if (HUDManager.goPoints == 5
             || HUDManager.growPoints == 5
@@ -64,31 +90,6 @@ public class PowerUpManager : MonoBehaviour
             isNotAnimated = true;
         }
 
-
-        if (StateManager.PowerUpState == StateManager.POWER_UP.POWER_UP)
-        {
-
-            overlayStatusImage.sprite = powerupSprite;
-            powerUpRaysImage.SetActive(true);
-
-            #region SCALE to 1.4
-            StartCoroutine(ScaleDownObject());
-            #endregion
-
-            PlayPowerUpMusicOnce();
-
-        }
-        else if (StateManager.PowerUpState == StateManager.POWER_UP.NONE)
-        {
-            isPowerUpSFXNotPlayed = true;
-
-            Transform rayTransform = powerUpRaysImage.GetComponent<Transform>();
-            rayTransform.localScale = new Vector3(3f, 3f, 3f);
-
-            overlayStatusImage.sprite = dangerSprite;
-            powerUpRaysImage.SetActive(false);
-
-        }
 
 
     }
@@ -131,7 +132,7 @@ public class PowerUpManager : MonoBehaviour
     private static IEnumerator PowerUpDurationThreeSeconds()
     {
         yield return new WaitForSeconds(5f);
-        
+
         StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.NONE;
 
         yield return new WaitForSeconds(3f);
