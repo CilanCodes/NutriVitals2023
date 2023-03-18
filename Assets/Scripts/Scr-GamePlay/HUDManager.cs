@@ -137,7 +137,8 @@ public class HUDManager : MonoBehaviour
             //HIGH ENERGY LEVEL
             if (.835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1)
             {
-                StateManager.EnergyState = StateManager.ENERGY.HIGH_DANGER;
+                //StateManager.EnergyState = StateManager.ENERGY.HIGH_DANGER;
+                PowerUpManager.GoPowerUp();
                 PlayerController.swipeSensitivity = 0.5f;
                 PlayerController.forwardSpeed = 300;
                 CharacterAnimationController.animationRunSpeed = 2f;
