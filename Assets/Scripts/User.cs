@@ -4,7 +4,7 @@ using UnityEngine;
 public class User : MonoBehaviour
 {
 
-    public List<int> LeaderboardScores { get; set; }
+    public List<LeaderboardModel> Leaderboard { get; set; }
 
     public int UserCharacterState { get; set; }
 
@@ -30,7 +30,7 @@ public class User : MonoBehaviour
     private void LocalLoad(UserModel _userModel)
     {
 
-        LeaderboardScores = _userModel.leaderboard_scores;
+        Leaderboard = _userModel.leaderboard;
         UserCharacterState = _userModel.user_character_state;
         UserName = _userModel.user_name;
 
@@ -43,7 +43,7 @@ public class User : MonoBehaviour
     private void NewUser()
     {
 
-        LeaderboardScores = ENV.LEADERBOARDS;
+        Leaderboard = ENV.LEADERBOARDS;
         UserCharacterState = 0;
         UserName = "";
 

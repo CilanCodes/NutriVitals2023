@@ -19,19 +19,19 @@ public class ENV : MonoBehaviour
 
         };
 
-        LEADERBOARDS = new List<int>
+        LEADERBOARDS = new List<LeaderboardModel>
         {
 
-            200,
-            175,
-            150,
-            125,
-            95,
-            70,
-            60,
-            50,
-            40,
-            30,
+            new LeaderboardModel(200, "Coach"),
+            new LeaderboardModel(175, "Rexie"),
+            new LeaderboardModel(150, "Denver"),
+            new LeaderboardModel(125, "Miles"),
+            new LeaderboardModel(95, "Gabriel"),
+            new LeaderboardModel(70, "Dianne"),
+            new LeaderboardModel(60, "Rhocel"),
+            new LeaderboardModel(50, "Christian"),
+            new LeaderboardModel(40, "Angel"),
+            new LeaderboardModel(30, "Cilan"),
 
         };
 
@@ -177,7 +177,7 @@ public class ENV : MonoBehaviour
 
     }
 
-    public static List<int> LEADERBOARDS { get; private set; }
+    public static List<LeaderboardModel> LEADERBOARDS { get; private set; }
 
     public static string[] STORY_TEXT { get; private set; }
 

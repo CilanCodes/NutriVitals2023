@@ -9,18 +9,18 @@ public class LoadLeaderboardManager : MonoBehaviour
     public GameObject leaderboardEntryPrefab;
     public Transform content;
 
-    private List<int> LeaderboardScores { get; set; }
+    private List<LeaderboardModel> Leaderboard { get; set; }
 
     void Start()
     {
 
-        LeaderboardScores = FindObjectOfType<User>().LeaderboardScores;
+        Leaderboard = FindObjectOfType<User>().Leaderboard;
 
-        LeaderboardScores.Sort((score1, score2) => score2.CompareTo(score1));
+        Leaderboard.Sort((score1, score2) => score2.leaderboard_score.CompareTo(score1.leaderboard_score));
 
         content.ClearChildren();
         // Instantiate leaderboardEntryPrefab for each leaderboard entry, up to maxEntries
-        for (int score = 0, rank = 1; score < Mathf.Min(LeaderboardScores.Count, ENV.MAX_ENTRIES); score++, rank++)
+        for (int score = 0, rank = 1; score < Mathf.Min(Leaderboard.Count, ENV.MAX_ENTRIES); score++, rank++)
         {
 
             GameObject entry = Instantiate(leaderboardEntryPrefab, content);
@@ -37,9 +37,15 @@ public class LoadLeaderboardManager : MonoBehaviour
             // Set the score text
             entry
                 .transform
+                .Find("TextName")
+                .GetComponent<TextMeshProUGUI>()
+                .text = Leaderboard[score].leaderboard_name.ToString();
+
+            entry
+                .transform
                 .Find("TextScoreNumber")
                 .GetComponent<TextMeshProUGUI>()
-                .text = LeaderboardScores[score].ToString();
+                .text = Leaderboard[score].leaderboard_score.ToString();
 
             // Change the color for the top three ranks
             if (rank == 1)

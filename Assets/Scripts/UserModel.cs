@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class UserModel
 {
 
-    public List<int> leaderboard_scores;
+    public List<LeaderboardModel> leaderboard;
 
     public int user_character_state;
 
@@ -14,7 +14,7 @@ public class UserModel
     public UserModel(User user)
     {
 
-        leaderboard_scores = user.LeaderboardScores;
+        leaderboard = user.Leaderboard;
         user_character_state = user.UserCharacterState;
         user_name = user.UserName;
 

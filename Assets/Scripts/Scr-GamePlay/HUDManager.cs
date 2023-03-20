@@ -341,12 +341,9 @@ public class HUDManager : MonoBehaviour
             return;
         }
 
-        int newScore = scorePoints;
-
-        FindObjectOfType<User>().LeaderboardScores.Add(newScore);
+        FindObjectOfType<User>().Leaderboard.Add(new LeaderboardModel(scorePoints, FindObjectOfType<User>().UserName));
         FindObjectOfType<User>().OnSave();
 
-        //leaderboardManager.AddCurrentScoreToLeaderboard();
         isScoreAdded = true;
     }
 
