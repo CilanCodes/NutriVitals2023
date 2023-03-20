@@ -17,11 +17,11 @@ public class User : MonoBehaviour
 
         if (userModel == null)
 
-            FindObjectOfType<User>().OnNewUser();
+            NewUser();
 
         else
 
-            FindObjectOfType<User>().OnLoad(userModel);
+            OnLoad(userModel);
 
     }
 
@@ -44,11 +44,11 @@ public class User : MonoBehaviour
     {
 
         LeaderboardScores = ENV.LEADERBOARDS;
+        UserCharacterState = 0;
+        UserName = "";
 
         LocalSave();
 
     }
-
-    public void OnNewUser() => NewUser();
 
 }
