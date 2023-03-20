@@ -16,7 +16,7 @@ public class LoadLeaderboardManager : MonoBehaviour
 
         LeaderboardScores = FindObjectOfType<User>().LeaderboardScores;
 
-        LeaderboardScores.OrderByDescending(entry => entry).ToList();
+        LeaderboardScores.Sort((score1, score2) => score2.CompareTo(score1));
 
         content.ClearChildren();
         // Instantiate leaderboardEntryPrefab for each leaderboard entry, up to maxEntries
