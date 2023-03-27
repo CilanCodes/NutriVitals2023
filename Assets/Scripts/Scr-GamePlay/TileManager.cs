@@ -6,6 +6,7 @@ public class TileManager : MonoBehaviour
     public GameObject[] map1TilePreFabs;
     public GameObject[] map2TilePreFabs;
     public GameObject[] map3TilePreFabs;
+    public GameObject[] map4TilePreFabs;
     public float zSpawn = 0;
     public float tileLength = 40;
     public int numberOfTiles = 3;
@@ -43,6 +44,18 @@ public class TileManager : MonoBehaviour
             else if (HUDManager.scorePoints <= 3000 || HUDManager.scorePoints >= 1501)
             {
                 SpawnTileMap(map2TilePreFabs);
+            }
+            else if (HUDManager.scorePoints <= 4500 || HUDManager.scorePoints >= 3001)
+            {
+                SpawnTileMap(map3TilePreFabs);
+            }
+            else if (HUDManager.scorePoints <= 6000 || HUDManager.scorePoints >= 4501)
+            {
+                SpawnTileMap(map4TilePreFabs);
+            }
+            else if (HUDManager.scorePoints >= 6001)
+            {
+                SpawnTileMap(map1TilePreFabs);
             }
 
 

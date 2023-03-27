@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 25724065208931468}
   m_Layer: 0
-  m_Name: 1-Seaside-A
+  m_Name: 2-Seaside-A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

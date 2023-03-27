@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
                 else if (StateManager.EnergyState == StateManager.ENERGY.DRUNK)//FOR FUTURE UPDATE
                 {
 
+
                     #region WITH REVERSE SWIPE SENSITIVITY
 
                     if (endTouchPosition.x > startTouchPosition.x)

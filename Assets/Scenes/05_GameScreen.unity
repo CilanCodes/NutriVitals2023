@@ -3614,6 +3614,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2777973322920031706, guid: 3aa66c2a412282241a54d4264271fe95, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -222980515883792066, guid: 3aa66c2a412282241a54d4264271fe95, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3aa66c2a412282241a54d4264271fe95, type: 3}
       propertyPath: m_Name
       value: CharacterModel-Male
@@ -6057,7 +6065,10 @@ MonoBehaviour:
   - {fileID: 6640838248215973255, guid: e792dca7c7a151348979c9b436d57894, type: 3}
   - {fileID: 711289187854695356, guid: 84b7bd1b8702b034697748ccdbaaa4e3, type: 3}
   - {fileID: 711289187854695356, guid: 84b7bd1b8702b034697748ccdbaaa4e3, type: 3}
-  map3TilePreFabs: []
+  map3TilePreFabs:
+  - {fileID: 8328163258193280304, guid: e095c8a21759c5e46abfe47c8d8d208b, type: 3}
+  map4TilePreFabs:
+  - {fileID: 1077950313325382808, guid: 58a819a240471bd458411c4799b9dc69, type: 3}
   zSpawn: 0
   tileLength: 40
   numberOfTiles: 5

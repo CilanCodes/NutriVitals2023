@@ -17,7 +17,7 @@ public class GameScreenManager : MonoBehaviour
 
     void Start()
     {
-
+        FoodManager.isReplayAgain = true;
         PlayerPrefs.SetInt("index", 2);
         int countdown = 3;
         StartCoroutine(CountdownToStart(countdown));

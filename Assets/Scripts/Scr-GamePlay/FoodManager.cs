@@ -113,15 +113,15 @@ public class FoodManager : MonoBehaviour
                             break;
 
                         case "Grow":
-                            spriteRenderer.sprite = growSprites[Random.Range(0, goSprites.Length)];
+                            spriteRenderer.sprite = growSprites[Random.Range(0, growSprites.Length)];
                             break;
 
                         case "Glow":
-                            spriteRenderer.sprite = glowSprites[Random.Range(0, goSprites.Length)];
+                            spriteRenderer.sprite = glowSprites[Random.Range(0, glowSprites.Length)];
                             break;
 
                         case "Junk":
-                            spriteRenderer.sprite = junkSprites[Random.Range(0, goSprites.Length)];
+                            spriteRenderer.sprite = junkSprites[Random.Range(0, junkSprites.Length)];
                             break;
                     }
 

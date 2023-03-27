@@ -1213,13 +1213,14 @@ MonoBehaviour:
   - {fileID: 6779613527854621033}
   goSprites:
   - {fileID: 21300000, guid: 59e4a4d77fe65224fa001c4bbfd1ce6d, type: 3}
-  - {fileID: 21300000, guid: b843aa145da25e14aaf5f6dde52678ff, type: 3}
+  - {fileID: 21300000, guid: ce7817235e1363847b01feb172ef0f16, type: 3}
+  - {fileID: 21300000, guid: 2b9af3abffaabaf4bb0a2cb06aa2512f, type: 3}
   growSprites:
-  - {fileID: 21300000, guid: cff7cd769ea24f644bb3b6f23155ecf3, type: 3}
-  - {fileID: 21300000, guid: 88143edf19359ac449be555e60687c8f, type: 3}
+  - {fileID: 21300000, guid: 4c9ef19941d2dbc4392f6f7219ea32b3, type: 3}
+  - {fileID: 21300000, guid: e69b45870bb85c546af65b237f603843, type: 3}
   glowSprites:
-  - {fileID: 21300000, guid: 8b4207aa7223c0b4c8b631ff7b106e3c, type: 3}
-  - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
+  - {fileID: 21300000, guid: 5fdd22c27ac05a74b9191930e3963563, type: 3}
+  - {fileID: 21300000, guid: 2f6788cd24134d64191ac9976e672a4e, type: 3}
   junkSprites:
   - {fileID: 21300000, guid: d67faed78f943b84ca2119be556299e4, type: 3}
   - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
