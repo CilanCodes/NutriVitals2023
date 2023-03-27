@@ -86,7 +86,7 @@ public class ENV : MonoBehaviour
         FOODS[0, 0, 4] = "RICE";
         FOODS[0, 0, 5] = "CEREAL";
         FOODS[0, 0, 6] = "BUTTER";
-        FOODS[0, 0, 7] = "CRACKER";
+        FOODS[0, 0, 7] = "CRACKERS";
         FOODS[0, 0, 8] = "CASSAVA";
 
 
@@ -108,7 +108,7 @@ public class ENV : MonoBehaviour
         FOODS[1, 0, 4] = "SHRIMP";
         FOODS[1, 0, 5] = "CRAB";
         FOODS[1, 0, 6] = "PORK";
-        FOODS[1, 0, 7] = "BEEG";
+        FOODS[1, 0, 7] = "BEEF";
         FOODS[1, 0, 8] = "EGG";
 
         FOODS[1, 1, 0] = "Protein, healthy fats, fiber, strong muscles, healthy weight, and reduces the risk of heart disease.";
@@ -122,7 +122,7 @@ public class ENV : MonoBehaviour
         FOODS[1, 1, 8] = "Protein, healthy fats, vitamins, minerals, and supports muscle growth and brain function.";
 
         //GLOW FOODS HERE
-        FOODS[2, 0, 0] = "CARROT";
+        FOODS[2, 0, 0] = "APPLE";
         FOODS[2, 0, 1] = "MANGO";
         FOODS[2, 0, 2] = "EGGPLANT";
         FOODS[2, 0, 3] = "COCONUT";
@@ -132,7 +132,7 @@ public class ENV : MonoBehaviour
         FOODS[2, 0, 7] = "ORANGE";
         FOODS[2, 0, 8] = "BROCOLLI";
 
-        FOODS[2, 1, 0] = "Vitamin A, antioxidants, fiber, promotes healthy eyesight, and boosts the immune system.";
+        FOODS[2, 1, 0] = "Fiber, vitamin C; aids digestion, boosts immunity, may lower risk of chronic diseases.";
         FOODS[2, 1, 1] = "Vitamin C, antioxidants, fiber, promotes healthy skin, eyesight, digestion, and immune system.";
         FOODS[2, 1, 2] = "Fiber, antioxidants, vitamins, minerals, promotes healthy digestion, brain function, and lowers cholesterol.";
         FOODS[2, 1, 3] = "Fiber, healthy fats, vitamins, minerals, and supports heart health and healthy skin.c";

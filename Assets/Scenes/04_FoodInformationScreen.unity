@@ -1036,41 +1036,41 @@ MonoBehaviour:
   healthyFoods:
   - {fileID: 21300000, guid: 59e4a4d77fe65224fa001c4bbfd1ce6d, type: 3}
   - {fileID: 21300000, guid: b843aa145da25e14aaf5f6dde52678ff, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
+  - {fileID: 21300000, guid: ce7817235e1363847b01feb172ef0f16, type: 3}
   - {fileID: 21300000, guid: 93d9ecd953fd5a74ca88b687b4f58a1b, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
+  - {fileID: 21300000, guid: 2b9af3abffaabaf4bb0a2cb06aa2512f, type: 3}
   - {fileID: 21300000, guid: 8a1b572edb0fd7c46a569b5c8a850662, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
+  - {fileID: 21300000, guid: 8d647275f6f41d84bb34492505173917, type: 3}
+  - {fileID: 21300000, guid: 6bef443930c4dbb47b702d31eb95a182, type: 3}
+  - {fileID: 21300000, guid: 02e541a01afc2864da76bc1fbe4785da, type: 3}
   - {fileID: 21300000, guid: 88143edf19359ac449be555e60687c8f, type: 3}
   - {fileID: 21300000, guid: cff7cd769ea24f644bb3b6f23155ecf3, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
+  - {fileID: 21300000, guid: bc324b256d6d105458c41641ed94015b, type: 3}
   - {fileID: 21300000, guid: 7d0e1b7231861ba4cba3c45d177cdbda, type: 3}
   - {fileID: 21300000, guid: 28ffb2c950963014fb21ccf397c1c4b9, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
+  - {fileID: 21300000, guid: 4f576844479d5984fb34f08366e07dea, type: 3}
+  - {fileID: 21300000, guid: 4c9ef19941d2dbc4392f6f7219ea32b3, type: 3}
+  - {fileID: 21300000, guid: e69b45870bb85c546af65b237f603843, type: 3}
+  - {fileID: 21300000, guid: 9f599b155f62b8c498d1c6b6f4b72b1f, type: 3}
+  - {fileID: 21300000, guid: 5fdd22c27ac05a74b9191930e3963563, type: 3}
   - {fileID: 21300000, guid: 8b4207aa7223c0b4c8b631ff7b106e3c, type: 3}
   - {fileID: 21300000, guid: 0dbde6bf28748c540bd79e58826ce92e, type: 3}
   - {fileID: 21300000, guid: e860e1d3e2f5a2c46bbe6573b1587ed9, type: 3}
   - {fileID: 21300000, guid: ca8ed9c742b2f404ebd0546991fba396, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
+  - {fileID: 21300000, guid: 2f6788cd24134d64191ac9976e672a4e, type: 3}
+  - {fileID: 21300000, guid: 70044f3f46edacf49991b0446cb25813, type: 3}
+  - {fileID: 21300000, guid: 21d5300dd832b2b4282dfe90f2867827, type: 3}
+  - {fileID: 21300000, guid: 67c9b36567006094b82b3b10aeeff685, type: 3}
   junkFoods:
   - {fileID: 21300000, guid: d67faed78f943b84ca2119be556299e4, type: 3}
   - {fileID: 21300000, guid: 873eb5da09f329144b71a943ea8a016f, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
+  - {fileID: 21300000, guid: 378c5ee271788e341ae98cf272b12764, type: 3}
   - {fileID: 21300000, guid: 4d5f5906bf93c884d854139452ed8628, type: 3}
   - {fileID: 21300000, guid: 8ead283f6aa2f36468de56051a3b5862, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
-  - {fileID: 21300000, guid: e3bc160126bd68c4382b18a897fe00cc, type: 3}
+  - {fileID: 21300000, guid: 1fa73cdc01bf8cf40805a388520367c3, type: 3}
+  - {fileID: 21300000, guid: 1da8be1b199a50d47a7a473169029b18, type: 3}
+  - {fileID: 21300000, guid: 5a93a8a44c2b1744299ff302fc7c6ef6, type: 3}
+  - {fileID: 21300000, guid: e614c1cb6c6703b46b5cd169bb0bd32a, type: 3}
 --- !u!4 &676476865
 Transform:
   m_ObjectHideFlags: 0
@@ -2872,10 +2872,10 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.00088500977, y: 193.5}
+  m_SizeDelta: {x: 0, y: 387}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1731868700
 MonoBehaviour:
   m_ObjectHideFlags: 0
