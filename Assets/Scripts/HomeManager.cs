@@ -11,6 +11,9 @@ public class HomeManager : MonoBehaviour
     [SerializeField]
     private ScrollRect leaderboardUIScrollRect;
 
+    [SerializeField]
+    private ScrollRect achievementsUIScrollRect;
+
     void Start()
     {
 
@@ -47,6 +50,12 @@ public class HomeManager : MonoBehaviour
             leaderboardUIScrollRect.verticalNormalizedPosition = 1f;
             FindObjectOfType<GameManager>().OnTrigger("leaderboard");
 
+        }
+
+        if (SimpleInput.GetButtonDown("OnAchievements"))
+        {
+            achievementsUIScrollRect.verticalNormalizedPosition = 1f;
+            FindObjectOfType<GameManager>().OnTrigger("achievements");
         }
 
     }

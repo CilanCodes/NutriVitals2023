@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //DECREASE ENERGY OVER TIME
-        AdjustmentFunctions.DecreaseEnergyOverTime();
+        HUDManager.DecreaseEnergyOverTime();
 
     }
 
@@ -222,7 +222,7 @@ public class PlayerController : MonoBehaviour
 
                 else if (StateManager.HitState != StateManager.HIT.JUNK)
                     
-                    AdjustmentFunctions.GoodFoodBenefits(1);
+                    HUDManager.GoodFoodBenefits(1);
 
                 else
                 {
@@ -238,11 +238,11 @@ public class PlayerController : MonoBehaviour
 
                 if (StateManager.HitState == StateManager.HIT.GLOW)
 
-                    AdjustmentFunctions.GoodFoodBenefits(3);
+                    HUDManager.GoodFoodBenefits(3);
 
                 else if (StateManager.HitState != StateManager.HIT.JUNK)
 
-                    AdjustmentFunctions.GoodFoodBenefits(2);
+                    HUDManager.GoodFoodBenefits(2);
 
                 else
                 {
@@ -258,7 +258,7 @@ public class PlayerController : MonoBehaviour
 
                 if (StateManager.HitState != StateManager.HIT.JUNK)
 
-                    AdjustmentFunctions.GoodFoodBenefits(1);
+                    HUDManager.GoodFoodBenefits(1);
 
                 else
                 {
@@ -281,7 +281,7 @@ public class PlayerController : MonoBehaviour
 
             if (StateManager.HitState != StateManager.HIT.JUNK)
 
-                AdjustmentFunctions.GoodFoodBenefits(1);
+                HUDManager.GoodFoodBenefits(1);
 
             if (StateManager.HitState == StateManager.HIT.GO)
 
@@ -340,8 +340,8 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ShowCollected(string collectedIndicator, Vector3 xreturnPos)
     {
-        
-        itemText.text = collectedIndicator;
+        #region SHOW COLLECTED OLD CODE
+        /*itemText.text = collectedIndicator;
 
         Vector3 startPos = itemTextObj.transform.position;
         Vector3 endPos = itemTextObj.transform.position + Vector3.up * 40f;
@@ -360,8 +360,12 @@ public class PlayerController : MonoBehaviour
         // Move the itemTextObj back to its original position
         yield return new WaitForSeconds(1f);
         itemText.text = "";
-        itemTextObj.transform.position = startPos;
+        itemTextObj.transform.position = startPos;*/
+        #endregion
 
+        itemText.text = collectedIndicator;
+        yield return new WaitForSeconds(0.5f);
+        itemText.text = "";
 
     }
 

@@ -137,8 +137,7 @@ public class HUDManager : MonoBehaviour
             //HIGH ENERGY LEVEL
             if (.835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1)
             {
-                //StateManager.EnergyState = StateManager.ENERGY.HIGH_DANGER;
-                PowerUpManager.GoPowerUp();
+                StateManager.EnergyState = StateManager.ENERGY.HIGH_DANGER;
                 PlayerController.swipeSensitivity = 0.5f;
                 PlayerController.forwardSpeed = 300;
                 CharacterAnimationController.animationRunSpeed = 2f;
@@ -313,7 +312,42 @@ public class HUDManager : MonoBehaviour
 
     #endregion
 
+    public static void DecreaseEnergyOverTime()
+    {
+        #region ENERGY BURN
 
+        if (StateManager.EnergyState == StateManager.ENERGY.HIGH_DANGER)
+        {
+            UpdateScoreEnergyPoints(0, -.0015f);
+        }
+        else if (StateManager.EnergyState == StateManager.ENERGY.LOW_DANGER)
+        {
+            UpdateScoreEnergyPoints(0, -.00025f);
+        }
+        else
+        {
+            UpdateScoreEnergyPoints(0, -.00075f);
+        }
+
+        #endregion
+    }
+
+    public static void GoodFoodBenefits(int multiplier)
+    {
+        // GENERAL GOOD FOOD BENEFITS
+        if (StateManager.EnergyState == StateManager.ENERGY.LOW_DANGER)
+        {
+            UpdateScoreEnergyPoints(25 * multiplier, .075f);
+        }
+        else if (StateManager.EnergyState == StateManager.ENERGY.LOW_WARNING)
+        {
+            UpdateScoreEnergyPoints(25 * multiplier, .050f);
+        }
+        else
+        {
+            UpdateScoreEnergyPoints(25 * multiplier, .025f);
+        }
+    }
 
     #region SWIPE DELAY
 
