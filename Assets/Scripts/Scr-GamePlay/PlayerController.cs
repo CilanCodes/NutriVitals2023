@@ -19,14 +19,52 @@ public class PlayerController : MonoBehaviour
     public static Vector3 targetPosition;
 
     [SerializeField] private GameObject[] characterModels;
+    [SerializeField] private GameObject[] outfitModels;
+
+    [SerializeField] private GameObject[] characterShoeModels;
+    [SerializeField] private GameObject[] characterTopModels;
+    [SerializeField] private GameObject[] characterBottomModels;
+    [SerializeField] private GameObject[] characterOuterTopModels;
+
+    private bool rewardIsEquippedShoes;
+    private bool rewardIsEquippedCap;
+    private bool rewardIsEquippedBag;
+    private bool rewardIsEquippedShirtAndPants;
+
     private int characterIndex;
     Vector3 returnPos;
 
     void Start()
     {
+        rewardIsEquippedShoes = true;
+        rewardIsEquippedCap = true;
+        rewardIsEquippedBag = true;
+        rewardIsEquippedShirtAndPants = true;
 
-        characterIndex = PlayerPrefs.GetInt("_characterIndex", 0);
+        //CHARACTER
+        //characterIndex = PlayerPrefs.GetInt("_characterIndex", 0);
+        characterIndex = 0;
         characterModels[characterIndex].SetActive(true);
+
+        //SHOES
+        outfitModels[0].SetActive(rewardIsEquippedShoes);
+        characterShoeModels[characterIndex].SetActive(!rewardIsEquippedShoes);
+
+        //CAP
+        outfitModels[1].SetActive(rewardIsEquippedCap);
+
+        //BAG
+        outfitModels[2].SetActive(rewardIsEquippedBag);
+
+        //SHIRT AND PANTS
+        outfitModels[3].SetActive(rewardIsEquippedShirtAndPants);
+        outfitModels[4].SetActive(rewardIsEquippedShirtAndPants);
+        characterTopModels[characterIndex].SetActive(!rewardIsEquippedShirtAndPants);
+        characterBottomModels[characterIndex].SetActive(!rewardIsEquippedShirtAndPants);
+        characterOuterTopModels[characterIndex].SetActive(!rewardIsEquippedShirtAndPants);
+
+
+
         characterController = GetComponent<CharacterController>();
 
         Vector3 returnPos = itemTextObj.transform.position;
