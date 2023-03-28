@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         modelCharacterOufits[5].SetActive(!rewardIsEquippedShoes);
 
         //CAP
-        modelCharacterOufits[1].SetActive(rewardIsEquippedBag);
+        modelCharacterOufits[1].SetActive(rewardIsEquippedCap);
 
         //BAG
         modelCharacterOufits[2].SetActive(rewardIsEquippedBag);

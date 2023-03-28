@@ -15,6 +15,7 @@ public class GameScreenManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI countdownUIText;
 
+
     void Start()
     {
         FoodManager.isReplayAgain = true;

@@ -14,6 +14,23 @@ public class HomeManager : MonoBehaviour
     [SerializeField]
     private ScrollRect achievementsUIScrollRect;
 
+    [SerializeField]
+    private GameObject[] equipButtons;
+
+    [SerializeField]
+    private GameObject[] unequipButtons;
+
+    [SerializeField]
+    private GameObject[] lockedItems;
+
+    [SerializeField]
+    private GameObject[] unlockedItems;
+
+    private bool rewardIsEquippedShoes;
+    private bool rewardIsEquippedCap;
+    private bool rewardIsEquippedBag;
+    private bool rewardIsEquippedShirtAndPants;
+
     void Start()
     {
 
