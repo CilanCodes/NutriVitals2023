@@ -18,13 +18,11 @@ public class PlayerController : MonoBehaviour
     public static float swipeSensitivity;
     public static Vector3 targetPosition;
 
-    [SerializeField] private GameObject[] characterModels;
-    [SerializeField] private GameObject[] outfitModels;
-
-    [SerializeField] private GameObject[] characterShoeModels;
-    [SerializeField] private GameObject[] characterTopModels;
-    [SerializeField] private GameObject[] characterBottomModels;
-    [SerializeField] private GameObject[] characterOuterTopModels;
+    [SerializeField] private GameObject[] modelCharacterTop;
+    [SerializeField] private GameObject[] modelCharacterOuterTop;
+    [SerializeField] private GameObject[] modelCharacterBottom;
+    [SerializeField] private GameObject[] modelCharacterHair;
+    [SerializeField] private GameObject[] modelCharacterOufits;
 
     private bool rewardIsEquippedShoes;
     private bool rewardIsEquippedCap;
@@ -34,34 +32,48 @@ public class PlayerController : MonoBehaviour
     private int characterIndex;
     Vector3 returnPos;
 
+    private int outfitMaleOrFemale;
+
     void Start()
     {
-        rewardIsEquippedShoes = true;
-        rewardIsEquippedCap = true;
-        rewardIsEquippedBag = true;
-        rewardIsEquippedShirtAndPants = true;
+        rewardIsEquippedShoes = false;
+        rewardIsEquippedCap = false;
+        rewardIsEquippedBag = false;
+        rewardIsEquippedShirtAndPants = false;
 
         //CHARACTER
-        //characterIndex = PlayerPrefs.GetInt("_characterIndex", 0);
-        characterIndex = 0;
-        characterModels[characterIndex].SetActive(true);
+        characterIndex = PlayerPrefs.GetInt("_characterIndex", 0);
+
+        outfitMaleOrFemale =
+            characterIndex == 0 || characterIndex == 3
+            ? 0
+            : 1;
+
+        //HAIR
+        modelCharacterHair[characterIndex].SetActive(true);
+
+        //TOPS AND BOTTOMS
+        if (rewardIsEquippedShirtAndPants)
+        {
+            modelCharacterOufits[3].SetActive(true);
+            modelCharacterOufits[4].SetActive(true);
+        }
+        else
+        {
+                modelCharacterTop[outfitMaleOrFemale].SetActive(true);
+                modelCharacterOuterTop[outfitMaleOrFemale].SetActive(true);
+                modelCharacterBottom[outfitMaleOrFemale].SetActive(true);
+        }
 
         //SHOES
-        outfitModels[0].SetActive(rewardIsEquippedShoes);
-        characterShoeModels[characterIndex].SetActive(!rewardIsEquippedShoes);
+        modelCharacterOufits[0].SetActive(rewardIsEquippedShoes);
+        modelCharacterOufits[5].SetActive(!rewardIsEquippedShoes);
 
         //CAP
-        outfitModels[1].SetActive(rewardIsEquippedCap);
+        modelCharacterOufits[1].SetActive(rewardIsEquippedBag);
 
         //BAG
-        outfitModels[2].SetActive(rewardIsEquippedBag);
-
-        //SHIRT AND PANTS
-        outfitModels[3].SetActive(rewardIsEquippedShirtAndPants);
-        outfitModels[4].SetActive(rewardIsEquippedShirtAndPants);
-        characterTopModels[characterIndex].SetActive(!rewardIsEquippedShirtAndPants);
-        characterBottomModels[characterIndex].SetActive(!rewardIsEquippedShirtAndPants);
-        characterOuterTopModels[characterIndex].SetActive(!rewardIsEquippedShirtAndPants);
+        modelCharacterOufits[2].SetActive(rewardIsEquippedBag);
 
 
 
