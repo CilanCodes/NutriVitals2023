@@ -5303,8 +5303,8 @@ MonoBehaviour:
   - {fileID: 711289187854695356, guid: 84b7bd1b8702b034697748ccdbaaa4e3, type: 3}
   map3TilePreFabs:
   - {fileID: 8328163258193280304, guid: e095c8a21759c5e46abfe47c8d8d208b, type: 3}
-  - {fileID: 8328163258193280304, guid: e095c8a21759c5e46abfe47c8d8d208b, type: 3}
-  - {fileID: 8328163258193280304, guid: e095c8a21759c5e46abfe47c8d8d208b, type: 3}
+  - {fileID: 520680585777602657, guid: effc3f1b3d015f34583214f8f6b4e422, type: 3}
+  - {fileID: 1648048528942363484, guid: bc8aa2ae82b3d1a44a1cfaccd20b4f9c, type: 3}
   map4TilePreFabs:
   - {fileID: 1077950313325382808, guid: 58a819a240471bd458411c4799b9dc69, type: 3}
   - {fileID: 1077950313325382808, guid: 58a819a240471bd458411c4799b9dc69, type: 3}
