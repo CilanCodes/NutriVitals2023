@@ -25,7 +25,6 @@ public class IntroManager : MonoBehaviour
 
     private int decisionState;
     private int textState;
-    private string username;
 
     /*public ToggleGroup characterToggleGroup;
     public GameObject[] characterToggles;
@@ -49,12 +48,12 @@ public class IntroManager : MonoBehaviour
             .Animator
             .SetInteger("decisionState", decisionState);
 
-        username = userNameUIInputField
+        UserName = userNameUIInputField
             .text
             .Trim();
 
-        UIButtons[0].SetActive(username.Length > 3);
-        UIButtons[2].SetActive(username.Length < 3);
+        UIButtons[0].SetActive(UserName.Length > 3);
+        UIButtons[2].SetActive(UserName.Length < 3);
 
         if (SimpleInput.GetButtonDown("OnCharacterA"))
             characterIndex = 0;
@@ -95,7 +94,7 @@ public class IntroManager : MonoBehaviour
             {
 
                 decisionState = 2;
-                FindObjectOfType<User>().UserName = username.ToUpper();
+                FindObjectOfType<User>().UserName = UserName.ToUpper();
 
             }
             else if (decisionState == 2)
@@ -172,18 +171,16 @@ public class IntroManager : MonoBehaviour
     private void StartStory()
     {
 
-        string initialText = string.Format("HELLO {0},\nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH", username);
         textState = 0;
-        StartCoroutine(GetText(initialText));
+        StartCoroutine(StartStoryToStart());
 
     }
 
-    private IEnumerator GetText(string _text)
+    private IEnumerator StartStoryToStart()
     {
 
-        textState++;
         storyUIText.text = string.Empty;
-        foreach (char letter in _text.ToCharArray())
+        foreach (char letter in ENV.STORY_TEXT[textState++].ToCharArray())
         {
 
             storyUIText.text += letter;
@@ -192,9 +189,9 @@ public class IntroManager : MonoBehaviour
         }
         yield return new WaitForSeconds(6.5f);
 
-        if (textState < 5)
+        if (textState < ENV.STORY_TEXT.Length)
 
-            StartCoroutine(GetText(ENV.STORY_TEXT[textState - 1]));
+            StartCoroutine(StartStoryToStart());
 
         else
         {
@@ -242,7 +239,8 @@ public class IntroManager : MonoBehaviour
             characterToggles[5].SetActive(characterIndex == 2 || characterIndex == 3);
         }
 
-
-
     }
+
+    public static string UserName { get; private set; }
+
 }

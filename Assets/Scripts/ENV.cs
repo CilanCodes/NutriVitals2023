@@ -38,6 +38,8 @@ public class ENV : MonoBehaviour
         STORY_TEXT = new string[]
         {
 
+            $"HELLO { IntroManager.UserName },\nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH",
+
             "I WILL HELP YOU UNDERSTAND\nTHAT PROPER NUTRITION\nIS AS IMPORTANT AS PHYSICAL TRAINING",
 
             "YOUR TRAINING GROUND\nWILL BE FILLED WITH\nHEALTHY FOODS AND TEMPTING JUNK FOODS",
@@ -45,6 +47,23 @@ public class ENV : MonoBehaviour
             "ALONG THE WAY,\nYOU MUST CHOOSE THE\nRIGHT FOODS  TO\nFUEL YOUR BODY AND\nIMPROVE YOUR PERFORMANCE",
 
             "GOODLUCK MY DEAR TRAINEE\nI WILL BE HERE WITH YOU\nALONG THE WAY",
+
+        };
+
+        END_STORY_TEXT = new string[]
+        {
+
+            $"CONGRATULATIONS, { FindObjectOfType<User>().UserName }!\nYOU HAVE SUCCESSFULLY\nCOMPLETED YOUR TRAINING JOURNEY",
+
+            "YOU HAVE LEARNED HOW PROPER NUTRITION\nIS AS IMPORTANT AS PHYSICAL TRAINING",
+
+            "AND HOW TO CHOOSE THE RIGHT FOODS TO\nFUEL YOUR BODY\nAND IMPROVE YOUR PERFORMANCE",
+
+            "NOW, YOU ARE PREPARED TO JOIN THE RACE\nAND APPLY ALL THAT YOU HAVE LEARNED\nTHROUGHOUT YOUR JOURNEY.",
+
+            "REMEMBER TO STAY FOCUSED AND\nMAKE THE RIGHT CHOICES WHEN FACED\nWITH TEMPTING JUNK FOODS.",
+
+            "GOOD LUCK, AND MAY YOUR EFFORTS\nBE REWARDED WITH SUCCESS IN THE RACE!",
 
         };
 
@@ -182,6 +201,8 @@ public class ENV : MonoBehaviour
     public static List<LeaderboardModel> LEADERBOARDS { get; private set; }
 
     public static string[] STORY_TEXT { get; private set; }
+
+    public static string[] END_STORY_TEXT { get; private set; }
 
     public static string[] ADVICE_TEXT { get; private set; }
 

@@ -1,8 +1,21 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
+
+    [SerializeField]
+    private GameObject skipUIButton;
+
+    [SerializeField]
+    private TextMeshProUGUI endStoryUIText;
+
+    [SerializeField]
+    private float typingSpeed = 0.04f;
+
     public GameObject[] map1TilePreFabs;
     public GameObject[] map2TilePreFabs;
     public GameObject[] map3TilePreFabs;
@@ -10,12 +23,16 @@ public class TileManager : MonoBehaviour
     public float zSpawn = 0;
     public float tileLength = 40;
     public int numberOfTiles = 3;
+    private int textState;
     private List<GameObject> activeTiles = new List<GameObject>();
 
     public Transform playerTransform;
 
     private void Start()
     {
+
+        skipUIButton.SetActive(false);
+
         for (int i = 0; i < numberOfTiles; i++)
         {
             if (i == 0)
@@ -29,6 +46,9 @@ public class TileManager : MonoBehaviour
 
         }
 
+        //FOR REMOVAL ONLY FOR TESTING
+        PlayerPrefs.SetInt("_hasReachedScore", 0);
+        //FOR TESTING ONLY
     }
 
     void Update()
@@ -37,11 +57,11 @@ public class TileManager : MonoBehaviour
         if (playerTransform.position.z - 50 > zSpawn - (numberOfTiles * tileLength))
         {
 
-            if (HUDManager.scorePoints <= 1500)
+            if (HUDManager.scorePoints <= 500)
             {
                 SpawnTileMap(map1TilePreFabs);
             }
-            else if (HUDManager.scorePoints <= 3000)
+            else if (HUDManager.scorePoints <= 700)
             {
                 SpawnTileMap(map2TilePreFabs);
                 PlayerPrefs.SetInt("_rewardIsUnlockedShoes", 1);
@@ -54,7 +74,7 @@ public class TileManager : MonoBehaviour
                 }
 
             }
-            else if (HUDManager.scorePoints <= 4500)
+            else if (HUDManager.scorePoints <= 1000)
             {
                 SpawnTileMap(map3TilePreFabs);
                 PlayerPrefs.SetInt("_rewardIsUnlockedCap", 1);
@@ -66,7 +86,7 @@ public class TileManager : MonoBehaviour
                     PlayerPrefs.SetInt("_hasReachedScore", 3000);
                 }
             }
-            else if (HUDManager.scorePoints <= 6000)
+            else if (HUDManager.scorePoints <= 1200)
             {
                 SpawnTileMap(map4TilePreFabs);
                 PlayerPrefs.SetInt("_rewardIsUnlockedBag", 1);
@@ -86,15 +106,40 @@ public class TileManager : MonoBehaviour
 
                 if (GameScreenManager.hasReachedScore == 4500)
                 {
+
                     FindObjectOfType<GameScreenManager>().RewardObtainedOutfit();
                     GameScreenManager.hasReachedScore = 6000;
                     PlayerPrefs.SetInt("_hasReachedScore", 6000);
-                }
-            }
 
+                    int score = GameScreenManager.hasReachedScore;
+                    string name = FindObjectOfType<User>().UserName;
+
+                    LeaderboardModel leaderboard = new(score, name);
+                    FindObjectOfType<User>().Leaderboard.Add(leaderboard);
+                    FindObjectOfType<User>().OnSave();
+
+
+                    StateManager.IsMoving = false;
+                    //Time.timeScale = 0;
+                    //FOR REMOVE
+                    FindObjectOfType<GameManager>().OnTrigger("endStory");
+                    EndStory();
+                    Skip();
+                    //FOR REMOVE ONLY FOR TESTING
+
+                    
+                    
+                }
+
+            }
 
             DeleteTile();
         }
+
+        if (SimpleInput.GetButtonDown("OnSkip"))
+
+            GameManager.OnLoadScene(2);
+
     }
 
 
@@ -125,5 +170,47 @@ public class TileManager : MonoBehaviour
         activeTiles.RemoveAt(0);
     }
 
+    private async void Skip()
+    {
+
+        await Task.Delay(5000);
+        skipUIButton.SetActive(true);
+
+    }
+
+    private void EndStory()
+    {
+
+        textState = 0;
+        StartCoroutine(EndStoryToStart());
+
+    }
+
+    private IEnumerator EndStoryToStart()
+    {
+
+        endStoryUIText.text = string.Empty;
+        foreach (char letter in ENV.END_STORY_TEXT[textState++].ToCharArray())
+        {
+
+            endStoryUIText.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+
+        }
+        yield return new WaitForSeconds(6.5f);
+
+        if (textState < ENV.END_STORY_TEXT.Length)
+
+            StartCoroutine(EndStoryToStart());
+
+        else
+        {
+
+            FindObjectOfType<User>().OnSave();
+            GameManager.OnLoadScene(2);
+
+        }
+
+    }
 
 }

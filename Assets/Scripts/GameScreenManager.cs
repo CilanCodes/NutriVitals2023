@@ -140,6 +140,7 @@ public class GameScreenManager : MonoBehaviour
 
         GameObject.Find("BannerReward").GetComponent<Animator>().SetTrigger("offGoal");
 
+
     }
 
     private IEnumerator GoalReached(Sprite _itemSprite)
