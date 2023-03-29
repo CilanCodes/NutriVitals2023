@@ -174,6 +174,8 @@ public class ENV : MonoBehaviour
         ON_OVERLAY_STATUS = "onOverlayStatus";
         OFF_OVERLAY_STATUS = "offOverlayStatus";
         CLOSE = "close";
+        ON_GOAL = "onReward";
+        OFF_GOAL = "offReward";
 
     }
 
@@ -196,6 +198,10 @@ public class ENV : MonoBehaviour
     public static string OFF_OVERLAY_STATUS { get; private set; }
 
     public static string CLOSE { get; private set; }
+
+    public static string ON_GOAL { get; private set; }
+
+    public static string OFF_GOAL { get; private set; }
 
 
 }

@@ -1729,6 +1729,7 @@ GameObject:
   - component: {fileID: 267762868}
   - component: {fileID: 267762867}
   - component: {fileID: 267762870}
+  - component: {fileID: 267762871}
   m_Layer: 5
   m_Name: ButtonEquipShoes
   m_TagString: Untagged
@@ -1858,6 +1859,21 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
+--- !u!114 &267762871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267762865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnEquipShoes
+    value: 0
 --- !u!1 &306148030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,6 +2024,7 @@ GameObject:
   - component: {fileID: 308426196}
   - component: {fileID: 308426195}
   - component: {fileID: 308426194}
+  - component: {fileID: 308426198}
   m_Layer: 5
   m_Name: ButtonEquipCap
   m_TagString: Untagged
@@ -2137,6 +2154,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308426192}
   m_CullTransparentMesh: 1
+--- !u!114 &308426198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308426192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnEquipCap
+    value: 0
 --- !u!1 &308580661
 GameObject:
   m_ObjectHideFlags: 0
@@ -3414,7 +3446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &599722853
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4486,6 +4518,7 @@ GameObject:
   - component: {fileID: 863164556}
   - component: {fileID: 863164555}
   - component: {fileID: 863164554}
+  - component: {fileID: 863164558}
   m_Layer: 5
   m_Name: ButtonEquipOutfit
   m_TagString: Untagged
@@ -4615,6 +4648,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863164552}
   m_CullTransparentMesh: 1
+--- !u!114 &863164558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863164552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnEquipOutfit
+    value: 0
 --- !u!1 &867234302
 GameObject:
   m_ObjectHideFlags: 0
@@ -6031,13 +6079,14 @@ GameObject:
   - component: {fileID: 1121913960}
   - component: {fileID: 1121913959}
   - component: {fileID: 1121913958}
+  - component: {fileID: 1121913962}
   m_Layer: 5
   m_Name: ButtonUnequipOutfit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1121913957
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6160,6 +6209,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121913956}
   m_CullTransparentMesh: 1
+--- !u!114 &1121913962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121913956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnUnequipOutfit
+    value: 0
 --- !u!1 &1126846502
 GameObject:
   m_ObjectHideFlags: 0
@@ -8270,6 +8334,7 @@ GameObject:
   - component: {fileID: 1542012780}
   - component: {fileID: 1542012779}
   - component: {fileID: 1542012778}
+  - component: {fileID: 1542012782}
   m_Layer: 5
   m_Name: ButtonEquipBag
   m_TagString: Untagged
@@ -8399,6 +8464,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542012776}
   m_CullTransparentMesh: 1
+--- !u!114 &1542012782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542012776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnEquipBag
+    value: 0
 --- !u!1 &1577749883
 GameObject:
   m_ObjectHideFlags: 0
@@ -8883,13 +8963,14 @@ GameObject:
   - component: {fileID: 1638279974}
   - component: {fileID: 1638279973}
   - component: {fileID: 1638279972}
+  - component: {fileID: 1638279976}
   m_Layer: 5
   m_Name: ButtonUnequipBag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1638279971
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9012,6 +9093,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638279970}
   m_CullTransparentMesh: 1
+--- !u!114 &1638279976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638279970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnUnequipBag
+    value: 0
 --- !u!1 &1651052292
 GameObject:
   m_ObjectHideFlags: 0
@@ -9083,6 +9179,7 @@ GameObject:
   - component: {fileID: 1664215237}
   - component: {fileID: 1664215236}
   - component: {fileID: 1664215235}
+  - component: {fileID: 1664215239}
   m_Layer: 5
   m_Name: ButtonUnequipShoes
   m_TagString: Untagged
@@ -9212,6 +9309,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664215233}
   m_CullTransparentMesh: 1
+--- !u!114 &1664215239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664215233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnUnequipShoes
+    value: 0
 --- !u!1 &1754539831
 GameObject:
   m_ObjectHideFlags: 0
@@ -10126,13 +10238,14 @@ GameObject:
   - component: {fileID: 1836990629}
   - component: {fileID: 1836990628}
   - component: {fileID: 1836990627}
+  - component: {fileID: 1836990631}
   m_Layer: 5
   m_Name: ButtonUnequipCap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1836990626
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10255,6 +10368,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836990625}
   m_CullTransparentMesh: 1
+--- !u!114 &1836990631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836990625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995f34434fbe45d46aacf4e120446279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button:
+    m_key: OnUnequipCap
+    value: 0
 --- !u!1 &1852540223
 GameObject:
   m_ObjectHideFlags: 0
@@ -11773,7 +11901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7291087319054366606
 RectTransform:
   m_ObjectHideFlags: 0

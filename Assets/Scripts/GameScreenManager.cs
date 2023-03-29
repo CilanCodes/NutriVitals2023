@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameScreenManager : MonoBehaviour
 {
@@ -15,6 +16,13 @@ public class GameScreenManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI countdownUIText;
 
+    [SerializeField]
+    private Image goalImage;
+
+    [SerializeField]
+    private Sprite[] rewardGoalsSprites;
+
+    public static int hasReachedScore;
 
     void Start()
     {
@@ -22,6 +30,25 @@ public class GameScreenManager : MonoBehaviour
         PlayerPrefs.SetInt("index", 2);
         int countdown = 3;
         StartCoroutine(CountdownToStart(countdown));
+
+
+        hasReachedScore = PlayerPrefs.GetInt("_hasReachedScore", 0);
+
+        if (hasReachedScore == 0)
+        
+            StartCoroutine(StartingGoal(rewardGoalsSprites[0]));
+
+        else if (hasReachedScore == 1500)
+
+            StartCoroutine(StartingGoal(rewardGoalsSprites[1]));
+
+        else if (hasReachedScore == 3000)
+
+            StartCoroutine(StartingGoal(rewardGoalsSprites[2]));
+
+        else if (hasReachedScore == 4500)
+
+            StartCoroutine(StartingGoal(rewardGoalsSprites[3]));
 
     }
 
@@ -100,5 +127,46 @@ public class GameScreenManager : MonoBehaviour
     }
 
     public void GetAdvice() => Advice();
+
+    private IEnumerator StartingGoal(Sprite _itemSprite)
+    {
+        goalImage.sprite = _itemSprite;
+
+        yield return new WaitForSeconds(5f);
+
+        GameObject.Find("BannerReward").GetComponent<Animator>().SetTrigger("onGoal");
+
+        yield return new WaitForSeconds(8f);
+
+        GameObject.Find("BannerReward").GetComponent<Animator>().SetTrigger("offGoal");
+
+    }
+
+    private IEnumerator GoalReached(Sprite _itemSprite)
+    {
+        goalImage.sprite = _itemSprite;
+
+        yield return new WaitForSeconds(0.25f);
+
+        GameObject.Find("BannerReward").GetComponent<Animator>().SetTrigger("onGoal");
+
+        yield return new WaitForSeconds(8f);
+
+        GameObject.Find("BannerReward").GetComponent<Animator>().SetTrigger("offGoal");
+
+    }
+
+    private void RewardObtained(int _rewardIndex)
+    {
+        StartCoroutine(GoalReached(rewardGoalsSprites[_rewardIndex]));
+    }
+
+    public void RewardObtainedShoe() => RewardObtained(4);
+
+    public void RewardObtainedCap() => RewardObtained(5);
+
+    public void RewardObtainedBag() => RewardObtained(6);
+
+    public void RewardObtainedOutfit() => RewardObtained(7);
 
 }

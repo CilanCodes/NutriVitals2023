@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool rewardIsEquippedShoes;
     private bool rewardIsEquippedCap;
     private bool rewardIsEquippedBag;
-    private bool rewardIsEquippedShirtAndPants;
+    private bool rewardIsEquippedOutfit;
 
     private int characterIndex;
     Vector3 returnPos;
@@ -36,10 +36,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rewardIsEquippedShoes = false;
-        rewardIsEquippedCap = false;
-        rewardIsEquippedBag = false;
-        rewardIsEquippedShirtAndPants = false;
+        rewardIsEquippedShoes = PlayerPrefs.GetInt("_rewardIsEquippedShoes", 0) == 1;
+        rewardIsEquippedCap = PlayerPrefs.GetInt("_rewardIsEquippedCap", 0) == 1;
+        rewardIsEquippedBag = PlayerPrefs.GetInt("_rewardIsEquippedBag", 0) == 1;
+        rewardIsEquippedOutfit = PlayerPrefs.GetInt("_rewardIsEquippedOutfit", 0) == 1;
 
         //CHARACTER
         characterIndex = PlayerPrefs.GetInt("_characterIndex", 0);
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         modelCharacterHair[characterIndex].SetActive(true);
 
         //TOPS AND BOTTOMS
-        if (rewardIsEquippedShirtAndPants)
+        if (rewardIsEquippedOutfit)
         {
             modelCharacterOufits[3].SetActive(true);
             modelCharacterOufits[4].SetActive(true);
