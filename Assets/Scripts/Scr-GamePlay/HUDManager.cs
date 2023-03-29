@@ -52,8 +52,6 @@ public class HUDManager : MonoBehaviour
         ResetAllPoints();
         StartCoroutine(EnableSwipeAfterDelay());
 
-        //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
-
         FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
 
         FoodManager.isReplayAgain = true;
@@ -64,7 +62,6 @@ public class HUDManager : MonoBehaviour
     private void Update()
     {
 
-        //Prevent Update() from continuing even if the game is paused
         if (Time.timeScale == 0)
 
             return;

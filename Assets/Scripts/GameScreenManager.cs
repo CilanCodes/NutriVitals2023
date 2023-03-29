@@ -58,17 +58,6 @@ public class GameScreenManager : MonoBehaviour
 
             StartCoroutine(StartingGoal(rewardGoalsSprites[3]));
 
-
-        //FOR TESTING REMOVALS
-        PlayerPrefs.SetInt("_guideGoPower", 0);
-        PlayerPrefs.SetInt("_guideGrowPower", 0);
-        PlayerPrefs.SetInt("_guideGlowPower", 0);
-        PlayerPrefs.SetInt("_guideHighEnergy", 0);
-        PlayerPrefs.SetInt("_guideLowerEnergy", 0);
-        PlayerPrefs.SetInt("_guideJunkFood", 0);
-        PlayerPrefs.SetInt("_hasPlayed", 0);
-        //REMOVE THIS AFTERWARDS
-
     }
 
     void Update()
@@ -158,7 +147,7 @@ public class GameScreenManager : MonoBehaviour
 
         GameObject.Find("CoachGuide").GetComponent<Animator>().SetTrigger("onGuide");
 
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(12f);
 
         GameObject.Find("CoachGuide").GetComponent<Animator>().SetTrigger("offGuide");
 

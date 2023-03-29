@@ -29,8 +29,8 @@ public class ENV : MonoBehaviour
             new LeaderboardModel(935, "Gabriel"),
             new LeaderboardModel(720, "Dianne"),
             new LeaderboardModel(640, "Rhocel"),
-            new LeaderboardModel(510, "Christian"),
-            new LeaderboardModel(410, "Angel"),
+            new LeaderboardModel(570, "Christian"),
+            new LeaderboardModel(410, "Rex"),
             new LeaderboardModel(307, "Cilan"),
 
         };

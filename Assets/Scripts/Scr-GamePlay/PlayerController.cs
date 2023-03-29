@@ -390,28 +390,6 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ShowCollected(string collectedIndicator, Vector3 xreturnPos)
     {
-        #region SHOW COLLECTED OLD CODE
-        /*itemText.text = collectedIndicator;
-
-        Vector3 startPos = itemTextObj.transform.position;
-        Vector3 endPos = itemTextObj.transform.position + Vector3.up * 40f;
-
-        float elapsedTime = 0f;
-        float duration = 0.5f;
-
-        while (elapsedTime < duration)
-        {
-            float t = elapsedTime / duration;
-            itemTextObj.transform.position = Vector3.Lerp(startPos, endPos, t);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        // Move the itemTextObj back to its original position
-        yield return new WaitForSeconds(1f);
-        itemText.text = "";
-        itemTextObj.transform.position = startPos;*/
-        #endregion
 
         itemText.text = collectedIndicator;
         yield return new WaitForSeconds(0.5f);

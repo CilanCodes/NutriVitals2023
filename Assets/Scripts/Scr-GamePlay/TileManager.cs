@@ -46,9 +46,6 @@ public class TileManager : MonoBehaviour
 
         }
 
-        //FOR REMOVAL ONLY FOR TESTING
-        PlayerPrefs.SetInt("_hasReachedScore", 0);
-        //FOR TESTING ONLY
     }
 
     void Update()
@@ -57,11 +54,11 @@ public class TileManager : MonoBehaviour
         if (playerTransform.position.z - 50 > zSpawn - (numberOfTiles * tileLength))
         {
 
-            if (HUDManager.scorePoints <= 500)
+            if (HUDManager.scorePoints <= 1500)
             {
                 SpawnTileMap(map1TilePreFabs);
             }
-            else if (HUDManager.scorePoints <= 1000)
+            else if (HUDManager.scorePoints <= 3000)
             {
                 SpawnTileMap(map2TilePreFabs);
                 PlayerPrefs.SetInt("_rewardIsUnlockedShoes", 1);
@@ -74,7 +71,7 @@ public class TileManager : MonoBehaviour
                 }
 
             }
-            else if (HUDManager.scorePoints <= 1500)
+            else if (HUDManager.scorePoints <= 4500)
             {
                 SpawnTileMap(map3TilePreFabs);
                 PlayerPrefs.SetInt("_rewardIsUnlockedCap", 1);
@@ -86,7 +83,7 @@ public class TileManager : MonoBehaviour
                     PlayerPrefs.SetInt("_hasReachedScore", 3000);
                 }
             }
-            else if (HUDManager.scorePoints <= 2000)
+            else if (HUDManager.scorePoints <= 6000)
             {
                 SpawnTileMap(map4TilePreFabs);
                 PlayerPrefs.SetInt("_rewardIsUnlockedBag", 1);

@@ -64,4 +64,5 @@ public class SoundManager : MonoBehaviour
     public void PlayGlow() => SoundFxPlay(4);
 
     public void PlayOhno() => SoundFxPlay(5);
+
 }

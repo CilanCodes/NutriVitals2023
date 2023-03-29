@@ -45,6 +45,8 @@ public class FoodManager : MonoBehaviour
 
                         goFoodItem.tag = "Go";
                         spriteRenderer.sprite = goSprites[goSelectedFood];
+
+                        foodItems[i].GetComponent<Animator>().SetTrigger("onFoodDance");
                     }
 
                     else if (randomLane == 1 &&
@@ -57,6 +59,7 @@ public class FoodManager : MonoBehaviour
 
                         goFoodItem.tag = "Go";
                         spriteRenderer.sprite = goSprites[goSelectedFood];
+                        foodItems[i].GetComponent<Animator>().SetTrigger("onFoodDance");
                     }
 
                     else if (randomLane == 2 &&
@@ -69,6 +72,7 @@ public class FoodManager : MonoBehaviour
 
                         goFoodItem.tag = "Go";
                         spriteRenderer.sprite = goSprites[goSelectedFood];
+                        foodItems[i].GetComponent<Animator>().SetTrigger("onFoodDance");
                     }
 
                 }
@@ -105,7 +109,7 @@ public class FoodManager : MonoBehaviour
 
                     string randomFoodCategory = foodCategory[Random.Range(0, foodCategory.Length)];
                     randomFoodItem.tag = randomFoodCategory;
-
+                    randomFoodItem.GetComponent<Animator>().SetTrigger("onFoodDance");
                     switch (randomFoodCategory)
                     {
                         case "Go":

@@ -1262,72 +1262,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1c1a2f501d2e8ee47ac11a3339f6b983, type: 3}
   m_PrefabInstance: {fileID: 5998777131952342429}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6929936490307509562
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8870548290929443617}
-    m_Modifications:
-    - target: {fileID: 4211299449991276503, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5356127946578311842, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_Name
-      value: FARMLAND FOODS
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
---- !u!4 &3474002114206450216 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5771985253756346130, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
-  m_PrefabInstance: {fileID: 6929936490307509562}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7302042948663516492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1603,6 +1537,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2222111361405018444, guid: 88f2fd29f58b9734683512546acec310, type: 3}
   m_PrefabInstance: {fileID: 8793339169770149510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9005016042053238261
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8870548290929443617}
+    m_Modifications:
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233231584566876781, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+      propertyPath: m_Name
+      value: FarmFoodSpawnPoints
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+--- !u!4 &3474002114206450216 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5534392763593637853, guid: c3aeaa0d5609bab44ac2f8280468a037, type: 3}
+  m_PrefabInstance: {fileID: 9005016042053238261}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9159910314982358426
 PrefabInstance:
