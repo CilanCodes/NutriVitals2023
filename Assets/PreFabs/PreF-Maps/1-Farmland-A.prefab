@@ -1269,6 +1269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8870548290929443617}
     m_Modifications:
+    - target: {fileID: 4211299449991276503, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5356127946578311842, guid: 184dd430deacd164ca2171cc34550af3, type: 3}
       propertyPath: m_Name
       value: FARMLAND FOODS
