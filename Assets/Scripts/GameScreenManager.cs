@@ -66,6 +66,7 @@ public class GameScreenManager : MonoBehaviour
         PlayerPrefs.SetInt("_guideHighEnergy", 0);
         PlayerPrefs.SetInt("_guideLowerEnergy", 0);
         PlayerPrefs.SetInt("_guideJunkFood", 0);
+        PlayerPrefs.SetInt("_hasPlayed", 0);
         //REMOVE THIS AFTERWARDS
 
     }
@@ -190,13 +191,42 @@ public class GameScreenManager : MonoBehaviour
     {
         goalImage.sprite = _itemSprite;
 
-        yield return new WaitForSeconds(0.25f);
+        
 
         GameObject.Find("BannerReward").GetComponent<Animator>().SetTrigger("onGoal");
 
         yield return new WaitForSeconds(8f);
 
         GameObject.Find("BannerReward").GetComponent<Animator>().SetTrigger("offGoal");
+
+        yield return new WaitForSeconds(2f);
+
+        //FOR TESTING
+        if (PlayerPrefs.GetInt("_hasReachedScore", 0) == 1500
+            && PlayerPrefs.GetInt("_hasPlayed", 0) == 0)
+        {
+            StartCoroutine(GoalReached(rewardGoalsSprites[1]));
+            PlayerPrefs.SetInt("_hasPlayed", 1);
+        }
+            
+        else if (PlayerPrefs.GetInt("_hasReachedScore", 0) == 3000
+            && PlayerPrefs.GetInt("_hasPlayed", 0) == 1)
+        {
+            StartCoroutine(GoalReached(rewardGoalsSprites[2]));
+            PlayerPrefs.SetInt("_hasPlayed", 2);
+        }
+            
+
+        else if (PlayerPrefs.GetInt("_hasReachedScore", 0) == 4500
+               && PlayerPrefs.GetInt("_hasPlayed", 0) == 2)
+        {
+            StartCoroutine(GoalReached(rewardGoalsSprites[3]));
+            PlayerPrefs.SetInt("_hasPlayed", 3);
+        }
+
+
+
+        //DELETE IF NOT WORKING
 
     }
 

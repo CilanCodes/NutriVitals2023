@@ -22,16 +22,16 @@ public class ENV : MonoBehaviour
         LEADERBOARDS = new List<LeaderboardModel>
         {
 
-            new LeaderboardModel(200, "Coach"),
-            new LeaderboardModel(175, "Rexie"),
-            new LeaderboardModel(150, "Denver"),
-            new LeaderboardModel(125, "Miles"),
-            new LeaderboardModel(95, "Gabriel"),
-            new LeaderboardModel(70, "Dianne"),
-            new LeaderboardModel(60, "Rhocel"),
-            new LeaderboardModel(50, "Christian"),
-            new LeaderboardModel(40, "Angel"),
-            new LeaderboardModel(30, "Cilan"),
+            new LeaderboardModel(4020, "Coach"),
+            new LeaderboardModel(2500, "Rexie"),
+            new LeaderboardModel(1355, "Denver"),
+            new LeaderboardModel(1002, "Miles"),
+            new LeaderboardModel(935, "Gabriel"),
+            new LeaderboardModel(720, "Dianne"),
+            new LeaderboardModel(640, "Rhocel"),
+            new LeaderboardModel(510, "Christian"),
+            new LeaderboardModel(410, "Angel"),
+            new LeaderboardModel(307, "Cilan"),
 
         };
 

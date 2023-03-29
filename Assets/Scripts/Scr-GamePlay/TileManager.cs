@@ -53,7 +53,7 @@ public class TileManager : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log((playerTransform.position.z - 50) + ">" + (zSpawn - (numberOfTiles * tileLength)));
+
         if (playerTransform.position.z - 50 > zSpawn - (numberOfTiles * tileLength))
         {
 
@@ -61,7 +61,7 @@ public class TileManager : MonoBehaviour
             {
                 SpawnTileMap(map1TilePreFabs);
             }
-            else if (HUDManager.scorePoints <= 700)
+            else if (HUDManager.scorePoints <= 1000)
             {
                 SpawnTileMap(map2TilePreFabs);
                 PlayerPrefs.SetInt("_rewardIsUnlockedShoes", 1);
@@ -74,7 +74,7 @@ public class TileManager : MonoBehaviour
                 }
 
             }
-            else if (HUDManager.scorePoints <= 1000)
+            else if (HUDManager.scorePoints <= 1500)
             {
                 SpawnTileMap(map3TilePreFabs);
                 PlayerPrefs.SetInt("_rewardIsUnlockedCap", 1);
@@ -86,7 +86,7 @@ public class TileManager : MonoBehaviour
                     PlayerPrefs.SetInt("_hasReachedScore", 3000);
                 }
             }
-            else if (HUDManager.scorePoints <= 1200)
+            else if (HUDManager.scorePoints <= 2000)
             {
                 SpawnTileMap(map4TilePreFabs);
                 PlayerPrefs.SetInt("_rewardIsUnlockedBag", 1);
@@ -107,28 +107,22 @@ public class TileManager : MonoBehaviour
                 if (GameScreenManager.hasReachedScore == 4500)
                 {
 
-                    FindObjectOfType<GameScreenManager>().RewardObtainedOutfit();
                     GameScreenManager.hasReachedScore = 6000;
                     PlayerPrefs.SetInt("_hasReachedScore", 6000);
 
-                    int score = GameScreenManager.hasReachedScore;
+                    int score = HUDManager.scorePoints;
                     string name = FindObjectOfType<User>().UserName;
 
                     LeaderboardModel leaderboard = new(score, name);
                     FindObjectOfType<User>().Leaderboard.Add(leaderboard);
                     FindObjectOfType<User>().OnSave();
 
-
                     StateManager.IsMoving = false;
-                    //Time.timeScale = 0;
-                    //FOR REMOVE
+
                     FindObjectOfType<GameManager>().OnTrigger("endStory");
                     EndStory();
                     Skip();
-                    //FOR REMOVE ONLY FOR TESTING
 
-                    
-                    
                 }
 
             }
@@ -198,6 +192,10 @@ public class TileManager : MonoBehaviour
 
         }
         yield return new WaitForSeconds(6.5f);
+
+        if(textState == ENV.END_STORY_TEXT.Length - 1)
+
+            FindObjectOfType<GameScreenManager>().RewardObtainedOutfit();
 
         if (textState < ENV.END_STORY_TEXT.Length)
 
