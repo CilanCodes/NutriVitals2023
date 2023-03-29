@@ -5307,8 +5307,8 @@ MonoBehaviour:
   - {fileID: 1648048528942363484, guid: bc8aa2ae82b3d1a44a1cfaccd20b4f9c, type: 3}
   map4TilePreFabs:
   - {fileID: 1077950313325382808, guid: 58a819a240471bd458411c4799b9dc69, type: 3}
-  - {fileID: 1077950313325382808, guid: 58a819a240471bd458411c4799b9dc69, type: 3}
-  - {fileID: 1077950313325382808, guid: 58a819a240471bd458411c4799b9dc69, type: 3}
+  - {fileID: 5456683395409717324, guid: 4026d79e4f6a76c4da51b1228ae3eb66, type: 3}
+  - {fileID: 9109480555644798131, guid: 3439d4dddd3e83e4283e062f82ce321c, type: 3}
   zSpawn: 0
   tileLength: 40
   numberOfTiles: 5
