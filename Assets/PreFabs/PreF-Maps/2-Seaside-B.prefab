@@ -81,6 +81,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6219087971057485441}
     m_Modifications:
+    - target: {fileID: 2145114004073095856, guid: b4d4a788a3d506940b3dee63688ab73f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5005996847459240540, guid: b4d4a788a3d506940b3dee63688ab73f, type: 3}
       propertyPath: m_Name
       value: Rock_04 (1)
@@ -589,6 +593,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6697549155183850399, guid: 1721eaf20b53cdd4bbf14778c0724fad, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1721eaf20b53cdd4bbf14778c0724fad, type: 3}
@@ -604,6 +612,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6219087971057485441}
     m_Modifications:
+    - target: {fileID: 483688354497144173, guid: a618412176c7d444f86ef9180bd44b17, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5045704354141051291, guid: a618412176c7d444f86ef9180bd44b17, type: 3}
       propertyPath: m_Name
       value: Pier_01
@@ -823,6 +835,10 @@ PrefabInstance:
     - target: {fileID: 4383246619174296808, guid: 1721eaf20b53cdd4bbf14778c0724fad, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697549155183850399, guid: 1721eaf20b53cdd4bbf14778c0724fad, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1721eaf20b53cdd4bbf14778c0724fad, type: 3}

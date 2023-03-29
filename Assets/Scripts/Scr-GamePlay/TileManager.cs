@@ -80,6 +80,7 @@ public class TileManager : MonoBehaviour
             }
             else
             {
+
                 SpawnTileMap(map1TilePreFabs);
                 PlayerPrefs.SetInt("_rewardIsUnlockedOutfit", 1);
 
