@@ -100,6 +100,13 @@ public class PowerUpManager : MonoBehaviour
         StateManager.PowerUpState = StateManager.POWER_UP.POWER_UP;
         StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.GO;
 
+        if (PlayerPrefs.GetInt("_guideGoPower", 0) == 0
+            && !GameScreenManager.guideIsPlaying)
+        {
+            FindObjectOfType<GameScreenManager>().GuideGoPower();
+            PlayerPrefs.SetInt("_guideGoPower", 1);
+        }
+
     }
 
     #endregion
@@ -110,6 +117,12 @@ public class PowerUpManager : MonoBehaviour
         StateManager.PowerUpState = StateManager.POWER_UP.POWER_UP;
         StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.GROW;
 
+        if (PlayerPrefs.GetInt("_guideGrowPower", 0) == 0
+            && !GameScreenManager.guideIsPlaying)
+        {
+            FindObjectOfType<GameScreenManager>().GuideGrowPower();
+            PlayerPrefs.SetInt("_guideGrowPower", 1);
+        }
     }
 
     #endregion
@@ -120,6 +133,12 @@ public class PowerUpManager : MonoBehaviour
         StateManager.PowerUpState = StateManager.POWER_UP.POWER_UP;
         StateManager.PowerUpTypeState = StateManager.POWER_UP_TYPE.GLOW;
 
+        if (PlayerPrefs.GetInt("_guideGlowPower", 0) == 0
+            && !GameScreenManager.guideIsPlaying)
+        {
+            FindObjectOfType<GameScreenManager>().GuideGlowPower();
+            PlayerPrefs.SetInt("_guideGlowPower", 1);
+        }
     }
 
     #endregion

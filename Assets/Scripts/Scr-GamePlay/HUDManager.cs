@@ -132,6 +132,14 @@ public class HUDManager : MonoBehaviour
                 PlayerController.swipeSensitivity = 150f;
                 PlayerController.forwardSpeed = 80;
                 CharacterAnimationController.animationRunSpeed = 0.4f;
+
+                if (PlayerPrefs.GetInt("_guideLowEnergy", 0) == 0
+                    && !GameScreenManager.guideIsPlaying)
+                {
+                    FindObjectOfType<GameScreenManager>().GuideLowEnergy();
+                    PlayerPrefs.SetInt("_guideLowEnergy", 1);
+                }
+                    
             }
 
             //HIGH ENERGY LEVEL
@@ -141,6 +149,14 @@ public class HUDManager : MonoBehaviour
                 PlayerController.swipeSensitivity = 0.5f;
                 PlayerController.forwardSpeed = 300;
                 CharacterAnimationController.animationRunSpeed = 2f;
+
+                if(PlayerPrefs.GetInt("_guideHighEnergy", 0) == 0
+                    && !GameScreenManager.guideIsPlaying)
+                {
+                    FindObjectOfType<GameScreenManager>().GuideHighEnergy();
+                    PlayerPrefs.SetInt("_guideHighEnergy", 1);
+                }
+                    
             }
 
         }
@@ -150,6 +166,15 @@ public class HUDManager : MonoBehaviour
         #region HEALTHY / WARNING LEVELS
         else
         {
+
+            if (PlayerPrefs.GetInt("_guideHighEnergy", 0) == 1
+                && PlayerPrefs.GetInt("_guideJunkFood", 0) == 0
+                && !GameScreenManager.guideIsPlaying)
+            {
+                FindObjectOfType<GameScreenManager>().GuideJunkFood();
+                PlayerPrefs.SetInt("_guideJunkFood", 1);
+            }
+
             if (StateManager.PowerUpState == StateManager.POWER_UP.POWER_UP)
             {
                 FindObjectOfType<GameManager>().OnTrigger(ENV.ON_OVERLAY_STATUS);

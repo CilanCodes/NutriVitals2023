@@ -24,6 +24,14 @@ public class GameScreenManager : MonoBehaviour
 
     public static int hasReachedScore;
 
+    [SerializeField]
+    private Image coachGuideImage;
+
+    [SerializeField]
+    private Sprite[] coachGuideSprites;
+
+    public static bool guideIsPlaying;
+
     void Start()
     {
         FoodManager.isReplayAgain = true;
@@ -49,6 +57,16 @@ public class GameScreenManager : MonoBehaviour
         else if (hasReachedScore == 4500)
 
             StartCoroutine(StartingGoal(rewardGoalsSprites[3]));
+
+
+        //FOR TESTING REMOVALS
+        PlayerPrefs.SetInt("_guideGoPower", 0);
+        PlayerPrefs.SetInt("_guideGrowPower", 0);
+        PlayerPrefs.SetInt("_guideGlowPower", 0);
+        PlayerPrefs.SetInt("_guideHighEnergy", 0);
+        PlayerPrefs.SetInt("_guideLowerEnergy", 0);
+        PlayerPrefs.SetInt("_guideJunkFood", 0);
+        //REMOVE THIS AFTERWARDS
 
     }
 
@@ -128,6 +146,31 @@ public class GameScreenManager : MonoBehaviour
 
     public void GetAdvice() => Advice();
 
+    private IEnumerator CoachGuide(Sprite _guideSprite)
+    {
+        //GameObject.Find("CoachGuide").GetComponent<Animator>().SetTrigger("offGuide");
+        guideIsPlaying = true;
+
+        coachGuideImage.sprite = _guideSprite;
+
+        yield return new WaitForSeconds(0.1f);
+
+        GameObject.Find("CoachGuide").GetComponent<Animator>().SetTrigger("onGuide");
+
+        yield return new WaitForSeconds(8f);
+
+        GameObject.Find("CoachGuide").GetComponent<Animator>().SetTrigger("offGuide");
+
+        guideIsPlaying = false;
+    }
+
+    private void ActivateCoachGuide(int _guideIndex)
+    {
+        StartCoroutine(CoachGuide(coachGuideSprites[_guideIndex]));
+    }
+
+
+
     private IEnumerator StartingGoal(Sprite _itemSprite)
     {
         goalImage.sprite = _itemSprite;
@@ -169,5 +212,13 @@ public class GameScreenManager : MonoBehaviour
     public void RewardObtainedBag() => RewardObtained(6);
 
     public void RewardObtainedOutfit() => RewardObtained(7);
+
+    public void GuideGoPower() => ActivateCoachGuide(0);
+    public void GuideGrowPower() => ActivateCoachGuide(1);
+    public void GuideGlowPower() => ActivateCoachGuide(2);
+    public void GuideHighEnergy() => ActivateCoachGuide(3);
+    public void GuideLowEnergy() => ActivateCoachGuide(4);
+    public void GuideJunkFood() => ActivateCoachGuide(5);
+
 
 }
