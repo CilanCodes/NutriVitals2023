@@ -33,6 +33,8 @@ public class IntroManager : MonoBehaviour
     public GameObject[] characterToggles;
     int characterIndex;
 
+    [SerializeField] private AudioSource sfxClicked;
+
     void Start()
     {
 
@@ -56,16 +58,28 @@ public class IntroManager : MonoBehaviour
         UIButtons[2].SetActive(UserName.Length < 3);
 
         if (SimpleInput.GetButtonDown("OnCharacterA"))
+        {
+            sfxClicked.Play();
             characterIndex = 0;
+        }
 
         if (SimpleInput.GetButtonDown("OnCharacterB"))
+        {
+            sfxClicked.Play();
             characterIndex = 1;
+        }
 
         if (SimpleInput.GetButtonDown("OnCharacterC"))
+        {
+            sfxClicked.Play();
             characterIndex = 2;
-
+        }
+            
         if (SimpleInput.GetButtonDown("OnCharacterD"))
+        {
+            sfxClicked.Play();
             characterIndex = 3;
+        }
 
         UIButtons[3].SetActive(characterIndex < 0);
         UIButtons[4].SetActive(characterIndex >= 0);
@@ -76,15 +90,22 @@ public class IntroManager : MonoBehaviour
         //Debug.Log(!(characterIndex != 5));
 
         if (SimpleInput.GetButtonDown("OnCharacterPick"))
-
+        {
+            sfxClicked.Play();
             OnCharacterPick();
+        }
+            
 
         if (SimpleInput.GetButtonDown("OnSkip"))
-
+        {
+            sfxClicked.Play();
             GameManager.OnLoadScene(2);
+        }
+    
 
         if (SimpleInput.GetButtonDown("OnSubmit"))
         {
+            sfxClicked.Play();
 
             if (decisionState == 0)
 
@@ -118,6 +139,8 @@ public class IntroManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnClose"))
         {
+            sfxClicked.Play();
+
             CheckSelectedCharacter(true);
 
             if (decisionState == 1)
@@ -180,6 +203,7 @@ public class IntroManager : MonoBehaviour
     {
 
         storyUIText.text = string.Empty;
+
         foreach (char letter in ENV.STORY_TEXT[textState++].ToCharArray())
         {
 
@@ -197,6 +221,7 @@ public class IntroManager : MonoBehaviour
         {
 
             FindObjectOfType<User>().OnSave();
+            ENV.IS_NAME_ADDED = true;
             GameManager.OnLoadScene(2);
 
         }

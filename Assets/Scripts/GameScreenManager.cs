@@ -66,6 +66,7 @@ public class GameScreenManager : MonoBehaviour
         if (SimpleInput.GetButtonDown("OnRestart"))
         {
 
+            FindObjectOfType<SoundManager>().OnClicked();
             GameManager.OnLoadScene(4);
             Time.timeScale = 1;
             FoodManager.isReplayAgain = true;
@@ -75,6 +76,7 @@ public class GameScreenManager : MonoBehaviour
         if (SimpleInput.GetButtonDown("OnReturnHome"))
         {
 
+            FindObjectOfType<SoundManager>().OnClicked();
             GameManager.OnLoadScene(2);
             Time.timeScale = 1;
             FoodManager.isReplayAgain = true;
@@ -84,6 +86,7 @@ public class GameScreenManager : MonoBehaviour
         if (SimpleInput.GetButtonDown("OnPaused"))
         {
 
+            FindObjectOfType<SoundManager>().OnClicked();
             FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
             FindObjectOfType<GameManager>().OnTrigger(ENV.PAUSED);
             StateManager.IsMoving = false;
@@ -94,6 +97,8 @@ public class GameScreenManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnClose1"))
         {
+
+            FindObjectOfType<SoundManager>().OnClicked();
             StateManager.IsMoving = true;
             Time.timeScale = 1;
             int countdown = 3;

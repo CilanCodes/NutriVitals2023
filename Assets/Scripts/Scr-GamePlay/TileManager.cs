@@ -128,8 +128,11 @@ public class TileManager : MonoBehaviour
         }
 
         if (SimpleInput.GetButtonDown("OnSkip"))
-
+        {
+            FindObjectOfType<SoundManager>().OnClicked();
             GameManager.OnLoadScene(2);
+        }
+
 
     }
 

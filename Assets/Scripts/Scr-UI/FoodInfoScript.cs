@@ -35,8 +35,11 @@ public class FoodInfoScript : MonoBehaviour
     {
 
         if (SimpleInput.GetButtonUp("OnFoodNavigation"))
-
+        {
+            FindObjectOfType<SoundManager>().OnClicked();
             LoadFoods();
+        }
+
 
     }
 

@@ -3,9 +3,22 @@ using UnityEngine;
 
 public class ENV : MonoBehaviour
 {
+    public static bool IS_NAME_ADDED;
+
+    private void Update()
+    {
+        if (!IS_NAME_ADDED)
+        {
+            STORY_TEXT[0] = "HELLO " + IntroManager.UserName + ", \nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH";
+            END_STORY_TEXT[0] = $"CONGRATULATIONS, " + IntroManager.UserName + "!\nYOU HAVE SUCCESSFULLY\nCOMPLETED YOUR TRAINING JOURNEY";
+        }
+        
+    }
 
     void Awake()
     {
+
+        IS_NAME_ADDED = false;
 
         FOODS = new string[6, 2, 9]
         {
@@ -38,7 +51,9 @@ public class ENV : MonoBehaviour
         STORY_TEXT = new string[]
         {
 
-            $"HELLO { IntroManager.UserName },\nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH",
+            //"HELLO " + IntroManager.UserName + ", \nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH",
+            //"HELLO " + "Your Name" + ", \nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH",
+            $"HELLO { FindObjectOfType<User>().UserName }, \nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH",
 
             "I WILL HELP YOU UNDERSTAND\nTHAT PROPER NUTRITION\nIS AS IMPORTANT AS PHYSICAL TRAINING",
 
@@ -196,6 +211,7 @@ public class ENV : MonoBehaviour
         ON_GOAL = "onReward";
         OFF_GOAL = "offReward";
 
+        
     }
 
     public static List<LeaderboardModel> LEADERBOARDS { get; private set; }
@@ -225,4 +241,7 @@ public class ENV : MonoBehaviour
     public static string OFF_GOAL { get; private set; }
 
 
+
+
 }
+

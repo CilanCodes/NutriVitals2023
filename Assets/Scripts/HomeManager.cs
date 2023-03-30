@@ -84,59 +84,82 @@ public class HomeManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("_rewardIsEquippedShoes", 1); //SHOES WEAR
                 equipButtons[0].SetActive(false); unequipButtons[0].SetActive(true);
+                FindObjectOfType<SoundManager>().OnClicked();
             }
             if (SimpleInput.GetButtonDown("OnEquipCap"))
             {
                 PlayerPrefs.SetInt("_rewardIsEquippedCap", 1); //CAP WEAR
                 equipButtons[1].SetActive(false); unequipButtons[1].SetActive(true);
+                FindObjectOfType<SoundManager>().OnClicked();
             }
             if (SimpleInput.GetButtonDown("OnEquipBag"))
             {
                 PlayerPrefs.SetInt("_rewardIsEquippedBag", 1); //BAG WEAR
                 equipButtons[2].SetActive(false); unequipButtons[2].SetActive(true);
+                FindObjectOfType<SoundManager>().OnClicked();
             }
             if (SimpleInput.GetButtonDown("OnEquipOutfit"))
             {
                 PlayerPrefs.SetInt("_rewardIsEquippedOutfit", 1); //OUTFIT WEAR
                 equipButtons[3].SetActive(false); unequipButtons[3].SetActive(true);
+                FindObjectOfType<SoundManager>().OnClicked();
             }
 
             if (SimpleInput.GetButtonDown("OnUnequipShoes"))
             {
                 PlayerPrefs.SetInt("_rewardIsEquippedShoes", 0); //SHOES REMOVE
                 equipButtons[0].SetActive(true); unequipButtons[0].SetActive(false);
+                FindObjectOfType<SoundManager>().OnClicked();
             }
             if (SimpleInput.GetButtonDown("OnUnequipCap"))
             {
                 PlayerPrefs.SetInt("_rewardIsEquippedCap", 0); //CAP REMOVE
                 equipButtons[1].SetActive(true); unequipButtons[1].SetActive(false);
+                FindObjectOfType<SoundManager>().OnClicked();
             }
             if (SimpleInput.GetButtonDown("OnUnequipBag"))
             {
                 PlayerPrefs.SetInt("_rewardIsEquippedBag", 0); //BAG REMOVE
                 equipButtons[2].SetActive(true); unequipButtons[2].SetActive(false);
+                FindObjectOfType<SoundManager>().OnClicked();
             }
             if (SimpleInput.GetButtonDown("OnUnequipOutfit"))
             {
                 PlayerPrefs.SetInt("_rewardIsEquippedOutfit", 0); //OUTFIT REMOVE
                 equipButtons[3].SetActive(true); unequipButtons[3].SetActive(false);
+                FindObjectOfType<SoundManager>().OnClicked();
             }
 
         if (SimpleInput.GetButtonDown("OnRunNow"))
+        {
 
+            FindObjectOfType<SoundManager>().OnClicked();
             GameManager.OnLoadScene(4);
 
-        if (SimpleInput.GetButtonDown("OnFoodInformation"))
+        }
 
+        if (SimpleInput.GetButtonDown("OnFoodInformation"))
+        {
+
+            FindObjectOfType<SoundManager>().OnClicked();
             SceneManager.LoadScene(3);
 
-        if (SimpleInput.GetButtonDown("OnSettings"))
+        }
 
+
+        if (SimpleInput.GetButtonDown("OnSettings"))
+        {
+
+            FindObjectOfType<SoundManager>().OnClicked();
             FindObjectOfType<GameManager>().OnTrigger("settings");
+
+        }
+
 
         if (SimpleInput.GetButtonDown("OnAbout"))
         {
 
+            FindObjectOfType<SoundManager>().OnClicked();
             aboutUIScrollRect.verticalNormalizedPosition = 1f;
             FindObjectOfType<GameManager>().OnTrigger("about");
 
@@ -145,6 +168,7 @@ public class HomeManager : MonoBehaviour
         if (SimpleInput.GetButtonDown("OnLeaderboard"))
         {
 
+            FindObjectOfType<SoundManager>().OnClicked();
             leaderboardUIScrollRect.verticalNormalizedPosition = 1f;
             FindObjectOfType<GameManager>().OnTrigger("leaderboard");
 
@@ -152,8 +176,11 @@ public class HomeManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnAchievements"))
         {
+
+            FindObjectOfType<SoundManager>().OnClicked();
             achievementsUIScrollRect.verticalNormalizedPosition = 1f;
             FindObjectOfType<GameManager>().OnTrigger("achievements");
+
         }
 
     }

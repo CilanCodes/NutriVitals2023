@@ -24,12 +24,15 @@ public class GameManager : MonoBehaviour
             animator = FindObjectOfType<AnimatorController>().Animator;
 
         if (SimpleInput.GetButtonDown("OnHomeScreen"))
-
+        {
+            FindObjectOfType<SoundManager>().OnClicked();
             LoadScene(2);
+        }
+
 
         if (SimpleInput.GetButtonDown("OnReturn"))
         {
-
+            FindObjectOfType<SoundManager>().OnClicked();
             Time.timeScale = 1;
             SceneManager.LoadScene(2);
 
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour
 
         if (SimpleInput.GetButtonDown("OnClose1"))
         {
+            FindObjectOfType<SoundManager>().OnClicked();
 
             FindObjectOfType<GameManager>().OnTrigger(ENV.CLOSE);
 
