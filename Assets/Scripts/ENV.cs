@@ -3,9 +3,22 @@ using UnityEngine;
 
 public class ENV : MonoBehaviour
 {
+    public static bool IS_NAME_ADDED;
+
+    private void Update()
+    {
+        if (!IS_NAME_ADDED)
+        {
+            STORY_TEXT[0] = "HELLO " + IntroManager.UserName + ", \nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH";
+            END_STORY_TEXT[0] = $"CONGRATULATIONS, " + IntroManager.UserName + "!\nYOU HAVE SUCCESSFULLY\nCOMPLETED YOUR TRAINING JOURNEY";
+        }
+        
+    }
 
     void Awake()
     {
+
+        IS_NAME_ADDED = false;
 
         FOODS = new string[6, 2, 9]
         {
@@ -22,21 +35,25 @@ public class ENV : MonoBehaviour
         LEADERBOARDS = new List<LeaderboardModel>
         {
 
-            new LeaderboardModel(200, "Coach"),
-            new LeaderboardModel(175, "Rexie"),
-            new LeaderboardModel(150, "Denver"),
-            new LeaderboardModel(125, "Miles"),
-            new LeaderboardModel(95, "Gabriel"),
-            new LeaderboardModel(70, "Dianne"),
-            new LeaderboardModel(60, "Rhocel"),
-            new LeaderboardModel(50, "Christian"),
-            new LeaderboardModel(40, "Angel"),
-            new LeaderboardModel(30, "Cilan"),
+            new LeaderboardModel(4020, "Coach"),
+            new LeaderboardModel(2500, "Rexie"),
+            new LeaderboardModel(1355, "Denver"),
+            new LeaderboardModel(1002, "Miles"),
+            new LeaderboardModel(935, "Gabriel"),
+            new LeaderboardModel(720, "Dianne"),
+            new LeaderboardModel(640, "Rhocel"),
+            new LeaderboardModel(570, "Christian"),
+            new LeaderboardModel(410, "Rex"),
+            new LeaderboardModel(307, "Cilan"),
 
         };
 
         STORY_TEXT = new string[]
         {
+
+            //"HELLO " + IntroManager.UserName + ", \nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH",
+            //"HELLO " + "Your Name" + ", \nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH",
+            $"HELLO { FindObjectOfType<User>().UserName }, \nIM MR. NUTRI V. ITALS\nAND I WILL BE YOUR COACH",
 
             "I WILL HELP YOU UNDERSTAND\nTHAT PROPER NUTRITION\nIS AS IMPORTANT AS PHYSICAL TRAINING",
 
@@ -45,6 +62,23 @@ public class ENV : MonoBehaviour
             "ALONG THE WAY,\nYOU MUST CHOOSE THE\nRIGHT FOODS  TO\nFUEL YOUR BODY AND\nIMPROVE YOUR PERFORMANCE",
 
             "GOODLUCK MY DEAR TRAINEE\nI WILL BE HERE WITH YOU\nALONG THE WAY",
+
+        };
+
+        END_STORY_TEXT = new string[]
+        {
+
+            $"CONGRATULATIONS, { FindObjectOfType<User>().UserName }!\nYOU HAVE SUCCESSFULLY\nCOMPLETED YOUR TRAINING JOURNEY",
+
+            "YOU HAVE LEARNED HOW PROPER NUTRITION\nIS AS IMPORTANT AS PHYSICAL TRAINING",
+
+            "AND HOW TO CHOOSE THE RIGHT FOODS TO\nFUEL YOUR BODY\nAND IMPROVE YOUR PERFORMANCE",
+
+            "NOW, YOU ARE PREPARED TO JOIN THE RACE\nAND APPLY ALL THAT YOU HAVE LEARNED\nTHROUGHOUT YOUR JOURNEY.",
+
+            "REMEMBER TO STAY FOCUSED AND\nMAKE THE RIGHT CHOICES WHEN FACED\nWITH TEMPTING JUNK FOODS.",
+
+            "GOOD LUCK, AND MAY YOUR EFFORTS\nBE REWARDED WITH SUCCESS IN THE RACE!",
 
         };
 
@@ -174,12 +208,17 @@ public class ENV : MonoBehaviour
         ON_OVERLAY_STATUS = "onOverlayStatus";
         OFF_OVERLAY_STATUS = "offOverlayStatus";
         CLOSE = "close";
+        ON_GOAL = "onReward";
+        OFF_GOAL = "offReward";
 
+        
     }
 
     public static List<LeaderboardModel> LEADERBOARDS { get; private set; }
 
     public static string[] STORY_TEXT { get; private set; }
+
+    public static string[] END_STORY_TEXT { get; private set; }
 
     public static string[] ADVICE_TEXT { get; private set; }
 
@@ -197,5 +236,12 @@ public class ENV : MonoBehaviour
 
     public static string CLOSE { get; private set; }
 
+    public static string ON_GOAL { get; private set; }
+
+    public static string OFF_GOAL { get; private set; }
+
+
+
 
 }
+

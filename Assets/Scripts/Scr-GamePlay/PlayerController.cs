@@ -18,15 +18,65 @@ public class PlayerController : MonoBehaviour
     public static float swipeSensitivity;
     public static Vector3 targetPosition;
 
-    [SerializeField] private GameObject[] characterModels;
+    [SerializeField] private GameObject[] modelCharacterTop;
+    [SerializeField] private GameObject[] modelCharacterOuterTop;
+    [SerializeField] private GameObject[] modelCharacterBottom;
+    [SerializeField] private GameObject[] modelCharacterHair;
+    [SerializeField] private GameObject[] modelCharacterOufits;
+
+    private bool rewardIsEquippedShoes;
+    private bool rewardIsEquippedCap;
+    private bool rewardIsEquippedBag;
+    private bool rewardIsEquippedOutfit;
+
     private int characterIndex;
     Vector3 returnPos;
 
+    private int outfitMaleOrFemale;
+
     void Start()
     {
+        rewardIsEquippedShoes = PlayerPrefs.GetInt("_rewardIsEquippedShoes", 0) == 1;
+        rewardIsEquippedCap = PlayerPrefs.GetInt("_rewardIsEquippedCap", 0) == 1;
+        rewardIsEquippedBag = PlayerPrefs.GetInt("_rewardIsEquippedBag", 0) == 1;
+        rewardIsEquippedOutfit = PlayerPrefs.GetInt("_rewardIsEquippedOutfit", 0) == 1;
 
+        //CHARACTER
         characterIndex = PlayerPrefs.GetInt("_characterIndex", 0);
-        characterModels[characterIndex].SetActive(true);
+
+        outfitMaleOrFemale =
+            characterIndex == 0 || characterIndex == 3
+            ? 0
+            : 1;
+
+        //HAIR
+        modelCharacterHair[characterIndex].SetActive(true);
+
+        //TOPS AND BOTTOMS
+        if (rewardIsEquippedOutfit)
+        {
+            modelCharacterOufits[3].SetActive(true);
+            modelCharacterOufits[4].SetActive(true);
+        }
+        else
+        {
+                modelCharacterTop[outfitMaleOrFemale].SetActive(true);
+                modelCharacterOuterTop[outfitMaleOrFemale].SetActive(true);
+                modelCharacterBottom[outfitMaleOrFemale].SetActive(true);
+        }
+
+        //SHOES
+        modelCharacterOufits[0].SetActive(rewardIsEquippedShoes);
+        modelCharacterOufits[5].SetActive(!rewardIsEquippedShoes);
+
+        //CAP
+        modelCharacterOufits[1].SetActive(rewardIsEquippedCap);
+
+        //BAG
+        modelCharacterOufits[2].SetActive(rewardIsEquippedBag);
+
+
+
         characterController = GetComponent<CharacterController>();
 
         Vector3 returnPos = itemTextObj.transform.position;
@@ -157,7 +207,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //DECREASE ENERGY OVER TIME
-        AdjustmentFunctions.DecreaseEnergyOverTime();
+        HUDManager.DecreaseEnergyOverTime();
 
     }
 
@@ -222,7 +272,7 @@ public class PlayerController : MonoBehaviour
 
                 else if (StateManager.HitState != StateManager.HIT.JUNK)
                     
-                    AdjustmentFunctions.GoodFoodBenefits(1);
+                    HUDManager.GoodFoodBenefits(1);
 
                 else
                 {
@@ -238,11 +288,11 @@ public class PlayerController : MonoBehaviour
 
                 if (StateManager.HitState == StateManager.HIT.GLOW)
 
-                    AdjustmentFunctions.GoodFoodBenefits(3);
+                    HUDManager.GoodFoodBenefits(3);
 
                 else if (StateManager.HitState != StateManager.HIT.JUNK)
 
-                    AdjustmentFunctions.GoodFoodBenefits(2);
+                    HUDManager.GoodFoodBenefits(2);
 
                 else
                 {
@@ -258,7 +308,7 @@ public class PlayerController : MonoBehaviour
 
                 if (StateManager.HitState != StateManager.HIT.JUNK)
 
-                    AdjustmentFunctions.GoodFoodBenefits(1);
+                    HUDManager.GoodFoodBenefits(1);
 
                 else
                 {
@@ -281,7 +331,7 @@ public class PlayerController : MonoBehaviour
 
             if (StateManager.HitState != StateManager.HIT.JUNK)
 
-                AdjustmentFunctions.GoodFoodBenefits(1);
+                HUDManager.GoodFoodBenefits(1);
 
             if (StateManager.HitState == StateManager.HIT.GO)
 
@@ -340,28 +390,10 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ShowCollected(string collectedIndicator, Vector3 xreturnPos)
     {
-        
+
         itemText.text = collectedIndicator;
-
-        Vector3 startPos = itemTextObj.transform.position;
-        Vector3 endPos = itemTextObj.transform.position + Vector3.up * 40f;
-
-        float elapsedTime = 0f;
-        float duration = 0.5f;
-
-        while (elapsedTime < duration)
-        {
-            float t = elapsedTime / duration;
-            itemTextObj.transform.position = Vector3.Lerp(startPos, endPos, t);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        // Move the itemTextObj back to its original position
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         itemText.text = "";
-        itemTextObj.transform.position = startPos;
-
 
     }
 

@@ -52,8 +52,6 @@ public class HUDManager : MonoBehaviour
         ResetAllPoints();
         StartCoroutine(EnableSwipeAfterDelay());
 
-        //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
-
         FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
 
         FoodManager.isReplayAgain = true;
@@ -64,7 +62,6 @@ public class HUDManager : MonoBehaviour
     private void Update()
     {
 
-        //Prevent Update() from continuing even if the game is paused
         if (Time.timeScale == 0)
 
             return;
@@ -132,16 +129,31 @@ public class HUDManager : MonoBehaviour
                 PlayerController.swipeSensitivity = 150f;
                 PlayerController.forwardSpeed = 80;
                 CharacterAnimationController.animationRunSpeed = 0.4f;
+
+                if (PlayerPrefs.GetInt("_guideLowEnergy", 0) == 0
+                    && !GameScreenManager.guideIsPlaying)
+                {
+                    FindObjectOfType<GameScreenManager>().GuideLowEnergy();
+                    PlayerPrefs.SetInt("_guideLowEnergy", 1);
+                }
+                    
             }
 
             //HIGH ENERGY LEVEL
             if (.835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1)
             {
-                //StateManager.EnergyState = StateManager.ENERGY.HIGH_DANGER;
-                PowerUpManager.GoPowerUp();
+                StateManager.EnergyState = StateManager.ENERGY.HIGH_DANGER;
                 PlayerController.swipeSensitivity = 0.5f;
                 PlayerController.forwardSpeed = 300;
                 CharacterAnimationController.animationRunSpeed = 2f;
+
+                if(PlayerPrefs.GetInt("_guideHighEnergy", 0) == 0
+                    && !GameScreenManager.guideIsPlaying)
+                {
+                    FindObjectOfType<GameScreenManager>().GuideHighEnergy();
+                    PlayerPrefs.SetInt("_guideHighEnergy", 1);
+                }
+                    
             }
 
         }
@@ -151,6 +163,15 @@ public class HUDManager : MonoBehaviour
         #region HEALTHY / WARNING LEVELS
         else
         {
+
+            if (PlayerPrefs.GetInt("_guideHighEnergy", 0) == 1
+                && PlayerPrefs.GetInt("_guideJunkFood", 0) == 0
+                && !GameScreenManager.guideIsPlaying)
+            {
+                FindObjectOfType<GameScreenManager>().GuideJunkFood();
+                PlayerPrefs.SetInt("_guideJunkFood", 1);
+            }
+
             if (StateManager.PowerUpState == StateManager.POWER_UP.POWER_UP)
             {
                 FindObjectOfType<GameManager>().OnTrigger(ENV.ON_OVERLAY_STATUS);
@@ -313,7 +334,42 @@ public class HUDManager : MonoBehaviour
 
     #endregion
 
+    public static void DecreaseEnergyOverTime()
+    {
+        #region ENERGY BURN
 
+        if (StateManager.EnergyState == StateManager.ENERGY.HIGH_DANGER)
+        {
+            UpdateScoreEnergyPoints(0, -.0015f);
+        }
+        else if (StateManager.EnergyState == StateManager.ENERGY.LOW_DANGER)
+        {
+            UpdateScoreEnergyPoints(0, -.00025f);
+        }
+        else
+        {
+            UpdateScoreEnergyPoints(0, -.00075f);
+        }
+
+        #endregion
+    }
+
+    public static void GoodFoodBenefits(int multiplier)
+    {
+        // GENERAL GOOD FOOD BENEFITS
+        if (StateManager.EnergyState == StateManager.ENERGY.LOW_DANGER)
+        {
+            UpdateScoreEnergyPoints(25 * multiplier, .075f);
+        }
+        else if (StateManager.EnergyState == StateManager.ENERGY.LOW_WARNING)
+        {
+            UpdateScoreEnergyPoints(25 * multiplier, .050f);
+        }
+        else
+        {
+            UpdateScoreEnergyPoints(25 * multiplier, .025f);
+        }
+    }
 
     #region SWIPE DELAY
 
