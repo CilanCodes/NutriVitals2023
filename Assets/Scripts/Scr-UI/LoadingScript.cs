@@ -1,17 +1,19 @@
 
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadingScript : MonoBehaviour
 {
-    [SerializeField] private Image loadingFillHUD;
 
+    [SerializeField]
+    private Image loadingFillHUD;
 
     void Start()
     {
 
+        Time.timeScale = 1;
         int countdown = 2;
         StartCoroutine(LoadingToStart(countdown));
 
@@ -51,4 +53,5 @@ public class LoadingScript : MonoBehaviour
         }
 
     }
+
 }

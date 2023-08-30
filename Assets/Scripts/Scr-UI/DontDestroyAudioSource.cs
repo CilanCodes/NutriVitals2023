@@ -1,6 +1,5 @@
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DontDestroyAudioSource : MonoBehaviour
 {
@@ -44,7 +43,7 @@ public class DontDestroyAudioSource : MonoBehaviour
             else
             {
 
-        
+
                 AudioListener.volume = 1;
                 PlayerPrefs.SetInt("MusicIsMuted", 0);
                 isMuted = false;

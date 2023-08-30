@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterAnimationController : MonoBehaviour
@@ -33,15 +32,18 @@ public class CharacterAnimationController : MonoBehaviour
         //Debug.Log("Coroutine started");
 
         Time.timeScale = 0; // Stop the game
-        HUDManager.swipeEnabled = false;
+        StateManager.IsMoving = false;
 
         float holder = PlayerController.forwardSpeed;
         PowerUpManager.isNotAnimated = false;
         PlayerController.forwardSpeed = 0;
 
-        GameObject objectMaleCharacter = GameObject.Find("MaleCharacter");
+        /*GameObject objectMaleCharacter = GameObject.Find("MaleCharacter");
         Animator objectMaleAnimator = objectMaleCharacter.GetComponent<Animator>();
-        objectMaleAnimator.SetTrigger("ActivatePowerJump");
+        objectMaleAnimator.SetTrigger("ActivatePowerJump");*/
+
+        Animator charAnimator = GetComponent<Animator>();
+        charAnimator.SetTrigger("ActivatePowerJump");
 
         float pauseTime = Time.realtimeSinceStartup + 1.5f;
         while (Time.realtimeSinceStartup < pauseTime)
@@ -49,12 +51,12 @@ public class CharacterAnimationController : MonoBehaviour
             yield return null;
         }
 
-       // Debug.Log("Coroutine resumed");
+        // Debug.Log("Coroutine resumed");
 
         PlayerController.forwardSpeed = holder;
 
         Time.timeScale = 1.0f; // Resume the game
-        HUDManager.swipeEnabled = true;
+        StateManager.IsMoving = true;
 
     }
 

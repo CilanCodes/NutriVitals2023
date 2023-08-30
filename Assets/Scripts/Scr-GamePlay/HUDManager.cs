@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System;
 
 public class HUDManager : MonoBehaviour
 {
@@ -14,48 +12,58 @@ public class HUDManager : MonoBehaviour
     public static int goPoints;
     public static int growPoints;
     public static int glowPoints;
-    public static bool swipeEnabled;
     public static bool isScoreAdded;
-    public static string energyStatus;
 
-    [SerializeField] private Image energyBarFill;
-    [SerializeField] public Image healthBarFill;
-    [SerializeField] private TextMeshProUGUI scoreTextPoints;
-    [SerializeField] private TextMeshProUGUI gameOverTextPoints;
-    [SerializeField] private TextMeshProUGUI goTextPoints;
-    [SerializeField] private TextMeshProUGUI growTextPoints;
-    [SerializeField] private TextMeshProUGUI glowTextPoints;
+    [SerializeField] 
+    private Image energyBarFill;
 
-    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] 
+    public Image healthBarFill;
+
+    [SerializeField] 
+    private TextMeshProUGUI scoreTextPoints;
+
+    [SerializeField] 
+    private TextMeshProUGUI gameOverTextPoints;
+
+    [SerializeField] 
+    private TextMeshProUGUI goTextPoints;
+
+    [SerializeField] 
+    private TextMeshProUGUI growTextPoints;
+
+    [SerializeField] 
+    private TextMeshProUGUI glowTextPoints;
+
+    [SerializeField] 
+    private GameObject gameOverPanel;
+
+    [SerializeField] 
+    private float decreaseSpeed = 2f;
+
+    [SerializeField] 
+    private const float decreaseInterval = 4f;
 
     private float timeSinceLastDecrease = 0f;
-    [SerializeField] private float decreaseSpeed = 2f;
-    [SerializeField] private const float decreaseInterval = 4f;
-
-    private GameManager gameManager;
 
     private void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         ResetAllPoints();
         StartCoroutine(EnableSwipeAfterDelay());
 
-        //scorePoints = 1450;// this for testing maps : RESET THIS BACK TO 0 BEFORE DEPLOY
-
-        gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+        FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
 
         FoodManager.isReplayAgain = true;
         isScoreAdded = false;
-
 
     }
 
     private void Update()
     {
 
-        //Prevent Update() from continuing even if the game is paused
         if (Time.timeScale == 0)
+
             return;
 
         #region UPDATE HUD ELEMENTS
@@ -65,20 +73,20 @@ public class HUDManager : MonoBehaviour
         scoreTextPoints.text = scorePoints.ToString();
         gameOverTextPoints.text = scorePoints.ToString();
 
-        
-        if(PowerUpManager.typeOfPowerUp == "GO")
+
+        if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GO)
         {
             goTextPoints.text = "5";
             growTextPoints.text = growPoints.ToString();
             glowTextPoints.text = glowPoints.ToString();
         }
-        else if (PowerUpManager.typeOfPowerUp == "GROW")
+        else if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GROW)
         {
             goTextPoints.text = goPoints.ToString(); ;
             growTextPoints.text = "5";
             glowTextPoints.text = glowPoints.ToString();
         }
-        else if (PowerUpManager.typeOfPowerUp == "GLOW")
+        else if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GLOW)
         {
             goTextPoints.text = goPoints.ToString();
             growTextPoints.text = growPoints.ToString();
@@ -90,9 +98,9 @@ public class HUDManager : MonoBehaviour
             growTextPoints.text = growPoints.ToString();
             glowTextPoints.text = glowPoints.ToString();
         }
-        
 
-        
+
+
 
         #endregion
 
@@ -109,26 +117,43 @@ public class HUDManager : MonoBehaviour
 
         #region DANGER LEVELS
 
-        if (( 0 <= energyBarFill.fillAmount && energyBarFill.fillAmount <= .17) || ( .835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1))
+        if ((0 <= energyBarFill.fillAmount && energyBarFill.fillAmount <= .17) || (.835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1))
         {
             DecreaseHealthBar();
+            FindObjectOfType<GameManager>().OnTrigger(ENV.ON_OVERLAY_STATUS);
 
             //LOW ENERGY LEVEL
             if (0 <= energyBarFill.fillAmount && energyBarFill.fillAmount <= .17)
             {
-                energyStatus = "LOW DANGER";
+                StateManager.EnergyState = StateManager.ENERGY.LOW_DANGER;
                 PlayerController.swipeSensitivity = 150f;
                 PlayerController.forwardSpeed = 80;
                 CharacterAnimationController.animationRunSpeed = 0.4f;
+
+                if (PlayerPrefs.GetInt("_guideLowEnergy", 0) == 0
+                    && !GameScreenManager.guideIsPlaying)
+                {
+                    FindObjectOfType<GameScreenManager>().GuideLowEnergy();
+                    PlayerPrefs.SetInt("_guideLowEnergy", 1);
+                }
+                    
             }
 
             //HIGH ENERGY LEVEL
             if (.835 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 1)
             {
-                energyStatus = "HIGH DANGER";
+                StateManager.EnergyState = StateManager.ENERGY.HIGH_DANGER;
                 PlayerController.swipeSensitivity = 0.5f;
                 PlayerController.forwardSpeed = 300;
                 CharacterAnimationController.animationRunSpeed = 2f;
+
+                if(PlayerPrefs.GetInt("_guideHighEnergy", 0) == 0
+                    && !GameScreenManager.guideIsPlaying)
+                {
+                    FindObjectOfType<GameScreenManager>().GuideHighEnergy();
+                    PlayerPrefs.SetInt("_guideHighEnergy", 1);
+                }
+                    
             }
 
         }
@@ -138,30 +163,41 @@ public class HUDManager : MonoBehaviour
         #region HEALTHY / WARNING LEVELS
         else
         {
-            if (PowerUpManager.powerupStatus == "POWER UP")
+
+            if (PlayerPrefs.GetInt("_guideHighEnergy", 0) == 1
+                && PlayerPrefs.GetInt("_guideJunkFood", 0) == 0
+                && !GameScreenManager.guideIsPlaying)
             {
-                gameManager.GetAnimator.SetTrigger("ActiveOverlayStatus");
+                FindObjectOfType<GameScreenManager>().GuideJunkFood();
+                PlayerPrefs.SetInt("_guideJunkFood", 1);
+            }
+
+            if (StateManager.PowerUpState == StateManager.POWER_UP.POWER_UP)
+            {
+                FindObjectOfType<GameManager>().OnTrigger(ENV.ON_OVERLAY_STATUS);
             }
             else
             {
-                gameManager.GetAnimator.SetTrigger("InActivateOverlayStatus");
+                FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
 
             }
 
             //WARNING / YELLOW ENERGY LEVEL
             if ((0.17 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.37) || (0.635 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.835))
             {
+                FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
+
                 //LOW LEVEL WARNING
-                if(0.17 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.37)
+                if (0.17 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.37)
                 {
-                    energyStatus = "LOW WARNING";
+                    StateManager.EnergyState = StateManager.ENERGY.LOW_WARNING;
                     PlayerController.forwardSpeed = 130;
                     CharacterAnimationController.animationRunSpeed = 0.7f;
                 }
                 //HIGH LEVEL WARNING
                 if (0.635 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.835)
                 {
-                    energyStatus = "HIGH WARNING";
+                    StateManager.EnergyState = StateManager.ENERGY.HIGH_WARNING;
                     PlayerController.forwardSpeed = 170;
                     CharacterAnimationController.animationRunSpeed = 1.5f;
                 }
@@ -172,7 +208,7 @@ public class HUDManager : MonoBehaviour
             //HEALTHY / GREEN ENERGY LEVEL
             if (0.37 < energyBarFill.fillAmount && energyBarFill.fillAmount <= 0.635)
             {
-                energyStatus = "BALANCED";
+                StateManager.EnergyState = StateManager.ENERGY.BALANCED;
                 PlayerController.forwardSpeed = 150;
                 CharacterAnimationController.animationRunSpeed = 1;
             }
@@ -192,7 +228,7 @@ public class HUDManager : MonoBehaviour
         #endregion
 
 
-        
+
 
     }
 
@@ -213,7 +249,6 @@ public class HUDManager : MonoBehaviour
         {
             if ((scorePoints + score) < 0)
             {
-                score = 0;
                 scorePoints = 0;
             }
             else
@@ -227,12 +262,10 @@ public class HUDManager : MonoBehaviour
         {
             if ((energyPoints + energy) < 0)
             {
-                energy = 0;
                 energyPoints = 0;
             }
             else if ((energyPoints + energy) > 1)
             {
-                energy = 1.0005f;
                 energyPoints = 1.0005f;
             }
             else
@@ -270,7 +303,7 @@ public class HUDManager : MonoBehaviour
     //SMOOTH HEALTH BAR
     private void DecreaseHealthBar()
     {
-        gameManager.GetAnimator.SetTrigger("ActiveOverlayStatus");
+        FindObjectOfType<GameManager>().OnTrigger(ENV.ON_OVERLAY_STATUS);
 
         timeSinceLastDecrease += Time.deltaTime;
 
@@ -298,17 +331,52 @@ public class HUDManager : MonoBehaviour
         healthBarFill.fillAmount = targetFillAmount;
     }
 
-   
+
     #endregion
 
-  
+    public static void DecreaseEnergyOverTime()
+    {
+        #region ENERGY BURN
+
+        if (StateManager.EnergyState == StateManager.ENERGY.HIGH_DANGER)
+        {
+            UpdateScoreEnergyPoints(0, -.0015f);
+        }
+        else if (StateManager.EnergyState == StateManager.ENERGY.LOW_DANGER)
+        {
+            UpdateScoreEnergyPoints(0, -.00025f);
+        }
+        else
+        {
+            UpdateScoreEnergyPoints(0, -.00075f);
+        }
+
+        #endregion
+    }
+
+    public static void GoodFoodBenefits(int multiplier)
+    {
+        // GENERAL GOOD FOOD BENEFITS
+        if (StateManager.EnergyState == StateManager.ENERGY.LOW_DANGER)
+        {
+            UpdateScoreEnergyPoints(25 * multiplier, .075f);
+        }
+        else if (StateManager.EnergyState == StateManager.ENERGY.LOW_WARNING)
+        {
+            UpdateScoreEnergyPoints(25 * multiplier, .050f);
+        }
+        else
+        {
+            UpdateScoreEnergyPoints(25 * multiplier, .025f);
+        }
+    }
 
     #region SWIPE DELAY
 
     private IEnumerator EnableSwipeAfterDelay()
     {
         yield return new WaitForSeconds(.25f);
-        swipeEnabled = true;
+        StateManager.IsMoving = true;
     }
 
     #endregion
@@ -318,20 +386,20 @@ public class HUDManager : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0;
-        gameManager.GetAnimator.SetTrigger("ActiveGameOver");
-        swipeEnabled = false;
+        //FindObjectOfType<GameManager>().OnTrigger(ENV.OFF_OVERLAY_STATUS);
+        FindObjectOfType<GameManager>().OnTrigger(ENV.GAME_OVER);
+
+        FindObjectOfType<GameScreenManager>().GetAdvice();
+        StateManager.IsMoving = false;
 
         if (isScoreAdded)
         {
             return;
         }
 
-        int newScore = scorePoints;
-
-        FindObjectOfType<User>().leaderboardScores.Add(newScore);
+        FindObjectOfType<User>().Leaderboard.Add(new LeaderboardModel(scorePoints, FindObjectOfType<User>().UserName));
         FindObjectOfType<User>().OnSave();
 
-        //leaderboardManager.AddCurrentScoreToLeaderboard();
         isScoreAdded = true;
     }
 

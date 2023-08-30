@@ -3,15 +3,21 @@ using UnityEngine.UI;
 
 public class SettingsScript : MonoBehaviour
 {
-    [SerializeField] private Button AudioUIButton;
-    [SerializeField] private Button SoundsUIButton;
-    [SerializeField] private Sprite[] resources;
+
+    [SerializeField]
+    private Button AudioUIButton;
+
+    [SerializeField]
+    private Button SoundsUIButton;
+
+    [SerializeField]
+    private Sprite[] resources;
 
     private void Update()
     {
+
         bool isAudioMuted = FindObjectOfType<MusicManager>().IsAudioMuted;
         bool isSoundsMuted = FindObjectOfType<SoundManager>().IsSoundsMuted;
-
 
         AudioUIButton.image.sprite =
             SimpleInput.GetButton("OnAudio")
@@ -31,17 +37,14 @@ public class SettingsScript : MonoBehaviour
                 ? resources[6]
                 : resources[7];
 
-
         if (SimpleInput.GetButtonDown("OnAudio"))
-        {
+
             FindObjectOfType<MusicManager>().OnIsAudioOn();
-        }
 
         if (SimpleInput.GetButtonDown("OnSounds"))
-        {
-            FindObjectOfType<SoundManager>().OnIsSoundsOn();
-        }
 
+            FindObjectOfType<SoundManager>().OnIsSoundsOn();
 
     }
+
 }

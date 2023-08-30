@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FoodManager : MonoBehaviour
@@ -7,14 +6,14 @@ public class FoodManager : MonoBehaviour
     public static bool isReplayAgain;
 
     [SerializeField] private GameObject[] foodItems;
-    
+
     [SerializeField] private Sprite[] goSprites;
     [SerializeField] private Sprite[] growSprites;
     [SerializeField] private Sprite[] glowSprites;
     [SerializeField] private Sprite[] junkSprites;
 
     private string[] foodCategory = { "Go", "Grow", "Glow", "Junk" };
-    public int[] itemPosition;
+    private int[] itemPosition;
 
     public static float elapsedTime;
 
@@ -24,20 +23,20 @@ public class FoodManager : MonoBehaviour
         {
             StartCoroutine(WaitFor3Seconds());
         }
-        else 
+        else
         {
-
-            if (PowerUpManager.typeOfPowerUp == "GO")
+            
+            if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GO)
             {
                 #region FOR GO POWER UP FOOD SPAWN
                 int noOfFoods = foodItems.Length;
                 int goSelectedFood = Random.Range(0, goSprites.Length);
-                int randomLane = Random.Range(0,2);
+                int randomLane = Random.Range(0, 2);
 
                 for (int i = 0; i < noOfFoods; i++)
                 {
                     if (randomLane == 0 &&
-                        (i==0 || i == 3 || i == 6 || i == 9))
+                        (i == 0 || i == 3 || i == 6 || i == 9))
                     {
                         GameObject goFoodItem = foodItems[i];
                         goFoodItem.SetActive(true);
@@ -46,6 +45,8 @@ public class FoodManager : MonoBehaviour
 
                         goFoodItem.tag = "Go";
                         spriteRenderer.sprite = goSprites[goSelectedFood];
+
+                        foodItems[i].GetComponent<Animator>().SetTrigger("onFoodDance");
                     }
 
                     else if (randomLane == 1 &&
@@ -58,6 +59,7 @@ public class FoodManager : MonoBehaviour
 
                         goFoodItem.tag = "Go";
                         spriteRenderer.sprite = goSprites[goSelectedFood];
+                        foodItems[i].GetComponent<Animator>().SetTrigger("onFoodDance");
                     }
 
                     else if (randomLane == 2 &&
@@ -70,19 +72,21 @@ public class FoodManager : MonoBehaviour
 
                         goFoodItem.tag = "Go";
                         spriteRenderer.sprite = goSprites[goSelectedFood];
+                        foodItems[i].GetComponent<Animator>().SetTrigger("onFoodDance");
                     }
 
                 }
 
             }
-                #endregion
+            #endregion
             else
             {
                 #region FOR RANDOM NON POWER UP FOOD SPAWN
 
                 int noOfFoods;
 
-                if (PowerUpManager.typeOfPowerUp == "GROW" || PowerUpManager.typeOfPowerUp == "GLOW")
+                if (StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GROW 
+                    || StateManager.PowerUpTypeState == StateManager.POWER_UP_TYPE.GLOW)
                 {
                     noOfFoods = Random.Range(2, 4);
                 }
@@ -105,7 +109,7 @@ public class FoodManager : MonoBehaviour
 
                     string randomFoodCategory = foodCategory[Random.Range(0, foodCategory.Length)];
                     randomFoodItem.tag = randomFoodCategory;
-
+                    randomFoodItem.GetComponent<Animator>().SetTrigger("onFoodDance");
                     switch (randomFoodCategory)
                     {
                         case "Go":
@@ -113,15 +117,15 @@ public class FoodManager : MonoBehaviour
                             break;
 
                         case "Grow":
-                            spriteRenderer.sprite = growSprites[Random.Range(0, goSprites.Length)];
+                            spriteRenderer.sprite = growSprites[Random.Range(0, growSprites.Length)];
                             break;
 
                         case "Glow":
-                            spriteRenderer.sprite = glowSprites[Random.Range(0, goSprites.Length)];
+                            spriteRenderer.sprite = glowSprites[Random.Range(0, glowSprites.Length)];
                             break;
 
                         case "Junk":
-                            spriteRenderer.sprite = junkSprites[Random.Range(0, goSprites.Length)];
+                            spriteRenderer.sprite = junkSprites[Random.Range(0, junkSprites.Length)];
                             break;
                     }
 

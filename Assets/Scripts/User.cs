@@ -1,39 +1,54 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class User : MonoBehaviour
 {
-    public List<int> leaderboardScores { get; set; }
 
-    private void LocalSave()
+    public List<LeaderboardModel> Leaderboard { get; set; }
+
+    public int UserCharacterState { get; set; }
+
+    public string UserName { get; set; }
+
+    void Start()
     {
 
-        Database.LocalSave(this);
+        UserModel userModel = Database.LocalLoadUser();
+
+        if (userModel == null)
+
+            NewUser();
+
+        else
+
+            OnLoad(userModel);
 
     }
 
-    private void LocalLoad()
+    private void LocalSave() => Database.LocalSave(this);
+
+    private void LocalLoad(UserModel _userModel)
     {
 
-        UserModel user = Database.LocalLoadUser();
+        Leaderboard = _userModel.leaderboard;
+        UserCharacterState = _userModel.user_character_state;
+        UserName = _userModel.user_name;
 
-        leaderboardScores = user.leaderboardScores;
     }
 
     public void OnSave() => LocalSave();
 
-    public void OnLoad() => LocalLoad();
+    public void OnLoad(UserModel _userModel) => LocalLoad(_userModel);
 
     private void NewUser()
     {
-        leaderboardScores = new List<int> {
-        200, 175, 150, 125, 95,
-        70, 60, 50, 40, 30,};
+
+        Leaderboard = ENV.LEADERBOARDS;
+        UserCharacterState = 0;
+        UserName = "";
 
         LocalSave();
-        
+
     }
 
-    public void OnNewUser() => NewUser();
 }
